@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 
 const Home = () => {
-  useEffect (()=>{
-  },[])
+  useEffect(() => {
+  }, [])
 
   const navigate = useNavigate();
 
@@ -20,10 +20,13 @@ const Home = () => {
         Hello World !!!
       </div>
       <div>  
-        <img src="/assets/running_rabbit" alt="cute bunny" onClick={handleGameStart}/>
+        <img src="/assets/bunny.jpeg" alt="cute bunny" onClick={handleGameStart}/>
       </div>
+      <p className='main-page-p'>
+        Click the bunny to discover fascinating facts about them and the intricate food web they belong to!
+      </p>
     </main>
   );
 };
 
-export default Home ;
+export default Home;

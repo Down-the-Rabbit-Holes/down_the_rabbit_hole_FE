@@ -1,4 +1,5 @@
 import './nav_bar.css'
+
 import {useEffect} from "react";
 
 
@@ -11,6 +12,7 @@ const NavBar = () => {
       <nav className = "navBar">
         <h1 className = "tital">Down the rabbit hole</h1>
       </nav>
+      
     </div>
   );
 };
