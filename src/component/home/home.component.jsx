@@ -1,19 +1,26 @@
-import './home.css'
-import Nav_bar from '../../component/nav_bar/nav_bar.component'
-import {useEffect} from "react";
+import './home.css';
+import NavBar from '../../component/nav_bar/nav_bar.component';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 
 const Home = () => {
   useEffect (()=>{
   },[])
 
+  const navigate = useNavigate();
+
+  const handleGameStart = () => {
+    navigate("/game")
+  }
+
   return (
     <main>
-      <Nav_bar/>
+      <NavBar />
       <div>
         Hello World !!!
       </div>
       <div>  
-        <img src="/assets/cute-bunny.webp" alt="cute bunny" />
+        <img src="/assets/running_rabbit" alt="cute bunny" onClick={handleGameStart}/>
       </div>
     </main>
   );
