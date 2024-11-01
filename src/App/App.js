@@ -6,11 +6,11 @@ function App() {
   
   return (
     <div className = "mainWrapper">
-    <Routes>
-      <Route path="/" element={<Home/>}>
+     <Routes>
+       <Route path="/" element={<Home/>}></Route>
+
         <Route path="*" element={<h2>Cannot find anything under that route</h2>}/>
-      </Route>
-    </Routes>
+     </Routes>
     </div>
   )
 }
