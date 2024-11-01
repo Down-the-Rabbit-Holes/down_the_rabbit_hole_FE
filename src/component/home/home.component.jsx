@@ -1,16 +1,16 @@
-import './mdetails.css'
-import {useEffect, useState} from "react";
+import './home.css'
+import {useEffect} from "react";
 
-const Mdetails = () => {
+const Home = () => {
   useEffect (()=>{
   },[])
 
   return (
     <div>
-      Hello World !
+      Hello World !!!
     </div>
 
   );
 };
 
-export default Mdetails ;
+export default Home ;
