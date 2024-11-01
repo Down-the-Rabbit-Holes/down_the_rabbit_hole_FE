@@ -1,4 +1,5 @@
 import './home.css'
+import Nav_bar from '../../component/nav_bar/nav_bar.component'
 import {useEffect} from "react";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
 
   return (
     <main>
+      <Nav_bar/>
       <div>
         Hello World !!!
       </div>
