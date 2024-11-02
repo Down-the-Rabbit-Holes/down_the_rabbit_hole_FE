@@ -1,24 +1,28 @@
 import './nav_bar.css'
-import home from '../../Icons/home.png'
+
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
-
-
-
-
 
 const NavBar = () => {
+  
+  const navigate = useNavigate() 
 
-  const navigate = useNavigate()
-  useEffect(() => {
-  }, [])
+  const handleHomeLoad = () => {
+    navigate("/")
+  }
 
+
+  const handleFavoritesLoad = () => {
+    navigate("/favorites")
+  }
+  
   return (
 
-    <div className= "navWapper" data-cy="navWapper">
-      <nav className = "navBar" data-cy="navBar">
-        <h1 className = "title" data-cy="title">Down the rabbit hole</h1>
-      </nav>  
+    <div className="navWapper">
+      <nav className="navBar">
+        <h1 onClick={() => handleHomeLoad()}>Down The Rabbit Hole</h1>
+        <label className="MySavedView" onClick={() => handleFavoritesLoad()}>My Favorite's</label>
+      </nav>
+
     </div>
   );
 };
