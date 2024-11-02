@@ -1,14 +1,30 @@
-.navWapper{
-    background-color:purple;
-    position: fixed;
-    top:0;
+.navWapper {
+  background-color: purple;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
 }
 
-h1{
-    color: white;
+h1 {
+  color: white;
   font-size: 56px;
   letter-spacing: 5px;
   margin: 0;
+}
+
+.home-button{
+  position: fixed;
+  background-color: purple;
+  top: 0;
+  right: 0;
+  height:50px;
+  width: 110px;
+}
+.hiButton{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height:50px;
+  width: 110px;
 }
