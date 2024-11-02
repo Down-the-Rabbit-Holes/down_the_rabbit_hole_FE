@@ -8,13 +8,6 @@ function GamePlay() {
   const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
   const currentPrey = preyData[0]
 
-  const getPredators = (preyName) => {
-    return animalsData.filter(animal => 
-      animal.characteristics.prey.includes(preyName)
-    )
-  };
-  console.log('getpredators: ', getPredators)
-
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
       < NavBar />
@@ -26,8 +19,8 @@ function GamePlay() {
           alt={`A wild ${currentPrey.name}`} />
         <section className="prey-facts-section" data-cy="prey-facts-section">
           <ul data-cy="prey-facts-list" className="prey-facts-list">
-            <li id="prey-diet-li">A {currentPrey.name}'s diet includes {currentPrey.characteristics.prey}</li>
-            <li id="preys-predators-li">A {currentPrey.name}'s predators include {currentPrey.characteristics.predators}</li>
+            <li data-cy="prey-diet-li" id="prey-diet-li">A {currentPrey.name}'s diet includes {currentPrey.characteristics.prey}</li>
+            <li data-cy="preys-predators-li" id="preys-predators-li">A {currentPrey.name}'s predators include {currentPrey.characteristics.predators}</li>
           </ul>
         </section>
       </div>
@@ -37,11 +30,3 @@ function GamePlay() {
 }
 
 export default GamePlay;
-{/* EVERYTHING BELOW HERE MIGHT NEED TO BE ENCAPED INTO A SUB COMPONENT OF THIS O
-<div className="predator-container">
-  {getPredators(currentPrey).map((predator, predIndex) => (
-    <span key={predIndex} className="predator-options">
-      {predator.name}
-    </span>
-  ))}
-</div> */}
