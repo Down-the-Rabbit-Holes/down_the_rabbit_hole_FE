@@ -19,14 +19,16 @@ function GamePlay() {
 
   return (
     <section className="GamePlay">
-      {/* <NavBar /> */}
+      <NavBar />
       <div className="prey-container">
         <h2 className="prey-animal-name">{currentPrey.name}</h2>
         <img  
           className="prey-animal-pic" 
-          src={animalImages[0]} 
+          src={animalImages[0].imageUrl} 
           alt={`A wild ${currentPrey.name}`} />
       </div>
+
+      {/* EVERYTHING BELOW HERE MIGHT NEED TO BE ENCAPED INTO A SUB COMPONENT OF THIS O */}
       <div className="predator-container">
         {getPredators(currentPrey).map((predator, predIndex) => (
           <span key={predIndex} className="predator-options">

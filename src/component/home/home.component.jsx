@@ -15,7 +15,7 @@ const Home = () => {
   }
 
   return (
-    <main>
+    <main className='home-main'>
       <NavBar />
       <div>
         Hello World !!!
