@@ -1,0 +1,14 @@
+.GamePlay-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.prey-animal-name {
+  text-align: center;
+}
+.prey-animal-pic { 
+  width: 250px;
+}

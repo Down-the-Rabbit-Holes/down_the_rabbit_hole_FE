@@ -3,6 +3,7 @@ import NavBar from '../../component/nav_bar/nav_bar.component';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 
+
 const Home = () => {
   useEffect(() => {
   }, [])
@@ -14,15 +15,13 @@ const Home = () => {
   }
 
   return (
-    <main>
+    <main className='home-main' data-cy="home-main">
       <NavBar />
-      <div>
-        Hello World !!!
-      </div>
       <div>  
-        <img src="/assets/bunny.jpeg" alt="cute bunny" onClick={handleGameStart}/>
+        <img className="game-start-image" data-cy="game-start-image"
+          src="/assets/bunny.jpeg" alt="cute bunny" onClick={handleGameStart}/>
       </div>
-      <p className='main-page-p'>
+      <p className='main-page-p' data-cy="home-page-instructions">
         Click the bunny to discover fascinating facts about them and the intricate food web they belong to!
       </p>
     </main>

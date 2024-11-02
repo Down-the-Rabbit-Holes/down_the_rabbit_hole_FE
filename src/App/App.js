@@ -6,7 +6,7 @@ import GamePlay from '../component/GamePlay/GamePlay';
 function App() {
   
   return (
-    <div className = "mainWrapper">
+    <div>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/game" element={<GamePlay/>} />
