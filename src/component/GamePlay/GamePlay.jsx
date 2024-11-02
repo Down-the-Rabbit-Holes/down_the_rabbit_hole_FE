@@ -15,7 +15,6 @@ function GamePlay() {
   };
   console.log('getpredators: ', getPredators)
 
-  
 
   return (
     <section className="GamePlay">
@@ -26,19 +25,25 @@ function GamePlay() {
           className="prey-animal-pic" 
           src={animalImages[0].imageUrl} 
           alt={`A wild ${currentPrey.name}`} />
+        <section className="prey-facts-section">
+          <ul>
+            <li>A {currentPrey.name}'s diet includes {currentPrey.characteristics.prey}</li>
+            <li>A {currentPrey.name}'s predators include {currentPrey.characteristics.predators}</li>
+          </ul>
+        </section>
       </div>
-
-      {/* EVERYTHING BELOW HERE MIGHT NEED TO BE ENCAPED INTO A SUB COMPONENT OF THIS O */}
-      <div className="predator-container">
-        {getPredators(currentPrey).map((predator, predIndex) => (
-          <span key={predIndex} className="predator-options">
-            {predator.name}
-          </span>
-        ))}
-      </div>
+      <button>Eat Me!</button>
     </section>
   );
 }
 
 
 export default GamePlay;
+{/* EVERYTHING BELOW HERE MIGHT NEED TO BE ENCAPED INTO A SUB COMPONENT OF THIS O
+<div className="predator-container">
+  {getPredators(currentPrey).map((predator, predIndex) => (
+    <span key={predIndex} className="predator-options">
+      {predator.name}
+    </span>
+  ))}
+</div> */}
