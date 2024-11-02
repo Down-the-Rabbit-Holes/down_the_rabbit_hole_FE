@@ -11,18 +11,12 @@ h1 {
   font-size: 56px;
   letter-spacing: 5px;
   margin: 0;
+  cursor: pointer;
 }
 
-.home-button{
+.star-button{
   position: fixed;
   background-color: purple;
-  top: 0;
-  right: 0;
-  height:50px;
-  width: 110px;
-}
-.hiButton{
-  position: fixed;
   top: 0;
   right: 0;
   height:50px;
