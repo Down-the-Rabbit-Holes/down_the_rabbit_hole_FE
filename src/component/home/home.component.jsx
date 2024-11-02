@@ -3,6 +3,7 @@ import NavBar from '../../component/nav_bar/nav_bar.component';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 
+
 const Home = () => {
   useEffect(() => {
   }, [])

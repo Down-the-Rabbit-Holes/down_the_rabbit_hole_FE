@@ -1,15 +1,42 @@
 import "./GamePlay.css";
+import animalsData  from "../data/animal_data";
+import animalImages  from "../data/animal_photos";
+import NavBar from "../nav_bar/nav_bar.component";
 
-function GamePlay({animal}) {
+function GamePlay() {
+
+  const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
+  const currentPrey = preyData[0]
+
+  const getPredators = (preyName) => {
+    return animalsData.filter(animal => 
+      animal.characteristics.prey.includes(preyName)
+    )
+  };
+  console.log('getpredators: ', getPredators)
+
+  
 
   return (
     <section className="GamePlay">
-      <div className="game-container">
-        <h2 className="game-animal-name">{animal.name}</h2>
-        <img className="game-animal-pic" src={animal.photo_url} alt={`A wild ${animal.name}`} />
+      {/* <NavBar /> */}
+      <div className="prey-container">
+        <h2 className="prey-animal-name">{currentPrey.name}</h2>
+        <img  
+          className="prey-animal-pic" 
+          src={animalImages[0]} 
+          alt={`A wild ${currentPrey.name}`} />
+      </div>
+      <div className="predator-container">
+        {getPredators(currentPrey).map((predator, predIndex) => (
+          <span key={predIndex} className="predator-options">
+            {predator.name}
+          </span>
+        ))}
       </div>
     </section>
   );
 }
+
 
 export default GamePlay;
