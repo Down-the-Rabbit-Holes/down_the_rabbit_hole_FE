@@ -15,28 +15,26 @@ function GamePlay() {
   };
   console.log('getpredators: ', getPredators)
 
-
   return (
-    <section className="GamePlay">
-      <NavBar />
-      <div className="prey-container">
-        <h2 className="prey-animal-name">{currentPrey.name}</h2>
-        <img  
+    <section className="GamePlay-section" data-cy="GamePlay-section">
+      < NavBar />
+      <div className="prey-container" data-cy="prey-container">
+        <h2 className="prey-animal-name" data-cy="prey-animal-name">{currentPrey.name}</h2>
+        <img data-cy="prey-animal-pic"  
           className="prey-animal-pic" 
           src={animalImages[0].imageUrl} 
           alt={`A wild ${currentPrey.name}`} />
-        <section className="prey-facts-section">
-          <ul>
-            <li>A {currentPrey.name}'s diet includes {currentPrey.characteristics.prey}</li>
-            <li>A {currentPrey.name}'s predators include {currentPrey.characteristics.predators}</li>
+        <section className="prey-facts-section" data-cy="prey-facts-section">
+          <ul data-cy="prey-facts-list" className="prey-facts-list">
+            <li id="prey-diet-li">A {currentPrey.name}'s diet includes {currentPrey.characteristics.prey}</li>
+            <li id="preys-predators-li">A {currentPrey.name}'s predators include {currentPrey.characteristics.predators}</li>
           </ul>
         </section>
       </div>
-      <button>Eat Me!</button>
+      <button className="eat-me-button" data-cy="eat-me-button">Eat Me!</button>
     </section>
   );
 }
-
 
 export default GamePlay;
 {/* EVERYTHING BELOW HERE MIGHT NEED TO BE ENCAPED INTO A SUB COMPONENT OF THIS O
