@@ -2,8 +2,10 @@ import "./GamePlay.css";
 import animalsData  from "../data/animal_data";
 import animalImages  from "../data/animal_photos";
 import NavBar from "../nav_bar/nav_bar.component";
+import star from "../../Icons/star.png";
 
 function GamePlay() {
+  
 
   const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
   const currentPrey = preyData[0]
@@ -32,6 +34,7 @@ function GamePlay() {
         </section>
       </div>
       <button className="eat-me-button" data-cy="eat-me-button">Eat Me!</button>
+      <img src={star} className="favorite-Button"alt="Add to favorites"/>
     </section>
   );
 }

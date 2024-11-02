@@ -22,3 +22,13 @@ h1 {
   height:50px;
   width: 110px;
 }
+
+.MySavedView{
+  position: fixed;
+  top:5px;
+  right:2px;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
