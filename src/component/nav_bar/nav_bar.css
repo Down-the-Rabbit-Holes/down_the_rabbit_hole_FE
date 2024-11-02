@@ -11,6 +11,7 @@ h1 {
   font-size: 56px;
   letter-spacing: 5px;
   margin: 0;
+
   cursor: pointer;
 }
 
@@ -23,6 +24,7 @@ h1 {
   width: 110px;
 }
 
+
 .MySavedView{
   position: fixed;
   top:5px;
@@ -31,4 +33,5 @@ h1 {
   font-size: 40px;
   letter-spacing: 2px;
   cursor: pointer;
+
 }
