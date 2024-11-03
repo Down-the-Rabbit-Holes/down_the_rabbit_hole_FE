@@ -6,11 +6,14 @@ import rabbitPredators from "../data/rabbit_predators_data";
 import rabbitPredatorsPhotos from "../data/rabbit_predators_photos";
 import NavBar from "../nav_bar/nav_bar.component";
 import star from "../../Icons/star.png";
+import { useNavigate } from "react-router-dom";
 
 function GamePlay() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
   const [currentAnimal, setCurrentAnimal] = useState(preyData[0]);
+  const [favorites, setFavorites] = useState([])
+  const navigate = useNavigate()
   
   const openModal = () => {
     setIsModalOpen(true);
@@ -18,6 +21,18 @@ function GamePlay() {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  }
+
+  const handleAddToFavorites = () => {
+    if (!favorites.some(animal => animal.name === currentAnimal.name)) {
+      const updatedFavorites = [...favorites, { ...currentAnimal, imageUrl: getCurrentImg() }];
+      alert(`${currentAnimal.name} added to favorites!`);
+      console.log('Updated favorites:', updatedFavorites);
+
+    } else {
+      alert(`${currentAnimal.name} is already a favorite!`);
+    }
+    console.log('clicked add to favorites:', handleAddToFavorites);
   }
 
   const handlePredatorClick = (predator) => {
@@ -39,7 +54,7 @@ function GamePlay() {
 
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
-      < NavBar />
+      < NavBar favorites={favorites}/>
       <div className="animal-container" data-cy="animal-container">
         <h2 className="animal-name" data-cy="animal-name">{currentAnimal.name}</h2>
         <img 
@@ -56,7 +71,12 @@ function GamePlay() {
         </section>
       </div>
       <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
-      <img src={star} className="favorite-Button"alt="Add to favorites" data-cy="add-to-favorites"/>
+      <img src={star} 
+        className="favorite-Button"
+        alt="Add to favorites" 
+        data-cy="add-to-favorites"
+        onClick={handleAddToFavorites}
+      />
 
       {isModalOpen && (
         <div className="modal-overlay"  data-cy="modal-overlay" onClick={closeModal}>
