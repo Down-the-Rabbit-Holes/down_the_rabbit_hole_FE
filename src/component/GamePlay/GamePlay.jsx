@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import "./GamePlay.css";
 import animalsData  from "../data/animal_data";
 import animalImages  from "../data/animal_photos";
+import rabbitPredators from "../data/rabbit_predators_data";
 import rabbitPredatorsPhotos from "../data/rabbit_predators_photos";
 import NavBar from "../nav_bar/nav_bar.component";
 import star from "../../Icons/star.png";
 
 function GamePlay() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
-  const currentPrey = preyData[0]
-
+  const [currentAnimal, setCurrentAnimal] = useState(preyData[0]);
+  
   const openModal = () => {
     setIsModalOpen(true);
   }
@@ -20,21 +20,38 @@ function GamePlay() {
     setIsModalOpen(false);
   }
 
+  const handlePredatorClick = (predator) => {
+    setCurrentAnimal(predator);
+    closeModal();
+    console.log('Selected predator data:', predator);
+  }
+
+  const getCurrentImg = () => {
+    if (currentAnimal.name.toLowerCase() === 'rabbit') {
+      return animalImages[0].imageUrl;
+    } else {
+      const predatorPhoto = rabbitPredatorsPhotos.find(photo => 
+        photo.name === currentAnimal.name.toLowerCase()
+      );
+      return predatorPhoto.imageUrl;
+    }
+  }
+
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
       < NavBar />
-      <div className="prey-container" data-cy="prey-container">
-        <h2 className="prey-animal-name" data-cy="prey-animal-name">{currentPrey.name}</h2>
+      <div className="animal-container" data-cy="animal-container">
+        <h2 className="animal-name" data-cy="animal-name">{currentAnimal.name}</h2>
         <img 
-          data-cy="prey-animal-pic"  
-          className="prey-animal-pic" 
-          src={animalImages[0].imageUrl} 
-          alt={`A wild ${currentPrey.name}`} 
+          data-cy="animal-pic"  
+          className="animal-pic" 
+          src={getCurrentImg()} 
+          alt={`A wild ${currentAnimal.name}`} 
         />
-        <section className="prey-facts-section" data-cy="prey-facts-section">
-          <ul data-cy="prey-facts-list" className="prey-facts-list">
-            <li data-cy="prey-diet-li" id="prey-diet-li">A {currentPrey.name}'s diet includes {currentPrey.characteristics.prey}</li>
-            <li data-cy="preys-predators-li" id="preys-predators-li">A {currentPrey.name}'s predators include {currentPrey.characteristics.predators}</li>
+        <section className="facts-section" data-cy="facts-section">
+          <ul data-cy="facts-list" className="facts-list">
+            <li data-cy="diet-li" id="-diet-li">A {currentAnimal.name}'s diet includes {currentAnimal.characteristics.prey}</li>
+            <li data-cy="predators-li" id="predators-li">A {currentAnimal.name}'s predators include {currentAnimal.characteristics.predators}</li>
           </ul>
         </section>
       </div>
@@ -45,14 +62,14 @@ function GamePlay() {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <h2>Prey's Predators</h2>
-            <button className="close-button" onClick={closeModal}>X</button>
             <div className="predators-container">
               {rabbitPredatorsPhotos.map((predator, index) => (
                 <img
                   key={index}
-                  src={rabbitPredatorsPhotos.url}
+                  src={predator.imageUrl}
                   alt={`A ${predator.name}`}
                   className="predator-image"
+                  onClick={() => handlePredatorClick(rabbitPredators[index])}
                 />
               ))}
             </div>

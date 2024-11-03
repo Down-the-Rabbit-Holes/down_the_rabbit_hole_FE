@@ -13,13 +13,15 @@
   height: 100px;
   width: 100px;
   cursor: pointer;
+  margin-bottom: 500px;
+  margin-left: 400px;
 }
 
-.prey-animal-name {
+.animal-name {
   text-align: center;
 }
 
-.prey-animal-pic { 
+.animal-pic { 
   width: 250px;
 }
 
@@ -44,3 +46,14 @@
   position: relative;
 }
 
+.predator-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.predator-image {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+}
