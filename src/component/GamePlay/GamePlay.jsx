@@ -6,14 +6,12 @@ import rabbitPredators from "../data/rabbit_predators_data";
 import rabbitPredatorsPhotos from "../data/rabbit_predators_photos";
 import NavBar from "../nav_bar/nav_bar.component";
 import star from "../../Icons/star.png";
-import { useNavigate } from "react-router-dom";
 
 function GamePlay() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
   const [currentAnimal, setCurrentAnimal] = useState(preyData[0]);
-  const [favorites, setFavorites] = useState([])
-  const navigate = useNavigate()
+  const [favorites, setFavorites] = useState([]);
   
   const openModal = () => {
     setIsModalOpen(true);
@@ -23,17 +21,21 @@ function GamePlay() {
     setIsModalOpen(false);
   }
 
-  const handleAddToFavorites = () => {
-    if (!favorites.some(animal => animal.name === currentAnimal.name)) {
-      const updatedFavorites = [...favorites, { ...currentAnimal, imageUrl: getCurrentImg() }];
-      alert(`${currentAnimal.name} added to favorites!`);
-      console.log('Updated favorites:', updatedFavorites);
+  const addToFavorites = (animal) => {
+    setFavorites(prevFavorites => [...prevFavorites, animal]);
+  }
 
+  const handleAddToFavorites = () => {
+    if (!currentAnimal) return; 
+    if (!favorites.some(animal => animal.name === currentAnimal.name)) {
+      addToFavorites({ ...currentAnimal, imageUrl: getCurrentImg() });
+      alert(`${currentAnimal.name} added to favorites!`);
+      console.log('Updated favorites:', favorites);
     } else {
       alert(`${currentAnimal.name} is already a favorite!`);
     }
-    console.log('clicked add to favorites:', handleAddToFavorites);
-  }
+      console.log('clicked add to favorites');
+  };
 
   const handlePredatorClick = (predator) => {
     setCurrentAnimal(predator);

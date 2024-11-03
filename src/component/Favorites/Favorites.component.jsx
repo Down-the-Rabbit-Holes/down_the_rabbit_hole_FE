@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from "react";
 
 
-const FavoritesView = ({ favorites }) => {
+const FavoritesView = () => {
   const location = useLocation();
   const { state } = location;
   const stateFavorites = state;
@@ -19,7 +19,7 @@ const FavoritesView = ({ favorites }) => {
       <NavBar />
       <div className='animal-list' data-cy="animal-list">
         <h2 data-cy='favorite-header' className='favorite-header'>
-          { stateFavorites.length > 0 ? "Your Bebehs" : "No bebehs"}
+\          { stateFavorites.length > 0 ? "Your Bebehs" : "No bebehs"}
         </h2>
         <div className='favorite-list' data-cy='favorite-list'>
           {stateFavorites.map((animal, index) => (

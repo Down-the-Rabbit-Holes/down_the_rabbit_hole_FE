@@ -1,12 +1,14 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
+import { useState } from 'react';
 import Home from "../component/home/home.component";
 import GamePlay from '../component/GamePlay/GamePlay';
 import FavoritesView from '../component/Favorites/Favorites.component';
 
 
 function App() {
-  
+  const [favorites, setFavorites] = useState([])
+
   return (
     <div>
       <Routes>
