@@ -3,9 +3,21 @@ describe('Main Page', () => {
     // hint: you'll want to add an intercept here if you are making a network request on page load!
     cy.visit('http://localhost:3000/')
   });
+
   it('displays NavBar on page load', () => {
-    cy.get('[data-cy="title"]').contains('Down the rabbit hole')
+    cy.get('[data-cy="title"]').should('have.text', 'Down The Rabbit Hole')
   })
+
+  it('clicking on My Favorites takes user to Favorites', () => {
+    cy.get('[data-cy="favorites-button"]').click();
+    cy.url().should('include', '/favorites')
+  })
+
+  it('clicking on Down The Rabbit Hole keeps user on main page', () => {
+    cy.get('[data-cy="title"]').click();
+    cy.url().should('include', '/')
+  })
+
 
   it('displays game start image/button and instructions on load', () => {
     cy.get('[data-cy="game-start-image"]').should('be.visible');

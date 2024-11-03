@@ -56,19 +56,20 @@ function GamePlay() {
         </section>
       </div>
       <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
-      <img src={star} className="favorite-Button"alt="Add to favorites"/>
+      <img src={star} className="favorite-Button"alt="Add to favorites" data-cy="add-to-favorites"/>
 
       {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <h2>Prey's Predators</h2>
-            <div className="predators-container">
+        <div className="modal-overlay"  data-cy="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" data-cy="modal-content" onClick={e => e.stopPropagation()}>
+            <h2 data-cy="predators-header">Prey's Predators</h2>
+            <div data-cy="predators-container" className="predators-container">
               {rabbitPredatorsPhotos.map((predator, index) => (
                 <img
                   key={index}
                   src={predator.imageUrl}
                   alt={`A ${predator.name}`}
                   className="predator-image"
+                  data-cy="predator-image"
                   onClick={() => handlePredatorClick(rabbitPredators[index])}
                 />
               ))}

@@ -19,8 +19,8 @@ const NavBar = () => {
 
     <div className="navWapper">
       <nav className="navBar">
-        <h1 onClick={() => handleHomeLoad()}>Down The Rabbit Hole</h1>
-        <label className="MySavedView" onClick={() => handleFavoritesLoad()}>My Favorite's</label>
+        <h1 data-cy="title" onClick={() => handleHomeLoad()}>Down The Rabbit Hole</h1>
+        <label data-cy="favorites-button" className="MySavedView" onClick={() => handleFavoritesLoad()}>My Favorite's</label>
       </nav>
 
     </div>
