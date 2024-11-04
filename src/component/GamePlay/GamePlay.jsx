@@ -7,11 +7,10 @@ import rabbitPredatorsPhotos from "../data/rabbit_predators_photos";
 import NavBar from "../nav_bar/nav_bar.component";
 import star from "../../Icons/star.png";
 
-function GamePlay() {
+function GamePlay({ favorites, setFavorites }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
   const [currentAnimal, setCurrentAnimal] = useState(preyData[0]);
-  const [favorites, setFavorites] = useState([]);
   
   const openModal = () => {
     setIsModalOpen(true);
@@ -26,15 +25,13 @@ function GamePlay() {
   }
 
   const handleAddToFavorites = () => {
-    if (!currentAnimal) return; 
     if (!favorites.some(animal => animal.name === currentAnimal.name)) {
       addToFavorites({ ...currentAnimal, imageUrl: getCurrentImg() });
       alert(`${currentAnimal.name} added to favorites!`);
-      console.log('Updated favorites:', favorites);
     } else {
       alert(`${currentAnimal.name} is already a favorite!`);
     }
-      console.log('clicked add to favorites');
+    console.log('clicked add to favorites', handleAddToFavorites());
   };
 
   const handlePredatorClick = (predator) => {
