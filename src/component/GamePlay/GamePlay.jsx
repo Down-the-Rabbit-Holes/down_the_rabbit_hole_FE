@@ -31,7 +31,6 @@ function GamePlay({ favorites, setFavorites }) {
     } else {
       alert(`${currentAnimal.name} is already a favorite!`);
     }
-    console.log('clicked add to favorites', handleAddToFavorites());
   };
 
   const handlePredatorClick = (predator) => {
