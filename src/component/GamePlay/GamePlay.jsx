@@ -21,7 +21,7 @@ function GamePlay({ favorites, setFavorites }) {
   }
 
   const addToFavorites = (animal) => {
-    setFavorites(prevFavorites => [...prevFavorites, animal]);
+    setFavorites(favorites => [...favorites, animal]);
   }
 
   const handleAddToFavorites = () => {
