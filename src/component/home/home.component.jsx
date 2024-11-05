@@ -1,18 +1,42 @@
 import './home.css';
 import NavBar from '../../component/nav_bar/nav_bar.component';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const Home = () => {
-  useEffect(() => {
-  }, [])
-
+  const [rabbitData, setRabbitData] = useState(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+  }, []);
+
+
   const handleGameStart = () => {
-    navigate("/game")
+    // navigate("/game")
+    fetchAnimalData();
   }
+
+  function fetchAnimalData() {
+    fetch('http://localhost:3001/api/v1/animals', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+
+   body: JSON.stringify({
+       "action_type": "start",
+        "name": "rabbit"
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      setRabbitData(data);
+      navigate("/game", { state: { rabbitData: data } }); 
+    })
+    .catch(error => console.log("Error fetching rabbit data:", error));
+  };
 
   return (
     <main className='home-main' data-cy="home-main">

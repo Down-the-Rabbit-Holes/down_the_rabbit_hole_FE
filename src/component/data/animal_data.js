@@ -79,4 +79,4 @@ const animalsData = [
 ];
 
 export default animalsData
-console.log(animalsData);
+// console.log(animalsData);
