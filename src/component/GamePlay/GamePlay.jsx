@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./GamePlay.css";
 
 import NavBar from "../nav_bar/nav_bar.component";
@@ -10,8 +10,12 @@ function GamePlay({ favorites, setFavorites }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
   const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || {});
+  const [isFavorited, setIsFavorited] = useState(false);
 
-  console.log("currentAnimal data:", currentAnimal);
+  useEffect(() => {
+    const animalId = parseInt(currentAnimal.id);
+    setIsFavorited(favorites.some(animal => animal.id === animalId));
+  }, [currentAnimal, favorites]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -22,38 +26,61 @@ function GamePlay({ favorites, setFavorites }) {
     setIsModalOpen(false);
   }
 
-  const handleAddToFavorites = async () => {
-    const animalId = parseInt(currentAnimal.id)
+  const handleToggleFavorite = async () => {
+    const animalId = parseInt(currentAnimal.id);
     const animalName = currentAnimal.attributes.name;
 
-    if (!favorites.some(animal => animal.id === animalId)) {
-      try {
-        const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            "Accept": "application/json"
-          },
-          body: JSON.stringify( {animal_id: animalId} )
-        });
+    if (isFavorited) {
+      // If the animal is already favorited, remove it
+      if (favorites.some(animal => animal.id === animalId)) {
+        try {
+          const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              "Accept": "application/json"
+            }
+          });
 
-        const responseData = await response.json();
-        
-        if (response.ok) {
-          alert(`${animalName} added to favorites!`);
-        } else {
-          console.log('Response was not ok:', await response.text());
-          alert(`${animalName} Failed to add to favorites!`);
-        } 
-      } catch (error) {
-        console.error('Error adding to favorites:', error);
-      } 
+          if (response.ok) {
+            // alert(`${animalName} removed from favorites!`);
+            setIsFavorited(false);
+            setFavorites(prevFavorites => prevFavorites.filter(animal => animal.id !== animalId)); 
+          } else {
+            console.log('Response was not ok:', await response.text());
+            // alert(`${animalName} Failed to remove from favorites!`);
+          }
+        } catch (error) {
+          console.error('Error removing from favorites:', error);
+        }
+      }
     } else {
-      console.log('Animal is already in favorites'); 
-      alert(`${currentAnimal.name} is already a favorite!`);
+      
+      if (!favorites.some(animal => animal.id === animalId)) {
+        try {
+          const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({ animal_id: animalId })
+          });
+
+          if (response.ok) {
+            // alert(`${animalName} added to favorites!`);
+            setIsFavorited(true);
+            setFavorites(prevFavorites => [...prevFavorites, { id: animalId, name: animalName }]);
+          } else {
+            console.log('Response was not ok:', await response.text());
+            // alert(`${animalName} Failed to add to favorites!`);
+          }
+        } catch (error) {
+          console.error('Error adding to favorites:', error);
+        }
+      }
     }
   }
-
 
   function fetchPredatorData() {
     const animalName = currentAnimal?.data ? currentAnimal.data[0].attributes.name : currentAnimal.attributes.name;
@@ -66,16 +93,6 @@ function GamePlay({ favorites, setFavorites }) {
       .catch(error => console.log("Error fetching rabbit data:", error))
 
   };
-  console.log("Predator data:", predatorData);
-  // const handleAddToFavorites = () => {
-  //   if (!favorites.some(animal => animal.name === currentAnimal.name)) {
-  //     addToFavorites({ ...currentAnimal, imageUrl: getCurrentImg() });
-  //     alert(`${currentAnimal.name} added to favorites!`);
-  //   } else {
-  //     alert(`${currentAnimal.name} is already a favorite!`);
-  //   }
-  // };
-  
 
   const attributes = currentAnimal?.data ? currentAnimal.data[0].attributes : currentAnimal?.attributes;
 
@@ -118,14 +135,20 @@ function GamePlay({ favorites, setFavorites }) {
       <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
 
       <div class="love">
-          <input id="switch" type="checkbox" onClick={handleAddToFavorites}/>
-          <label class="love-heart" for="switch">
+        <input 
+          id="switch" 
+          type="checkbox"
+          checked={isFavorited}
+          onClick={handleToggleFavorite}
+        />
+        <label 
+          class="love-heart" for="switch">
           <i class="left"></i>
           <i class="right"></i>
           <i class="bottom"></i>
-        <div class="round"></div>
+          <div class="round"></div>
         </label>
-        </div>
+      </div>
 
       {isModalOpen && (
         <div className="modal-overlay"  data-cy="modal-overlay" onClick={closeModal}>
