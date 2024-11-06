@@ -9,9 +9,6 @@ function GamePlay({ favorites, setFavorites }) {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
-  // const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
-  // const [currentAnimal, setCurrentAnimal] = useState(preyData[0]);
-  // const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || null);
   const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || {});
 
   console.log("currentAnimal data:", currentAnimal);
@@ -25,9 +22,39 @@ function GamePlay({ favorites, setFavorites }) {
     setIsModalOpen(false);
   }
 
-  const addToFavorites = (animal) => {
-    setFavorites(favorites => [...favorites, animal]);
+  const handleAddToFavorites = async () => {
+    const animalId = parseInt(currentAnimal.id)
+    const animalName = currentAnimal.attributes.name;
+
+    if (!favorites.some(animal => animal.id === animalId)) {
+      try {
+        const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            "Accept": "application/json"
+          },
+          body: JSON.stringify( {animal_id: animalId} )
+        });
+
+        const responseData = await response.json();
+        
+        if (response.ok) {
+          alert(`${animalName} added to favorites!`);
+        } else {
+          console.log('Response was not ok:', await response.text());
+          alert(`${animalName} Failed to add to favorites!`);
+        } 
+      } catch (error) {
+        console.error('Error adding to favorites:', error);
+      } 
+    } else {
+      console.log('Animal is already in favorites'); 
+      alert(`${currentAnimal.name} is already a favorite!`);
+    }
   }
+
+
   function fetchPredatorData() {
     const animalName = currentAnimal?.data ? currentAnimal.data[0].attributes.name : currentAnimal.attributes.name;
     fetch(`http://localhost:3001/api/v1/animals?action_type=eat_me&animal_name=${animalName}`)
@@ -48,21 +75,13 @@ function GamePlay({ favorites, setFavorites }) {
   //     alert(`${currentAnimal.name} is already a favorite!`);
   //   }
   // };
-  const handleAddToFavorites = () => {
-    // const attributes = currentAnimal.data[0].attributes; 
-    if (!favorites.some(animal => animal.name === attributes.name)) {
-      addToFavorites(attributes);
-      alert(`${attributes.name} added to favorites!`);
-    } else {
-      alert(`${attributes.name} is already a favorite!`);
-    }
-  };
+  
 
   const attributes = currentAnimal?.data ? currentAnimal.data[0].attributes : currentAnimal?.attributes;
 
   const handlePredatorClick = (predator) => {
     // setCurrentAnimal(predator);
-    setCurrentAnimal({ attributes: predator.attributes });
+    setCurrentAnimal({ attributes: predator.attributes, id: predator.id });
     closeModal();
     console.log('Selected predator data:', predator);
   }
@@ -97,12 +116,16 @@ function GamePlay({ favorites, setFavorites }) {
         </section>
       </div>
       <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
-      <img src={star} 
-        className="favorite-Button"
-        alt="Add to favorites" 
-        data-cy="add-to-favorites"
-        onClick={handleAddToFavorites}
-      />
+
+      <div class="love">
+          <input id="switch" type="checkbox" onClick={handleAddToFavorites}/>
+          <label class="love-heart" for="switch">
+          <i class="left"></i>
+          <i class="right"></i>
+          <i class="bottom"></i>
+        <div class="round"></div>
+        </label>
+        </div>
 
       {isModalOpen && (
         <div className="modal-overlay"  data-cy="modal-overlay" onClick={closeModal}>
