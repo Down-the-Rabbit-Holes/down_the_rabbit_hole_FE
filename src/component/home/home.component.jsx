@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
 
 
-  const handleGameStart = () => {
+  const handleGameStart = () => { 
     // navigate("/game")
     fetchAnimalData();
   }
@@ -33,11 +33,11 @@ const Home = () => {
     .then(response => response.json())
     .then(data => {
       setRabbitData(data);
+      console.log("rabbitData:", rabbitData);
       navigate("/game", { state: { rabbitData: data } }); 
     })
     .catch(error => console.log("Error fetching rabbit data:", error));
   };
-
   return (
     <main className='home-main' data-cy="home-main">
       <NavBar />
