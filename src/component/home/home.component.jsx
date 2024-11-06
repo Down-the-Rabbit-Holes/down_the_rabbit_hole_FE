@@ -41,13 +41,15 @@ const Home = () => {
   return (
     <main className='home-main' data-cy="home-main">
       <NavBar />
-      <div>  
-        <img className="game-start-image" data-cy="game-start-image"
-          src="/assets/bunny.jpeg" alt="cute bunny" onClick={handleGameStart}/>
-      </div>
-      <p className='main-page-p' data-cy="home-page-instructions">
-        Click the bunny to discover fascinating facts about them and the intricate food web they belong to!
-      </p>
+      {/* <section className='home-screen'> */}
+        <div>  
+          <img className="game-start-image" data-cy="game-start-image"
+            src="/assets/cute-bunny.jpg" alt="cute bunny" onClick={handleGameStart}/>
+        </div>
+        <p className='main-page-p' data-cy="home-page-instructions">
+          Click the bunny to discover fascinating facts about them and the intricate food web they belong to!
+        </p>
+      {/* </section> */}
     </main>
   );
 };

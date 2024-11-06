@@ -1,9 +1,19 @@
 .navWapper {
   background-color: purple;
+  background-color: #8CC051;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  /* z-index: 1; */
+  /* height: 60px; */
+  border: 1px solid black;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 h1 {
@@ -15,18 +25,18 @@ h1 {
   cursor: pointer;
 }
 
-.star-button{
+/* .star-button{
   position: fixed;
   background-color: purple;
   top: 0;
   right: 0;
   height:50px;
   width: 110px;
-}
+} */
 
 
 .MySavedView{
-  position: fixed;
+  /* position: fixed; */
   top:5px;
   right:2px;
   color: white;
@@ -34,4 +44,27 @@ h1 {
   letter-spacing: 2px;
   cursor: pointer;
 
+}
+
+@media screen and (max-width: 1444px) {
+  h1 {
+    font-size: 2vw; /* Adjust h1 font size on smaller screens */
+  }
+
+  * {
+    background: orange;
+  }
+
+  
+  
+}
+
+@media screen and (max-width: 1444px) {
+  h1 {
+    font-size: 3.5vw; /* Further reduce font size on very small screens */
+  }
+
+  .MySavedView {
+    font-size: 2.5vw;
+  }
 }
