@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "./GamePlay.css";
-// import animalsData  from "../data/animal_data";
-// import animalImages  from "../data/animal_photos";
-// import rabbitPredators from "../data/rabbit_predators_data";
-// import rabbitPredatorsPhotos from "../data/rabbit_predators_photos";
+
 import NavBar from "../nav_bar/nav_bar.component";
 import star from "../../Icons/star.png";
 import { useLocation } from "react-router-dom";
@@ -14,7 +11,8 @@ function GamePlay({ favorites, setFavorites }) {
   const [predatorData, setPredatorData] = useState([]);
   // const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
   // const [currentAnimal, setCurrentAnimal] = useState(preyData[0]);
-  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || null);
+  // const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || null);
+  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || {});
 
   console.log("currentAnimal data:", currentAnimal);
 
@@ -31,7 +29,8 @@ function GamePlay({ favorites, setFavorites }) {
     setFavorites(favorites => [...favorites, animal]);
   }
   function fetchPredatorData() {
-    fetch(`http://localhost:3001/api/v1/animals?action_type=eat_me&animal_name=${currentAnimal.data[0].attributes.name}`)
+    const animalName = currentAnimal?.data ? currentAnimal.data[0].attributes.name : currentAnimal.attributes.name;
+    fetch(`http://localhost:3001/api/v1/animals?action_type=eat_me&animal_name=${animalName}`)
       .then(response => response.json())
       .then(data => {
         console.log("Predator data in the fetch:", data.data[0]);
@@ -59,10 +58,11 @@ function GamePlay({ favorites, setFavorites }) {
     }
   };
 
-  const attributes = currentAnimal.data[0].attributes; 
+  const attributes = currentAnimal?.data ? currentAnimal.data[0].attributes : currentAnimal?.attributes;
 
   const handlePredatorClick = (predator) => {
-    setCurrentAnimal(predator);
+    // setCurrentAnimal(predator);
+    setCurrentAnimal({ attributes: predator.attributes });
     closeModal();
     console.log('Selected predator data:', predator);
   }
