@@ -28,4 +28,4 @@ const rabbitPredators = [
 
 export default rabbitPredators;
 
-console.log(rabbitPredators);
+// console.log(rabbitPredators);

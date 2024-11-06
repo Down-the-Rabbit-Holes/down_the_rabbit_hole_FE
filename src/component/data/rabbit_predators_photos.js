@@ -15,4 +15,4 @@ const rabbitPredatorsPhotos = [
 
 export default rabbitPredatorsPhotos;
 
-console.log(rabbitPredatorsPhotos);
+// console.log(rabbitPredatorsPhotos);
