@@ -76,6 +76,9 @@
 }
 
 .eat-me-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 8px;
   background-color: #fbb02d;
@@ -83,8 +86,8 @@
   width: 300px;
   font-size: 50px;
   cursor: pointer;
-  text-align: center;
   margin: 10px;
+  font-family: inherit;
 }
 
 .eat-me-button:hover {
@@ -112,7 +115,6 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   max-width: 500px;
-  /* position: relative; */
 }
 
 .predators-container {
@@ -127,7 +129,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* border: 1px solid black; */
   border-radius: 8px;
   align-items: center;
 }
@@ -137,10 +138,8 @@
 }
 
 .predator-image {
-  /* width: 100px; */
   width: 163px;
   height: 163px;
-  /* height: auto; */
   border-radius: 10px;
   object-fit: cover;
   object-position: top;

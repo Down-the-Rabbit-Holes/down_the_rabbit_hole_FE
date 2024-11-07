@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import "./GamePlay.css";
-
+import React, { useState } from "react";
 import NavBar from "../nav_bar/nav_bar.component";
 import star from "../../Icons/star.png";
 import { useLocation } from "react-router-dom";
@@ -11,7 +10,7 @@ function GamePlay({ favorites, setFavorites }) {
   const [predatorData, setPredatorData] = useState([]);
   const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || {});
 
-  console.log("currentAnimal data:", currentAnimal);
+  // console.log("currentAnimal data:", currentAnimal);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -36,15 +35,7 @@ function GamePlay({ favorites, setFavorites }) {
       .catch(error => console.log("Error fetching rabbit data:", error))
 
   };
-  console.log("Predator data:", predatorData);
-  // const handleAddToFavorites = () => {
-  //   if (!favorites.some(animal => animal.name === currentAnimal.name)) {
-  //     addToFavorites({ ...currentAnimal, imageUrl: getCurrentImg() });
-  //     alert(`${currentAnimal.name} added to favorites!`);
-  //   } else {
-  //     alert(`${currentAnimal.name} is already a favorite!`);
-  //   }
-  // };
+ 
   const handleAddToFavorites = () => {
     // const attributes = currentAnimal.data[0].attributes; 
     if (!favorites.some(animal => animal.name === attributes.name)) {
@@ -63,17 +54,6 @@ function GamePlay({ favorites, setFavorites }) {
     closeModal();
     console.log('Selected predator data:', predator);
   }
-
-  // const getCurrentImg = () => {
-  //   if (currentAnimal.name.toLowerCase() === 'rabbit') {
-  //     return animalImages[0].imageUrl;
-  //   } else {
-  //     const predatorPhoto = rabbitPredatorsPhotos.find(photo => 
-  //       photo.name === currentAnimal.name.toLowerCase()
-  //     );
-  //     return predatorPhoto.imageUrl;
-  //   }
-  // }
 
   const predatorOptions = predatorData.map((predator) => (
     <section className='predator-card'>
