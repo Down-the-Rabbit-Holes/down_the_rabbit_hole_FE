@@ -19,9 +19,6 @@
   height: 100%;
 }
 
-/* <<<<<<< HEAD
-
-======= */
 .facts-section {
   /* max-height: 70vh; */
   /* width: 35vw; */
@@ -69,7 +66,6 @@
   display: flex;
   align-items: center;
 }
-/* >>>>>>> 1527c310514bf3d25affed55e897aa8ba443420d */
 
 .animal-name {
   text-align: center;
