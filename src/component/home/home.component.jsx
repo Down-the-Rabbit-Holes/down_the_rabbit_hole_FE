@@ -13,6 +13,7 @@ const Home = () => {
     // navigate("/game")
     fetchAnimalData();
   };
+
   function fetchAnimalData() {
     fetch(
       "http://localhost:3001/api/v1/animals?action_type=start&name=rabbit",
@@ -23,14 +24,14 @@ const Home = () => {
           Accept: "application/json",
         },
       }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setRabbitData(data);
-        console.log("rabbitData:", data);
-        navigate("/game", { state: { rabbitData: data } });
-      })
-      .catch((error) => console.log("Error fetching rabbit data:", error));
+    })
+    .then(response => response.json())
+    .then(data => {
+      setRabbitData(data);
+      console.log("rabbitData:", data);
+      navigate("/game", { state: { rabbitData: data } }); 
+    })
+    .catch(error => console.log("Error fetching rabbit data:", error));
   }
 
   return (
