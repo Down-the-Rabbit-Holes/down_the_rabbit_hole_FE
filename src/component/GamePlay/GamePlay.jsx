@@ -78,6 +78,17 @@ function GamePlay({ favorites, setFavorites }) {
   //   }
   // }
 
+  const predatorOptions = predatorData.slice(0, 3).map((predator) => (
+    <img
+      key={predator.id}
+      src={predator.attributes.photo_url}
+      alt={`A ${predator.attributes.name}`}
+      className="predator-image"
+      data-cy="predator-image"
+      onClick={() => handlePredatorClick(predator)}
+    />
+  ))
+
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
       < NavBar favorites={favorites}/>
@@ -105,7 +116,7 @@ function GamePlay({ favorites, setFavorites }) {
       <section className='clickables'>
         <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
         <img src={star} 
-          className="favorite-Button"
+          className="favorite-button"
           alt="Add to favorites" 
           data-cy="add-to-favorites"
           onClick={handleAddToFavorites}
@@ -124,8 +135,7 @@ function GamePlay({ favorites, setFavorites }) {
           <div className="modal-content" data-cy="modal-content" onClick={e => e.stopPropagation()}>
             <h2 data-cy="predators-header">Prey's Predators</h2>
             <div data-cy="predators-container" className="predators-container">
-              
-              {predatorData.map((predator) => (
+              {/* {predatorData.map((predator) => (
                 <img
                   key={predator.id}
                   src={predator.attributes.photo_url}
@@ -134,7 +144,7 @@ function GamePlay({ favorites, setFavorites }) {
                   data-cy="predator-image"
                   onClick={() => handlePredatorClick(predator)}
                 />
-              ))}
+              ))} */ predatorOptions}
             </div>
           </div>
         </div>
