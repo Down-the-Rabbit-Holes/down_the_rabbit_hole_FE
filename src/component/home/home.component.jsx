@@ -16,28 +16,23 @@ const Home = () => {
     // navigate("/game")
     fetchAnimalData();
   }
-
   function fetchAnimalData() {
-    fetch('http://localhost:3001/api/v1/animals', {
-      method: 'POST',
+    fetch('http://localhost:3001/api/v1/animals?action_type=start&name=rabbit', {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-      },
-
-   body: JSON.stringify({
-       "action_type": "start",
-        "name": "rabbit"
-      })
+      }
     })
     .then(response => response.json())
     .then(data => {
       setRabbitData(data);
-      console.log("rabbitData:", rabbitData);
+      console.log("rabbitData:", data);
       navigate("/game", { state: { rabbitData: data } }); 
     })
     .catch(error => console.log("Error fetching rabbit data:", error));
-  };
+}
+  
   return (
     <main className='home-main' data-cy="home-main">
       <NavBar />
