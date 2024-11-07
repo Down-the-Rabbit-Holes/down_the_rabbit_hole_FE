@@ -1,5 +1,4 @@
 import './nav_bar.css'
-
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = ( {favorites} ) => {

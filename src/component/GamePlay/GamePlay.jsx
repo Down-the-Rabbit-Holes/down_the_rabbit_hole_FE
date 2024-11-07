@@ -75,15 +75,18 @@ function GamePlay({ favorites, setFavorites }) {
   //   }
   // }
 
-  const predatorOptions = predatorData.slice(0, 3).map((predator) => (
-    <img
-      key={predator.id}
-      src={predator.attributes.photo_url}
-      alt={`A ${predator.attributes.name}`}
-      className="predator-image"
-      data-cy="predator-image"
-      onClick={() => handlePredatorClick(predator)}
-    />
+  const predatorOptions = predatorData.map((predator) => (
+    <section className='predator-card'>
+      <img
+        key={predator.id}
+        src={predator.attributes.photo_url}
+        alt={`A ${predator.attributes.name}`}
+        className="predator-image"
+        data-cy="predator-image"
+        onClick={() => handlePredatorClick(predator)}
+      />
+      <p>{predator.attributes.name}</p>
+     </section>
   ))
 
   return (
