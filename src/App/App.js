@@ -1,13 +1,35 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Home from "../component/home/home.component";
 import GamePlay from '../component/GamePlay/GamePlay';
 import FavoritesView from '../component/Favorites/Favorites.component';
 
-
 function App() {
   const [favorites, setFavorites] = useState([])
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    fetchAllFavorites();
+  }, []);
+
+  const fetchAllFavorites = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/v1/users/1/user_favorites');
+      if (response.ok) {
+        const data = await response.json();
+        const favoritesArray = Array.isArray(data) ? data : [];
+        console.log("response", data);
+        setFavorites(favoritesArray);
+      } else {
+        console.error('Response was not ok:', await response.text());
+        setErrorMessage('Failed to fetch favorites data');
+      }
+    } catch (error) {
+      console.error('Error fetching favorites:', error);
+      setErrorMessage('An error occurred while fetching favorites data');
+    }
+  };
 
   return (
     <div>

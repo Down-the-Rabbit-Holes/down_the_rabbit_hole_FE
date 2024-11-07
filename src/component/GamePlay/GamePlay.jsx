@@ -1,17 +1,104 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./GamePlay.css";
-
 import NavBar from "../nav_bar/nav_bar.component";
-import star from "../../Icons/star.png";
 import { useLocation } from "react-router-dom";
 
-function GamePlay({ favorites, setFavorites }) {
+function GamePlay({ favorites, setFavorites, errorMessage }) {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
-  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || {});
+  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData);
+  const [isFavorited, setIsFavorited] = useState(false);
 
-  console.log("currentAnimal data:", currentAnimal);
+  console.log("GamePlay mounted with favorites:", favorites);
+  console.log("GamePlay mounted with favorites type:", typeof favorites, Array.isArray(favorites));
+
+  useEffect(() => {
+    fetchAllFavorites();
+  }, []);
+  
+  useEffect(() => {
+    console.log('Favorites updated to:', favorites);
+  }, [favorites]);
+
+  useEffect(() => {
+    const animalId = parseInt(currentAnimal.id);
+    setIsFavorited(favorites.some(animal => animal.id === animalId));
+  }, [favorites, currentAnimal]);
+  
+  const fetchAllFavorites = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/v1/users/1/user_favorites');
+      if (response.ok) {
+        const data = await response.json();
+        const favoritesArray = Array.isArray(data.data) ? data.data : [];
+        setFavorites(favoritesArray); // Directly set the fetched favorites
+      } else {
+        console.error('Response was not ok:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error fetching favorites:', error);
+    }
+  }
+
+  useEffect(() => {
+    console.log("Favorites state after fetch:", favorites);
+  }, [favorites]);
+
+  const handleToggleFavorite = async () => {
+    if (!favorites) return;
+
+    const animalId = parseInt(currentAnimal.id);
+    const animalName = currentAnimal.attributes.name;
+  
+    if (isFavorited) {
+      if (favorites.some(animal => animal.id === animalId)) {
+        try {
+          const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              "Accept": "application/json"
+            }
+          });
+  
+          if (response.ok) {
+            setIsFavorited(false);
+            setFavorites(prevFavorites => prevFavorites.filter(animal => animal.id !== animalId));
+          } else {
+            console.log('Response was not ok:', await response.text());
+          }
+        } catch (error) {
+          console.error('Error removing from favorites:', error);
+        }
+      }
+    } else {
+      if (!favorites.some(animal => animal.id === animalId)) {
+        try {
+          const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({ animal_id: animalId })
+          });
+  
+          if (response.ok) {
+            setIsFavorited(true);
+            setFavorites(prevFavorites => [
+              ...prevFavorites,
+              { id: animalId, name: animalName, photo_url: currentAnimal.attributes.photo_url }
+            ]);
+          } else {
+            console.log('Response was not ok:', await response.text());
+          }
+        } catch (error) {
+          console.error('Error adding to favorites:', error);
+        }
+      }
+    }
+  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -22,9 +109,6 @@ function GamePlay({ favorites, setFavorites }) {
     setIsModalOpen(false);
   }
 
-  const addToFavorites = (animal) => {
-    setFavorites(favorites => [...favorites, animal]);
-  }
   function fetchPredatorData() {
     const animalName = currentAnimal?.data ? currentAnimal.data[0].attributes.name : currentAnimal.attributes.name;
     fetch(`http://localhost:3001/api/v1/animals?action_type=eat_me&animal_name=${animalName}`)
@@ -36,44 +120,16 @@ function GamePlay({ favorites, setFavorites }) {
       .catch(error => console.log("Error fetching rabbit data:", error))
 
   };
-  console.log("Predator data:", predatorData);
-  // const handleAddToFavorites = () => {
-  //   if (!favorites.some(animal => animal.name === currentAnimal.name)) {
-  //     addToFavorites({ ...currentAnimal, imageUrl: getCurrentImg() });
-  //     alert(`${currentAnimal.name} added to favorites!`);
-  //   } else {
-  //     alert(`${currentAnimal.name} is already a favorite!`);
-  //   }
-  // };
-  const handleAddToFavorites = () => {
-    // const attributes = currentAnimal.data[0].attributes; 
-    if (!favorites.some(animal => animal.name === attributes.name)) {
-      addToFavorites(attributes);
-      alert(`${attributes.name} added to favorites!`);
-    } else {
-      alert(`${attributes.name} is already a favorite!`);
-    }
-  };
+
+  if (!currentAnimal) return <div>Loading...</div>;
 
   const attributes = currentAnimal?.data ? currentAnimal.data[0].attributes : currentAnimal?.attributes;
 
   const handlePredatorClick = (predator) => {
-    // setCurrentAnimal(predator);
-    setCurrentAnimal({ attributes: predator.attributes });
+    setCurrentAnimal({ attributes: predator.attributes, id: predator.id });
     closeModal();
     console.log('Selected predator data:', predator);
   }
-
-  // const getCurrentImg = () => {
-  //   if (currentAnimal.name.toLowerCase() === 'rabbit') {
-  //     return animalImages[0].imageUrl;
-  //   } else {
-  //     const predatorPhoto = rabbitPredatorsPhotos.find(photo => 
-  //       photo.name === currentAnimal.name.toLowerCase()
-  //     );
-  //     return predatorPhoto.imageUrl;
-  //   }
-  // }
 
   const predatorOptions = predatorData.slice(0, 3).map((predator) => (
     <img
@@ -88,6 +144,7 @@ function GamePlay({ favorites, setFavorites }) {
 
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       < NavBar favorites={favorites}/>
       <h2 className="animal-name" data-cy="animal-name">{attributes.name.toUpperCase()}</h2>
       <div className="animal-container" data-cy="animal-container">
@@ -110,15 +167,24 @@ function GamePlay({ favorites, setFavorites }) {
           </ul>
         </section>
       </div>
-      <section className='clickables'>
-        <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
-        <img src={star} 
-          className="favorite-button"
-          alt="Add to favorites" 
-          data-cy="add-to-favorites"
-          onClick={handleAddToFavorites}
+      <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
+
+      <div class="love">
+        <input 
+          id="switch" 
+          type="checkbox"
+          checked={isFavorited}
+          onChange={handleToggleFavorite}
         />
-      </section>
+        <label 
+          className="love-heart" htmlFor="switch">
+          <i class="left"></i>
+          <i class="right"></i>
+          <i class="bottom"></i>
+          <div class="round"></div>
+        </label>
+      </div>
+
       {isModalOpen && (
         <div className="modal-overlay"  data-cy="modal-overlay" onClick={closeModal}>
           <div className="modal-content" data-cy="modal-content" onClick={e => e.stopPropagation()}>
