@@ -90,7 +90,7 @@ function GamePlay({ favorites, setFavorites }) {
   ))
 
   return (
-    <section className="GamePlay-section" data-cy="GamePlay-section">
+    <section className="game-play-section" data-cy="GamePlay-section">
       < NavBar favorites={favorites}/>
       <h2 className="animal-name" data-cy="animal-name">{attributes.name.toUpperCase()}</h2>
       <div className="animal-container" data-cy="animal-container">
