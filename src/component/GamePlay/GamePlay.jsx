@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import "./GamePlay.css";
+import React, { useEffect, useState } from "react";
 import NavBar from "../nav_bar/nav_bar.component";
 import { useLocation } from "react-router-dom";
 
@@ -7,50 +7,31 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
-  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData);
   const [isFavorited, setIsFavorited] = useState(false);
+  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData);
 
-  console.log("GamePlay mounted with favorites:", favorites);
-  console.log("GamePlay mounted with favorites type:", typeof favorites, Array.isArray(favorites));
-
-  useEffect(() => {
-    fetchAllFavorites();
-  }, []);
-  
-  useEffect(() => {
-    console.log('Favorites updated to:', favorites);
-  }, [favorites]);
+  console.log("Current animal:", currentAnimal);
 
   useEffect(() => {
-    const animalId = parseInt(currentAnimal.id);
+    const attributes = currentAnimal?.data ? currentAnimal.data[0].attributes : currentAnimal?.attributes;
+
+    const animalId = parseInt(currentAnimal.id) ? parseInt(currentAnimal.id) : parseInt(currentAnimal.data[0].id);
+    console.log("Current animal", currentAnimal);
+    console.log("Current animal ID:", animalId);
     setIsFavorited(favorites.some(animal => animal.id === animalId));
   }, [favorites, currentAnimal]);
   
-  const fetchAllFavorites = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/api/v1/users/1/user_favorites');
-      if (response.ok) {
-        const data = await response.json();
-        const favoritesArray = Array.isArray(data.data) ? data.data : [];
-        setFavorites(favoritesArray); // Directly set the fetched favorites
-      } else {
-        console.error('Response was not ok:', await response.text());
-      }
-    } catch (error) {
-      console.error('Error fetching favorites:', error);
-    }
-  }
-
-  useEffect(() => {
-    console.log("Favorites state after fetch:", favorites);
-  }, [favorites]);
-
   const handleToggleFavorite = async () => {
     if (!favorites) return;
+    // const animalId = parseInt(currentAnimal.id);
+    // const animalName = currentAnimal.attributes.name;
 
-    const animalId = parseInt(currentAnimal.id);
-    const animalName = currentAnimal.attributes.name;
-  
+    const animalId = parseInt(currentAnimal?.data ? currentAnimal.data[0].id : currentAnimal.id);
+    const animalName = currentAnimal?.data ? currentAnimal.data[0].attributes.name : currentAnimal.attributes.name;
+    console.log("Animal ID:", animalId);
+    console.log("Animal Name:", animalName);
+    console.log("Current animal:", currentAnimal);
+
     if (isFavorited) {
       if (favorites.some(animal => animal.id === animalId)) {
         try {
@@ -85,6 +66,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
           });
   
           if (response.ok) {
+
             setIsFavorited(true);
             setFavorites(prevFavorites => [
               ...prevFavorites,
@@ -121,7 +103,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
 
   };
 
-  if (!currentAnimal) return <div>Loading...</div>;
+
+  console.log("current animal:", currentAnimal)
 
   const attributes = currentAnimal?.data ? currentAnimal.data[0].attributes : currentAnimal?.attributes;
 
@@ -169,7 +152,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       </div>
       <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
 
-      <div class="love">
+      <div className="love">
         <input 
           id="switch" 
           type="checkbox"
@@ -178,10 +161,10 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
         />
         <label 
           className="love-heart" htmlFor="switch">
-          <i class="left"></i>
-          <i class="right"></i>
-          <i class="bottom"></i>
-          <div class="round"></div>
+          <i className="left"></i>
+          <i className="right"></i>
+          <i className="bottom"></i>
+          <div className="round"></div>
         </label>
       </div>
 

@@ -16,6 +16,7 @@ const Home = () => {
     // navigate("/game")
     fetchAnimalData();
   }
+
   function fetchAnimalData() {
     fetch('http://localhost:3001/api/v1/animals?action_type=start&name=rabbit', {
       method: 'GET',
@@ -31,7 +32,7 @@ const Home = () => {
       navigate("/game", { state: { rabbitData: data } }); 
     })
     .catch(error => console.log("Error fetching rabbit data:", error));
-}
+  }
   
   return (
     <main className='home-main' data-cy="home-main">
