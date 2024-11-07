@@ -8,12 +8,14 @@
   /* z-index: 1; */
   /* height: 60px; */
   border: 1px solid black;
+  border: 10px solid seagreen;
 }
 
 .navBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100px;
 }
 
 h1 {
@@ -23,6 +25,7 @@ h1 {
   margin: 0;
 
   cursor: pointer;
+  margin-left: 20px;
 }
 
 /* .star-button{
@@ -35,7 +38,7 @@ h1 {
 } */
 
 
-.MySavedView{
+.MySavedView {
   /* position: fixed; */
   top:5px;
   right:2px;
@@ -43,28 +46,60 @@ h1 {
   font-size: 40px;
   letter-spacing: 2px;
   cursor: pointer;
-
+  margin-right: 20px;
 }
 
-@media screen and (max-width: 1444px) {
+@media screen and (max-width: 1514px) {
   h1 {
-    font-size: 2vw; /* Adjust h1 font size on smaller screens */
-  }
-
-  * {
-    background: orange;
-  }
-
-  
-  
-}
-
-@media screen and (max-width: 1444px) {
-  h1 {
-    font-size: 3.5vw; /* Further reduce font size on very small screens */
+    font-size: 3.5vw; /* Adjust h1 font size on smaller screens */
   }
 
   .MySavedView {
     font-size: 2.5vw;
   }
+  
+}
+
+.favorites-button-icon,
+.home-button-icon {
+  display: none;
+  /* height: 100px;
+  width: 100px; */
+}
+
+@media screen and (max-width: 1000px) {
+  h1 {
+    font-size: 3.2vw; 
+  }
+
+  .MySavedView {
+    font-size: 2.5vw;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .favorites-button-icon {
+    display: block;
+    height: 50px;
+    /* height: 10vh; */
+    width: 50px;
+    /* width: 10vw; */
+  }
+
+  .MySavedView {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 445px) {
+ .home-button-icon {
+  display: block;
+  height: 60px;
+  width: 60px;
+ }
+
+ h1 {
+  display: none;
+ }
 }

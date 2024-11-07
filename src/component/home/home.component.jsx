@@ -44,7 +44,7 @@ const Home = () => {
       {/* <section className='home-screen'> */}
         <div>  
           <img className="game-start-image" data-cy="game-start-image"
-            src="/assets/cute-bunny.jpg" alt="cute bunny" onClick={handleGameStart}/>
+            src="/assets/rabbit.jpg" alt="cute bunny" onClick={handleGameStart}/>
         </div>
         <p className='main-page-p' data-cy="home-page-instructions">
           Click the bunny to discover fascinating facts about them and the intricate food web they belong to!

@@ -81,8 +81,8 @@ function GamePlay({ favorites, setFavorites }) {
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
       < NavBar favorites={favorites}/>
+      <h2 className="animal-name" data-cy="animal-name">{attributes.name.toUpperCase()}</h2>
       <div className="animal-container" data-cy="animal-container">
-        <h2 className="animal-name" data-cy="animal-name">{attributes.name}</h2>
         <img 
           data-cy="animal-pic"  
           className="animal-pic" 
@@ -91,18 +91,33 @@ function GamePlay({ favorites, setFavorites }) {
         />
         <section className="facts-section" data-cy="facts-section">
           <ul data-cy="facts-list" className="facts-list">
+            <li data-cy="scientific-name-li">Scientific name: {attributes.scientific_name}</li>
             <li data-cy="diet-li" id="-diet-li">A {attributes.name}'s diet includes {attributes.prey}</li>
             <li data-cy="predators-li" id="predators-li">A {attributes.name}'s predators include {attributes.predators}</li>
+            <li data-cy="habitat-li">A {attributes.name}'s habitat includes {attributes.habitat.toLowerCase()}</li>
+            <li data-cy="top-speed-li">Top Speed: {attributes.top_speed}</li>
+            <li data-cy="lifespan-li">Lifespan: {attributes.life_span}</li>
+            <li data-cy="weight-li">Weight: {attributes.weight}</li>
+            <li data-cy="fun-fact-li">Fun Fact: {attributes.fun_fact}</li>
           </ul>
         </section>
       </div>
-      <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
+      <section className='clickables'>
+        <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
+        <img src={star} 
+          className="favorite-Button"
+          alt="Add to favorites" 
+          data-cy="add-to-favorites"
+          onClick={handleAddToFavorites}
+        />
+      </section>
+      {/* <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
       <img src={star} 
         className="favorite-Button"
         alt="Add to favorites" 
         data-cy="add-to-favorites"
         onClick={handleAddToFavorites}
-      />
+      /> */}
 
       {isModalOpen && (
         <div className="modal-overlay"  data-cy="modal-overlay" onClick={closeModal}>
