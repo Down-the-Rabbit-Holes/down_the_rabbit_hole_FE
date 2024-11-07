@@ -3,7 +3,7 @@ import "./GamePlay.css";
 import NavBar from "../nav_bar/nav_bar.component";
 import { useLocation } from "react-router-dom";
 
-function GamePlay({ favorites = [], setFavorites }) {
+function GamePlay({ favorites, setFavorites }) {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
@@ -14,33 +14,38 @@ function GamePlay({ favorites = [], setFavorites }) {
   console.log("GamePlay mounted with favorites type:", typeof favorites, Array.isArray(favorites));
 
   useEffect(() => {
-    console.log("Favorites changed:", favorites); 
     fetchAllFavorites();
   }, []);
   
   useEffect(() => {
-    if (currentAnimal && Array.isArray(favorites)) {
-      const animalId = parseInt(currentAnimal.id);
-      setIsFavorited(favorites.some(animal => animal.id === animalId));
-    }
-  }, [currentAnimal, favorites]);
+    console.log('Favorites updated to:', favorites);
+  }, [favorites]);
+
+  // useEffect(() => {
+  //   if (currentAnimal && Array.isArray(favorites)) {
+  //     const animalId = parseInt(currentAnimal.id);
+  //     setIsFavorited(favorites.some(animal => animal.id === animalId));
+  //   }
+  // }, [currentAnimal, favorites]);
   
   const fetchAllFavorites = async () => {
     try {
       const response = await fetch('http://localhost:3001/api/v1/users/1/user_favorites');
       if (response.ok) {
         const data = await response.json();
-        console.log('Fetched favorites data:', data.data);  // Add this
-        console.log('Fetched favorites type:', typeof data.data, Array.isArray(data.data));  // Add this
-        setFavorites(data.data)
-        
+        const favoritesArray = Array.isArray(data.data) ? data.data : [];
+        setFavorites(favoritesArray); // Directly set the fetched favorites
       } else {
-        console.log('Failed to fetch favorites:', await response.text());
+        console.error('Response was not ok:', await response.text());
       }
     } catch (error) {
       console.error('Error fetching favorites:', error);
     }
   }
+
+  useEffect(() => {
+    console.log("Favorites state after fetch:", favorites);
+  }, [favorites]);
 
   const handleToggleFavorite = async () => {
     if (!favorites) return;
