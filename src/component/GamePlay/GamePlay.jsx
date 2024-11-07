@@ -1,37 +1,54 @@
 import React, { useEffect, useState } from "react";
 import "./GamePlay.css";
-
 import NavBar from "../nav_bar/nav_bar.component";
-import star from "../../Icons/star.png";
 import { useLocation } from "react-router-dom";
 
-function GamePlay({ favorites, setFavorites }) {
+function GamePlay({ favorites = [], setFavorites }) {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
-  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || {});
+  const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData);
   const [isFavorited, setIsFavorited] = useState(false);
 
+  console.log("GamePlay mounted with favorites:", favorites);
+  console.log("GamePlay mounted with favorites type:", typeof favorites, Array.isArray(favorites));
+
   useEffect(() => {
-    const animalId = parseInt(currentAnimal.id);
-    setIsFavorited(favorites.some(animal => animal.id === animalId));
+    console.log("Favorites changed:", favorites); 
+    fetchAllFavorites();
+  }, []);
+  
+  useEffect(() => {
+    if (currentAnimal && Array.isArray(favorites)) {
+      const animalId = parseInt(currentAnimal.id);
+      setIsFavorited(favorites.some(animal => animal.id === animalId));
+    }
   }, [currentAnimal, favorites]);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-    fetchPredatorData();
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  
+  const fetchAllFavorites = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/v1/users/1/user_favorites');
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Fetched favorites data:', data.data);  // Add this
+        console.log('Fetched favorites type:', typeof data.data, Array.isArray(data.data));  // Add this
+        setFavorites(data.data)
+        
+      } else {
+        console.log('Failed to fetch favorites:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error fetching favorites:', error);
+    }
   }
 
   const handleToggleFavorite = async () => {
+    if (!favorites) return;
+
     const animalId = parseInt(currentAnimal.id);
     const animalName = currentAnimal.attributes.name;
-
+  
     if (isFavorited) {
-      // If the animal is already favorited, remove it
       if (favorites.some(animal => animal.id === animalId)) {
         try {
           const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`, {
@@ -41,21 +58,18 @@ function GamePlay({ favorites, setFavorites }) {
               "Accept": "application/json"
             }
           });
-
+  
           if (response.ok) {
-            // alert(`${animalName} removed from favorites!`);
             setIsFavorited(false);
-            setFavorites(prevFavorites => prevFavorites.filter(animal => animal.id !== animalId)); 
+            setFavorites(prevFavorites => prevFavorites.filter(animal => animal.id !== animalId));
           } else {
             console.log('Response was not ok:', await response.text());
-            // alert(`${animalName} Failed to remove from favorites!`);
           }
         } catch (error) {
           console.error('Error removing from favorites:', error);
         }
       }
     } else {
-      
       if (!favorites.some(animal => animal.id === animalId)) {
         try {
           const response = await fetch(`http://localhost:3001/api/v1/users/1/user_favorites`, {
@@ -66,20 +80,30 @@ function GamePlay({ favorites, setFavorites }) {
             },
             body: JSON.stringify({ animal_id: animalId })
           });
-
+  
           if (response.ok) {
-            // alert(`${animalName} added to favorites!`);
             setIsFavorited(true);
-            setFavorites(prevFavorites => [...prevFavorites, { id: animalId, name: animalName }]);
+            setFavorites(prevFavorites => [
+              ...prevFavorites,
+              { id: animalId, name: animalName, photo_url: currentAnimal.attributes.photo_url }
+            ]);
           } else {
             console.log('Response was not ok:', await response.text());
-            // alert(`${animalName} Failed to add to favorites!`);
           }
         } catch (error) {
           console.error('Error adding to favorites:', error);
         }
       }
     }
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    fetchPredatorData();
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   }
 
   function fetchPredatorData() {
@@ -94,25 +118,15 @@ function GamePlay({ favorites, setFavorites }) {
 
   };
 
+  if (!currentAnimal) return <div>Loading...</div>;
+
   const attributes = currentAnimal?.data ? currentAnimal.data[0].attributes : currentAnimal?.attributes;
 
   const handlePredatorClick = (predator) => {
-    // setCurrentAnimal(predator);
     setCurrentAnimal({ attributes: predator.attributes, id: predator.id });
     closeModal();
     console.log('Selected predator data:', predator);
   }
-
-  // const getCurrentImg = () => {
-  //   if (currentAnimal.name.toLowerCase() === 'rabbit') {
-  //     return animalImages[0].imageUrl;
-  //   } else {
-  //     const predatorPhoto = rabbitPredatorsPhotos.find(photo => 
-  //       photo.name === currentAnimal.name.toLowerCase()
-  //     );
-  //     return predatorPhoto.imageUrl;
-  //   }
-  // }
 
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
