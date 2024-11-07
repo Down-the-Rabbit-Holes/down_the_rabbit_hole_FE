@@ -19,9 +19,9 @@
   height: 100%;
 }
 
-<<<<<<< HEAD
+/* <<<<<<< HEAD
 
-=======
+======= */
 .facts-section {
   /* max-height: 70vh; */
   /* width: 35vw; */
@@ -69,7 +69,7 @@
   display: flex;
   align-items: center;
 }
->>>>>>> 1527c310514bf3d25affed55e897aa8ba443420d
+/* >>>>>>> 1527c310514bf3d25affed55e897aa8ba443420d */
 
 .animal-name {
   text-align: center;
@@ -147,7 +147,7 @@
   margin-left: 400px;
 }
 
-*{
+/* *{
   padding: 0;
   margin: 0;
 }
@@ -158,7 +158,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .love-heart:before,#switch {
 display: none;
