@@ -1,17 +1,29 @@
-main {
+.home-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 100px;
+  background: -moz-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
+  background: -webkit-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
+  background: linear-gradient(to bottom, #BBEAEA 0%, #D1E4D0 100%);
 }
 
-.bunny-img img {
-  max-height: 50vh;
-  max-width: 75vw;
+.home-screen {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-start-image {
+  height: 73.5vh;
+  width: 150vh;
+  cursor: pointer;
 }
 
 .main-page-p {
-  max-width: 75vh;
-  font-size:x-large;
+  max-width: 150vh;
+  font-size: x-large;
+  text-align: center;
+  background-color: #fbb02d;
 }
