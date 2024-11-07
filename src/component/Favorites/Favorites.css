@@ -4,9 +4,11 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background: -moz-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
+  background: -webkit-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
+  background: linear-gradient(to bottom, #BBEAEA 0%, #D1E4D0 100%);
 }
 
 .favorite-animal-pic {
   max-width: 250px;
-
 }

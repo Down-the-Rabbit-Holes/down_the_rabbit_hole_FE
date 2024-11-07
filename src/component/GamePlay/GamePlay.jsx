@@ -3,7 +3,7 @@ import "./GamePlay.css";
 import NavBar from "../nav_bar/nav_bar.component";
 import { useLocation } from "react-router-dom";
 
-function GamePlay({ favorites, setFavorites }) {
+function GamePlay({ favorites, setFavorites, errorMessage }) {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
@@ -21,12 +21,10 @@ function GamePlay({ favorites, setFavorites }) {
     console.log('Favorites updated to:', favorites);
   }, [favorites]);
 
-  // useEffect(() => {
-  //   if (currentAnimal && Array.isArray(favorites)) {
-  //     const animalId = parseInt(currentAnimal.id);
-  //     setIsFavorited(favorites.some(animal => animal.id === animalId));
-  //   }
-  // }, [currentAnimal, favorites]);
+  useEffect(() => {
+    const animalId = parseInt(currentAnimal.id);
+    setIsFavorited(favorites.some(animal => animal.id === animalId));
+  }, [favorites, currentAnimal]);
   
   const fetchAllFavorites = async () => {
     try {
@@ -133,11 +131,23 @@ function GamePlay({ favorites, setFavorites }) {
     console.log('Selected predator data:', predator);
   }
 
+  const predatorOptions = predatorData.slice(0, 3).map((predator) => (
+    <img
+      key={predator.id}
+      src={predator.attributes.photo_url}
+      alt={`A ${predator.attributes.name}`}
+      className="predator-image"
+      data-cy="predator-image"
+      onClick={() => handlePredatorClick(predator)}
+    />
+  ))
+
   return (
     <section className="GamePlay-section" data-cy="GamePlay-section">
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
       < NavBar favorites={favorites}/>
+      <h2 className="animal-name" data-cy="animal-name">{attributes.name.toUpperCase()}</h2>
       <div className="animal-container" data-cy="animal-container">
-        <h2 className="animal-name" data-cy="animal-name">{attributes.name}</h2>
         <img 
           data-cy="animal-pic"  
           className="animal-pic" 
@@ -146,8 +156,14 @@ function GamePlay({ favorites, setFavorites }) {
         />
         <section className="facts-section" data-cy="facts-section">
           <ul data-cy="facts-list" className="facts-list">
+            <li data-cy="scientific-name-li">Scientific name: {attributes.scientific_name}</li>
             <li data-cy="diet-li" id="-diet-li">A {attributes.name}'s diet includes {attributes.prey}</li>
             <li data-cy="predators-li" id="predators-li">A {attributes.name}'s predators include {attributes.predators}</li>
+            <li data-cy="habitat-li">A {attributes.name}'s habitat includes {attributes.habitat.toLowerCase()}</li>
+            <li data-cy="top-speed-li">Top Speed: {attributes.top_speed}</li>
+            <li data-cy="lifespan-li">Lifespan: {attributes.life_span}</li>
+            <li data-cy="weight-li">Weight: {attributes.weight}</li>
+            <li data-cy="fun-fact-li">Fun Fact: {attributes.fun_fact}</li>
           </ul>
         </section>
       </div>
@@ -158,10 +174,10 @@ function GamePlay({ favorites, setFavorites }) {
           id="switch" 
           type="checkbox"
           checked={isFavorited}
-          onClick={handleToggleFavorite}
+          onChange={handleToggleFavorite}
         />
         <label 
-          class="love-heart" for="switch">
+          className="love-heart" htmlFor="switch">
           <i class="left"></i>
           <i class="right"></i>
           <i class="bottom"></i>
@@ -174,17 +190,7 @@ function GamePlay({ favorites, setFavorites }) {
           <div className="modal-content" data-cy="modal-content" onClick={e => e.stopPropagation()}>
             <h2 data-cy="predators-header">Prey's Predators</h2>
             <div data-cy="predators-container" className="predators-container">
-              
-              {predatorData.map((predator) => (
-                <img
-                  key={predator.id}
-                  src={predator.attributes.photo_url}
-                  alt={`A ${predator.attributes.name}`}
-                  className="predator-image"
-                  data-cy="predator-image"
-                  onClick={() => handlePredatorClick(predator)}
-                />
-              ))}
+              {predatorOptions}
             </div>
           </div>
         </div>
