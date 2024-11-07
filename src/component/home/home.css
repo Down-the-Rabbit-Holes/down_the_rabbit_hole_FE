@@ -4,16 +4,9 @@
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  /* background: -moz-linear-gradient(top, #BBEAEA 0%, #49C2C3 100%);
-  background: -webkit-linear-gradient(top, #BBEAEA 0%, #49C2C3 100%);
-  background: linear-gradient(to bottom, #BBEAEA 0%, #49C2C3 100%);
-  /* border: 3px solid orange; */
-
   background: -moz-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
   background: -webkit-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
   background: linear-gradient(to bottom, #BBEAEA 0%, #D1E4D0 100%);
-
-  /* background-image: url('/assets/background.jpg'); */
 }
 
 .home-screen {
