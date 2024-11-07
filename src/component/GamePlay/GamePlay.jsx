@@ -9,9 +9,6 @@ function GamePlay({ favorites, setFavorites }) {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
-  // const preyData = animalsData.filter(animal => !animal.characteristics.predators.includes("none"));
-  // const [currentAnimal, setCurrentAnimal] = useState(preyData[0]);
-  // const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || null);
   const [currentAnimal, setCurrentAnimal] = useState(location.state?.rabbitData || {});
 
   console.log("currentAnimal data:", currentAnimal);
@@ -122,29 +119,12 @@ function GamePlay({ favorites, setFavorites }) {
           onClick={handleAddToFavorites}
         />
       </section>
-      {/* <button className="eat-me-button" data-cy="eat-me-button" onClick={openModal}>Eat Me!</button>
-      <img src={star} 
-        className="favorite-Button"
-        alt="Add to favorites" 
-        data-cy="add-to-favorites"
-        onClick={handleAddToFavorites}
-      /> */}
-
       {isModalOpen && (
         <div className="modal-overlay"  data-cy="modal-overlay" onClick={closeModal}>
           <div className="modal-content" data-cy="modal-content" onClick={e => e.stopPropagation()}>
             <h2 data-cy="predators-header">Prey's Predators</h2>
             <div data-cy="predators-container" className="predators-container">
-              {/* {predatorData.map((predator) => (
-                <img
-                  key={predator.id}
-                  src={predator.attributes.photo_url}
-                  alt={`A ${predator.attributes.name}`}
-                  className="predator-image"
-                  data-cy="predator-image"
-                  onClick={() => handlePredatorClick(predator)}
-                />
-              ))} */ predatorOptions}
+              {predatorOptions}
             </div>
           </div>
         </div>
