@@ -26,12 +26,15 @@ const FavoritesView = ({ favorites }) => {
                 >
                   {animal.name}
                 </h3>
+                <div className="image-container">
+
                 <img
                   src={animal.photo_url}
                   alt={`A ${animal.name}`}
                   className="favorite-animal-pic"
                   data-cy="favorite-animal-pic"
                 />
+                </div>
               </div>
             );
           })}
