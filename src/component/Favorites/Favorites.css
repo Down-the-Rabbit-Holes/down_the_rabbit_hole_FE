@@ -23,6 +23,12 @@
   margin-top: 11vh; 
 }
 
+.favorite-animal-name {
+  margin: 0;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
 .favorite-header {
   text-align: center;
   font-size: 2rem;
@@ -31,11 +37,12 @@
 .favorite-list {
  display: flex;
  flex-wrap: wrap;
+ justify-content: space-evenly;
 }
 
 .favorite-index {
   margin: 2em;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 1em;
   border-radius: 8px;
   display: flex;
@@ -44,6 +51,8 @@
   box-shadow: 0px 4px 8px black;
   transition: transform 0.3s, box-shadow 0.3s;
   background-color: white;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .favorite-index:hover {
