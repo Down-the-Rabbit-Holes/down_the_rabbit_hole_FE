@@ -44,7 +44,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
 
   function fetchAnimalData(name) {
     fetch(
-      `http://localhost:3001/api/v1/animals?action_type=start&name=${name}`,
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=${name}`,
       {
         method: "GET",
         headers: {
@@ -64,7 +64,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   function fetchPredatorData() {
     const animalName = currentAnimal?.attributes?.name;
     fetch(
-      `http://localhost:3001/api/v1/animals?action_type=eat_me&animal_name=${animalName}`
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=eat_me&animal_name=${animalName}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -86,7 +86,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     
       try {
         const response = await fetch(
-          `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`,
+          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`,
           {
             method: "DELETE",
             headers: {
@@ -111,7 +111,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     
       try {
         const response = await fetch(
-          `http://localhost:3001/api/v1/users/1/user_favorites`,
+          "https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites",
           {
             method: "POST",
             headers: {
