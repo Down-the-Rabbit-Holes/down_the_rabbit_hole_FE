@@ -34,6 +34,9 @@ const FavoritesView = ({ favorites }) => {
                   className="favorite-animal-pic"
                   data-cy="favorite-animal-pic"
                 />
+                  {/* <div className="animal-info">
+                  Fun Fact: {animal.fun_fact}
+                  </div> */}
                 </div>
               </div>
             );
