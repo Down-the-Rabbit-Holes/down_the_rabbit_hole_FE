@@ -1,9 +1,9 @@
 .favorite-main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  /* align-items: center;
+  justify-content: center; */
+  /* height: 100vh; */
   background: -moz-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
   background: -webkit-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
   background: linear-gradient(to bottom, #BBEAEA 0%, #D1E4D0 100%);
@@ -11,4 +11,58 @@
 
 .favorite-animal-pic {
   max-width: 250px;
+  transition: transform .7s, box-shadow 0.3s;
 }
+
+.favorite-animal-pic:hover {
+  transform: scale(1.5);
+  box-shadow: 0px 0px 20px lightskyblue; 
+}
+
+.animal-list {
+  margin-top: 11vh; 
+}
+
+.favorite-header {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.favorite-list {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.favorite-index {
+  margin: 2em;
+  border: 2px solid black;
+  padding: 1em;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px black;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: white;
+}
+
+.favorite-index:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px black;
+}
+
+.image-container {
+  /* background-color: rgb(196, 196, 222); */
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.animal-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+/* Maybe add a favorites counter? */

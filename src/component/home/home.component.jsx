@@ -12,17 +12,15 @@ const Home = () => {
   const handleGameStart = () => {
     // navigate("/game")
     fetchAnimalData();
-  };
+  }
 
   function fetchAnimalData() {
-    fetch(
-      "http://localhost:3001/api/v1/animals?action_type=start&name=rabbit",
-      {
+    fetch("http://localhost:3001/api/v1/animals?action_type=start&name=rabbit", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-        },
+        }
       }
     )
     .then(response => response.json())
