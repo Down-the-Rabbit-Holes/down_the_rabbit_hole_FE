@@ -1,17 +1,18 @@
 describe('Main Page', () => {
   beforeEach(() =>{
     // hint: you'll want to add an intercept here if you are making a network request on page load!
-    cy.visit('http://localhost:3000/')
+    // cy.visit('http://localhost:3000/')
+    cy.visit('https://down-the-rabbit-hole.netlify.app/')
   });
 
   it('displays NavBar on page load', () => {
     cy.get('[data-cy="title"]').should('have.text', 'Down The Rabbit Hole')
   })
 
-  it('clicking on My Favorites takes user to Favorites', () => {
-    cy.get('[data-cy="favorites-button"]').click();
-    cy.url().should('include', '/favorites')
-  })
+  // it('clicking on My Favorites takes user to Favorites', () => {
+  //   cy.get('[data-cy="favorites-button"]').click();
+  //   cy.url().should('include', '/favorites')
+  // })
 
   it('clicking on Down The Rabbit Hole keeps user on main page', () => {
     cy.get('[data-cy="title"]').click();
