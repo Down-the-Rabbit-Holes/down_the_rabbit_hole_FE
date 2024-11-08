@@ -149,7 +149,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   ));
 
   return (
-    <section className="GamePlay-section" data-cy="GamePlay-section">
+    <section className="game-play-section" data-cy="GamePlay-section">
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <NavBar
         isGamePage={true}
@@ -188,39 +188,34 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
           </ul>
         </section>
       </div>
-      <button
-        className="eat-me-button"
-        data-cy="eat-me-button"
-        onClick={openModal}
-      >
-        Eat Me!
-      </button>
-
-
-      <div className="love">
-        <input 
-          id="switch" 
-          type="checkbox"
-          checked={isFavorited}
-          onChange={handleToggleFavorite}
-        />
-        <label
-          className="love-heart"
-          htmlFor="switch"
-          tabIndex="0"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              handleToggleFavorite();
-            }
-          }}
-        >
-          <i class="left"></i>
-          <i class="right"></i>
-          <i class="bottom"></i>
-          <div class="round"></div>
-
-        </label>
-      </div>
+      <section className='clickables'>
+        <button
+          className="eat-me-button"
+          data-cy="eat-me-button"
+          onClick={openModal}>Eat Me!</button>
+        <div className="love">
+          <input 
+            id="switch" 
+            type="checkbox"
+            checked={isFavorited}
+            onChange={handleToggleFavorite}
+          />
+          <label
+            className="love-heart"
+            htmlFor="switch"
+            tabIndex="0"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handleToggleFavorite();
+              }
+            }}>
+            <i class="left"></i>
+            <i class="right"></i>
+            <i class="bottom"></i>
+            <div class="round"></div>
+          </label>
+        </div>
+      </section>
 
       {isModalOpen && (
         <div
