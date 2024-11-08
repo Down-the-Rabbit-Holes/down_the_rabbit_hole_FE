@@ -1,6 +1,5 @@
-import "./nav_bar.css";
-
-import { useNavigate } from "react-router-dom";
+import './nav_bar.css'
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
   const navigate = useNavigate();

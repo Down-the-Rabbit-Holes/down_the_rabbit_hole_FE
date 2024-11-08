@@ -1,4 +1,4 @@
-.GamePlay-section {
+.game-play-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,11 +20,8 @@
 }
 
 .facts-section {
-  /* max-height: 70vh; */
-  /* width: 35vw; */
   max-width: 55vw;
   font-size: 2.3vh;
-  /* overflow: auto; */
 }
 
 @media screen and (max-width: 1404px) {
@@ -51,16 +48,15 @@
   }
 }
 
-.favorite-button{
+/* .favorite-button {
   bottom: 200px;
   height: 100px;
   height: 70px;
   width: 100px;
   width: 70px;
   cursor: pointer;
-  font-family: inherit;
-  border: 2px solid orange;
-}
+  border: 2px solid #fbb02d;
+} */
 
 .clickables {
   display: flex;
@@ -80,6 +76,9 @@
 }
 
 .eat-me-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 8px;
   background-color: #fbb02d;
@@ -87,8 +86,8 @@
   width: 300px;
   font-size: 50px;
   cursor: pointer;
-  text-align: center;
   margin: 10px;
+  font-family: inherit;
 }
 
 .eat-me-button:hover {
@@ -111,149 +110,156 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: #fbb02d;;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   max-width: 500px;
-  /* position: relative; */
 }
 
 .predators-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.predator-card {
+  display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* align-items: stretch; */
+  justify-content: center;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.predator-card p {
+  font-weight: bold;
 }
 
 .predator-image {
-  width: 100px;
   width: 163px;
-  height: auto;
+  height: 163px;
   border-radius: 10px;
 }
+
 .love{
-  position: fixed;
-  bottom: 30px;
+  bottom: 200px;
   height: 100px;
+  height: 70px;
   width: 100px;
+  width: 70px;
   cursor: pointer;
-  margin-bottom: 500px;
-  margin-left: 400px;
-}
+  /* border: 2px solid #fbb02d; */
 
-/* *{
-  padding: 0;
-  margin: 0;
-}
-
-
-body{
-  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-} */
-
-.love-heart:before,#switch {
-display: none;
+  justify-content: flex-end;
 }
 
-.love-heart, .love-heart::after {
-border-color: hsl(231deg 28% 86%);
-border: 1px solid;
-border-top-left-radius: 100px;
-border-top-right-radius: 100px;
-width: 10px;
-height: 8px;
-border-bottom: 0
+.love-heart:before,
+#switch {
+  display: none;
+}
+
+.love-heart,
+.love-heart::after {
+  border-color: hsl(231deg 28% 86%);
+  border: 1px solid;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  width: 10px;
+  height: 8px;
+  border-bottom: 0
 }
 
 .round {
-position: absolute;
-z-index: 1;
-width: 8px;
-height: 8px;
-background: hsl(0deg 0% 100%);
-box-shadow: rgb(0 0 0 / 24%) 0px 0px 4px 0px;
-border-radius: 100%;
-left: 0px;
-bottom: -1px;
-transition: all .5s ease;
-animation: check-animation2 .5s forwards;
+  position: absolute;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  background: hsl(0deg 0% 100%);
+  box-shadow: rgb(0 0 0 / 24%) 0px 0px 4px 0px;
+  border-radius: 100%;
+  left: 0px;
+  bottom: -1px;
+  transition: all .5s ease;
+  animation: check-animation2 .5s forwards;
 }
 
 input:checked + label .round {
-transform: translate(0px, 0px);
-animation: check-animation .5s forwards;
-background-color: hsl(0deg 0% 100%);
+  transform: translate(0px, 0px);
+  animation: check-animation .5s forwards;
+  background-color: hsl(0deg 0% 100%);
 }
 
 @keyframes check-animation {
-0% {
-transform: translate(0px, 0px);
-}
+  0% {
+  transform: translate(0px, 0px);
+  }
 
-50% {
-transform: translate(0px, 7px);
-}
+  50% {
+  transform: translate(0px, 7px);
+  }
 
-100% {
-transform: translate(7px, 7px);
-}
+  100% {
+  transform: translate(7px, 7px);
+  }
 }
 
 @keyframes check-animation2 {
-0% {
-transform: translate(7px, 7px);
-}
+  0% {
+  transform: translate(7px, 7px);
+  }
 
-50% {
-transform: translate(0px, 7px);
-}
+  50% {
+  transform: translate(0px, 7px);
+  }
 
-100% {
-transform: translate(0px, 0px);
-}
+  100% {
+  transform: translate(0px, 0px);
+  }
 }
 
 .love-heart {
-box-sizing: border-box;
-position: relative;
-transform: rotate(-45deg) translate(-50%, -33px) scale(4);
-display: block;
-border-color: hsl(231deg 28% 86%);
-cursor: pointer;
-top: 0;
+  box-sizing: border-box;
+  position: relative;
+  transform: rotate(-45deg) translate(-50%, -33px) scale(4);
+  display: block;
+  border-color: hsl(231deg 28% 86%);
+  cursor: pointer;
+  top: 0;
 }
 
-input:checked + .love-heart, input:checked + .love-heart::after, input:checked + .love-heart .bottom {
-border-color: hsl(347deg 81% 61%);
-box-shadow: inset 6px -5px 0px 2px hsl(347deg 99% 72%);
+input:checked + .love-heart,
+input:checked + .love-heart::after,
+input:checked + .love-heart .bottom {
+  border-color: hsl(347deg 81% 61%);
+  box-shadow: inset 6px -5px 0px 2px hsl(347deg 99% 72%);
 }
 
-.love-heart::after, .love-heart .bottom {
-content: "";
-display: block;
-box-sizing: border-box;
-position: absolute;
-border-color: hsl(231deg 28% 86%);
+.love-heart::after,
+.love-heart .bottom {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  border-color: hsl(231deg 28% 86%);
 }
 
 .love-heart::after {
-right: -9px;
-transform: rotate(90deg);
-top: 7px;
+  right: -9px;
+  transform: rotate(90deg);
+  top: 7px;
 }
 
 .love-heart .bottom {
-width: 11px;
-height: 11px;
-border-left: 1px solid;
-border-bottom: 1px solid;
-border-color: hsl(231deg 28% 86%);
-left: -1px;
-top: 5px;
-border-radius: 0px 0px 0px 5px;
+  width: 11px;
+  height: 11px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-color: hsl(231deg 28% 86%);
+  left: -1px;
+  top: 5px;
+  border-radius: 0px 0px 0px 5px;
 }
