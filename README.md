@@ -1,11 +1,21 @@
 # Down the rabbit hole 
 
-[Down the Rabbit Hole](https://down-the-rabbit-hole.netlify.app/)
+[Down the Rabbit Hole Deployed link](https://down-the-rabbit-hole.netlify.app/)
+
+[GitHub Project board](https://github.com/orgs/Down-the-Rabbit-Holes/projects/2)
+
+[Figma Planning project baord](https://www.figma.com/board/ynLaURjRxnlzNZjrNNcEDD/Down-the-Rabbit-Hole?node-id=0-1&t=okU4GmhfPWX158Hi-1)
 
 "Down the Rabbit Hole” is an engaging educational web application designed to immerse users in the fascinating world of animals and their ecosystems. Users can explore a wealth of animal facts about rabbits, as well as learn about the various predators that hunt them. The interactive platform allows users to follow an educational food chain, discovering a diverse array of animals leading up to apex predators.
 
-<!-- GIF preview of DTRH goes here in this link -->
-<!-- <img src="gifsAndPics/wireframe.png" width="80%"/> -->
+<img src="./public/assets/home.png" alt="Home page view" width="50%">
+
+<img src="./public/assets/components.png" alt="Home page view" width="50%">
+
+<img src="./public/assets/homepage_mvp.png" alt="Home page view" width="50%">
+
+<img src="./public/assets/gameplay_mvp.png" alt="Home page view" width="50%">
+
 
 ### Context
 
