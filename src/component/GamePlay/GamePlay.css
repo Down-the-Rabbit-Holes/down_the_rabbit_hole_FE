@@ -141,6 +141,8 @@
   width: 163px;
   height: 163px;
   border-radius: 10px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .love{
