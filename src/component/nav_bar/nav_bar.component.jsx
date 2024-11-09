@@ -13,7 +13,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
   };
 
   return (
-    <div className="nav-wrapper">
+    <div className="nav-wrapper" data-cy="nav-bar">
       <nav className="navBar">
         <h1
           data-cy="title"
