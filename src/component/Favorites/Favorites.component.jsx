@@ -9,7 +9,7 @@ const FavoritesView = ({ favorites }) => {
       <NavBar isGamePage={true} isFavoritesClickable={true} />
       <div className="animal-list" data-cy="animal-list">
         <h2 data-cy="favorite-header" className="favorite-header">
-          {favorites.length > 0 ? "Your Bebehs" : "No bebehs"}
+          {favorites.length > 0 ? "My Favorites" : "No Favorites Yet"}
         </h2>
         <div className="favorite-list" data-cy="favorite-list">
           {favorites.map((animal, index) => {
@@ -34,9 +34,10 @@ const FavoritesView = ({ favorites }) => {
                   className="favorite-animal-pic"
                   data-cy="favorite-animal-pic"
                 />
-                  <div className="animal-info">
+                 
+                </div>
+                <div className="animal-info">
                   Fun Fact: {animal.fun_fact}
-                  </div>
                 </div>
               </div>
             );
