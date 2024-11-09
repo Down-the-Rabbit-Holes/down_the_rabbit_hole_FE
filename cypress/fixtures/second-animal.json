@@ -1,0 +1,21 @@
+{
+  "data": 
+    {
+      "id": "2",
+      "type": "animal",
+      "attributes": {
+        "name": "Coyote", 
+        "photo_url": "https://images.pexels.com/photos/23511068/pexels-photo-23511068/free-photo-of-close-up-of-a-coyote-standing-on-a-field.jpeg?auto=compress&cs=tinysrgb&w=600", 
+        "prey": "Rabbit, Mice, Deer",
+        "predators": "Human, Bears, Wolves, Great horned owls, Bald Eagles", 
+        "habitat": "Forests, plains and deserts",
+        "fun_fact": "Also known as the Prairie Wolf!",
+        "top_speed": "40 miles per hour",
+        "life_span": "10 - 15 years",
+        "weight": "7kg - 21kg (15lbs - 46lbs)",
+        "diet": "Carnivore",
+        "scientific_name": "Canis latrans"
+      }
+    }
+  
+}
