@@ -209,7 +209,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 </li>
                 <li data-cy="habitat-li">
                   A {attributes.name}'s habitat includes{" "}
-                  {attributes.habitat.toLowerCase()}
+                  {attributes.habitat ? attributes.habitat.toLowerCase() : 'Unknown'}
                 </li>
                 <li data-cy="top-speed-li">
                   Top Speed: {attributes.top_speed}
