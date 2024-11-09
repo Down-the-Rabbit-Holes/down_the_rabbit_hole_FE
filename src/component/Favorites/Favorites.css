@@ -10,12 +10,15 @@
 }
 
 .favorite-animal-pic {
-  max-width: 250px;
+  /* max-width: 250px; */
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
   transition: transform .7s, box-shadow 0.3s;
 }
 
 .favorite-animal-pic:hover {
-  transform: scale(1.5);
+  transform: scale(1.25);
   box-shadow: 0px 0px 20px lightskyblue; 
 }
 
@@ -26,12 +29,14 @@
 .favorite-animal-name {
   margin: 0;
   font-weight: bold;
-  font-size: xx-large;
+  font-size: 1.5rem ;
+  /* color: white; */
 }
 
 .favorite-header {
   text-align: center;
   font-size: 2rem;
+  color: rgb(18, 86, 174);
 }
 
 .favorite-list {
@@ -50,9 +55,14 @@
   align-items: center;
   box-shadow: 0px 4px 8px black;
   transition: transform 0.3s, box-shadow 0.3s;
-  background-color: white;
-  max-width: 500px;
-  max-height: 500px;
+  /* background-color: white; */
+  background-color: rgb(229, 169, 101);
+  /* background-color: #fbb02d; */
+  max-width: 250px;
+  text-align: center;
+  justify-content: space-evenly;  
+  gap: 0.5rem ;
+  /* max-height: 500px; */
 }
 
 .favorite-index:hover {
@@ -61,17 +71,25 @@
 }
 
 .image-container {
-  /* background-color: rgb(196, 196, 222); */
-  height: 100%;
+  /* background-color: rgb(79, 44, 44); */
+  /* height: 100%; */
   display: flex;
   align-items: center;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+ 
 }
 
 .animal-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1em;
+  /* padding: 1em; */
+  font-size: 1rem;
 }
 
 /* Maybe add a favorites counter? */
