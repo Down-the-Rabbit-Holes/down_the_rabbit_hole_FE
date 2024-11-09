@@ -29,7 +29,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   const [predatorData, setPredatorData] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
 
-  // let [category, setCategory] = useState(searchParams.get("category")
   useEffect(() => {
     fetchAnimalData(animalName);
   }, [animalName]);
