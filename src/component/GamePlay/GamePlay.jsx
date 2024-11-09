@@ -1,4 +1,3 @@
-
 import "./GamePlay.css";
 import React, { useEffect, useState } from "react";
 import NavBar from "../nav_bar/nav_bar.component";
