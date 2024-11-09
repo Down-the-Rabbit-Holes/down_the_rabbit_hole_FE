@@ -1,17 +1,9 @@
 import "./Favorites.css";
 import NavBar from "../../component/nav_bar/nav_bar.component";
-// import { useSearchParams } from "react-router-dom";
 
 const FavoritesView = ({ favorites }) => {
   console.log("Favorites data:", favorites);
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const animalName = searchParams.get("animal_name");
-
-  // const handleReturnToGame = (animalName) => {
-  //   console.log("return to game: ", handleReturnToGame)
-  //   setSearchParams({ animal_name: animalName });
-  // }
   return (
     <main data-cy="favorite-main" className="favorite-main">
       <NavBar isGamePage={true} isFavoritesClickable={true} />
@@ -40,7 +32,6 @@ const FavoritesView = ({ favorites }) => {
                   alt={`A ${animal.name}`}
                   className="favorite-animal-pic"
                   data-cy="favorite-animal-pic"
-                  // onClick={ () => {handleReturnToGame(animalName)}}
                 />
                 </div>
                 <div className="animal-info">

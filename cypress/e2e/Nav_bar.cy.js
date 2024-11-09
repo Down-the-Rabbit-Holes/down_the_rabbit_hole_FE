@@ -12,9 +12,6 @@ describe('Nav bar component', () => {
       { statusCode: 200, fixture: 'rabbit' }
     );
 
-
-
-    // hint: you'll want to add an intercept here if you are making a network request on page load!
     cy.visit('https://down-the-rabbit-hole.netlify.app/')
   });
 
@@ -55,7 +52,5 @@ describe('Sad path nav bar ', () => {
     cy.get('.my-save-view').click()
     cy.url().should('eq', 'https://down-the-rabbit-hole.netlify.app/favorites');
     cy.get('[data-cy="favorite-header"]').should('have.text', 'No Favorites Yet')
-
   })
-
 })

@@ -4,7 +4,6 @@ describe('Navigating to the game play view', () => {
     cy.intercept('GET', 
       'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=rabbit', {
         statusCode: 200, fixture: 'game-play' 
-        // body: []
       }).as('rabbit');
       cy.intercept(
       'GET',
@@ -19,7 +18,6 @@ describe('Navigating to the game play view', () => {
     cy.wait('@rabbit');
   });
 });
-// GET https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites
 describe('GamePlay component', () => {
   beforeEach(() => {
     cy.intercept(
@@ -37,7 +35,6 @@ describe('GamePlay component', () => {
   });
 
   it('displays rabbit information', () => {
-    // cy.get('[data-cy="animal-name"]').should('contain', 'RABBIT');
     cy.get('[data-cy="animal-name"]').should('contain', 'RABBIT');
     cy.get('[data-cy="animal-pic"]').should('exist');
     cy.get('[data-cy="scientific-name-li"]').should('contain', 'oryctolagus cuniculus');
@@ -48,8 +45,6 @@ describe('GamePlay component', () => {
     cy.get('[data-cy="fun-fact-li"]').should('contain', 'There are more than 50 different species!');
     cy.get('[data-cy="lifespan-li"]').should('contain', '4-9 years');
     cy.get('[data-cy="weight-li"]').should('contain', '0.5-3kg (1.1-6.6lbs)');
-
-
     cy.get('[data-cy="eat-me-button"]').should('exist');
     cy.get('.love').should('exist');
   });
@@ -77,7 +72,6 @@ describe('GamePlay component', () => {
     cy.wait('@favorite-animal').then((interception) => {
       const favoriteId = interception.response.body.id;
   
-     
       cy.intercept('DELETE', `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${favoriteId}`, {
         statusCode: 200
       }).as('unfavorite-animal');
@@ -178,15 +172,12 @@ describe('GamePlay component', () => {
     cy.get('[data-cy="eat-me-button"]').click();
     cy.wait('@fetchPredators');
 
-   
     cy.get('[data-cy="predator-image"]').click();
     cy.wait('@fetchCoyote');
 
-  
     cy.get('[data-cy="animal-name"]').should('contain', 'COYOTE');
     cy.get('[data-cy="animal-pic"]').should('have.attr', 'src').and('include', 'coyote-standing-on-a-field.jpeg');
     
-   
     cy.get('[data-cy="scientific-name-li"]').should('contain', 'Canis latrans');
     cy.get('[data-cy="animal-pic"]').should('have.attr', 'src', 'https://images.pexels.com/photos/23511068/pexels-photo-23511068/free-photo-of-close-up-of-a-coyote-standing-on-a-field.jpeg?auto=compress&cs=tinysrgb&w=600');
     cy.get('[data-cy="diet-li"]').should('contain', "A Coyote's diet includes Rabbit, Mice, Deer");
@@ -197,68 +188,4 @@ describe('GamePlay component', () => {
     cy.get('[data-cy="weight-li"]').should('contain', '7kg - 21kg');
     cy.get('[data-cy="fun-fact-li"]').should('contain', 'Prairie Wolf');
   });
-
-
-  // it('selecting a predator exits modal then sets predator as current animal', () => {
-  //   cy.intercept('GET',
-  //     'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=eat_me&animal_name=rabbit',
-  //     { statusCode: 200,
-  //       body: {
-  //         data: [
-  //           {
-  //             id: '1',
-  //             attributes: {
-  //               name: 'Coyote',
-  //               photo_url: 'https://images.pexels.com/photos/23511068/pexels-photo-23511068/free-photo-of-close-up-of-a-coyote-standing-on-a-field.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //             },
-  //           },
-  //         ],
-  //       },
-  //     }
-  //   ).as('fetchPredators');
-  //   cy.intercept('GET',
-  //     'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=Coyote', {
-  //       statusCode: 200,
-  //       fixture: 'second-animal'
-  //     }
-  //   ).as('fetchCoyote');
-    
-  //   cy.get('[data-cy="eat-me-button"]').click()
-  //   // cy.get('[data-cy="predator-image"]').eq(1).click()
-  //   // cy.get('[data-cy="predator-image"]').click()
-
-
-  //   cy.wait('@fetchPredators');
-
-  // // Click on the predator image (Coyote)
-  //   cy.get('[data-cy="predator-image"]').click();
-
-  //   // Wait for the fetch of the selected animal
-  //   cy.wait('@fetchCoyote');
-
-  //   // Validate that the current animal data is rendered correctly
-  //   cy.get('[data-cy="animal-name"]').should('contain', 'Coyote');
-  //   cy.get('[data-cy="animal-pic"]').should('have.attr', 'src').and('include', 'coyote-standing-on-a-field.jpeg');
-  //   cy.get('[data-cy="scientific-name-li"]').should('contain', 'Canis latrans');
-  //   cy.get('[data-cy="diet-li"]').should('contain', 'Carnivore');
-  //   cy.get('[data-cy="prey-li"]').should('contain', 'Rabbit, Mice, Deer');
-  //   cy.get('[data-cy="predators-li"]').should('contain', 'Human, Bears, Wolves');
-  //   cy.get('[data-cy="habitat-li"]').should('contain', 'Forests, plains and deserts');
-  //   cy.get('[data-cy="top-speed-li"]').should('contain', '40 miles per hour');
-  //   cy.get('[data-cy="fun-fact-li"]').should('contain', 'Prairie Wolf');
-  //   cy.get('[data-cy="lifespan-li"]').should('contain', '10 - 15 years');
-  //   cy.get('[data-cy="weight-li"]').should('contain', '7kg - 21kg');
-
-    // cy.get('[data-cy="animal-name"]').should('contain', 'COYOTE');
-    // cy.get('[data-cy="animal-pic"]').should('exist');
-    // cy.get('[data-cy="animal-pic"]').should('contain', 'https://images.pexels.com/photos/23511068/pexels-photo-23511068/free-photo-of-close-up-of-a-coyote-standing-on-a-field.jpeg?auto=compress&cs=tinysrgb&w=600');
-    // cy.get('[data-cy="scientific-name-li"]').should('contain', 'Canis latrans');
-    // cy.get('[data-cy="diet-li"]').should('contain', 'Rabbit, Mice, Deer');
-    // cy.get('[data-cy="predators-li"]').should('contain', 'Human, Bears, Wolves, Great horned owls, Bald Eagles');
-    // cy.get('[data-cy="habitat-li"]').should('contain', 'Forests, plains and deserts');
-    // cy.get('[data-cy="top-speed-li"]').should('contain', '40 miles per hour');
-    // cy.get('[data-cy="fun-fact-li"]').should('contain', 'Also known as the Prairie Wolf!');
-    // cy.get('[data-cy="lifespan-li"]').should('contain', '10 - 15 years');
-    // cy.get('[data-cy="weight-li"]').should('contain', '7kg - 21kg (15lbs - 46lbs)');
-  // });
 });
