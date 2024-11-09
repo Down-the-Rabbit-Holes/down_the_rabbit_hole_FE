@@ -1,5 +1,5 @@
 {
-  "data": [
+  "data": 
     {
       "id": "2",
       "type": "animal",
@@ -17,5 +17,5 @@
         "scientific_name": "Canis latrans"
       }
     }
-  ]
+  
 }
