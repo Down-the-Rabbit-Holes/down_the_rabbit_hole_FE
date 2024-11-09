@@ -1,10 +1,10 @@
-# Down the rabbit hole 
+# Down the Rabbit Hole 
 
 [Down the Rabbit Hole Deployed link](https://down-the-rabbit-hole.netlify.app/)
 
 [GitHub Project board](https://github.com/orgs/Down-the-Rabbit-Holes/projects/2)
 
-[Figma Planning project baord](https://www.figma.com/board/ynLaURjRxnlzNZjrNNcEDD/Down-the-Rabbit-Hole?node-id=0-1&t=okU4GmhfPWX158Hi-1)
+[Figma Planning project board](https://www.figma.com/board/ynLaURjRxnlzNZjrNNcEDD/Down-the-Rabbit-Hole?node-id=0-1&t=okU4GmhfPWX158Hi-1)
 
 "Down the Rabbit Hole” is an engaging educational web application designed to immerse users in the fascinating world of animals and their ecosystems. Users can explore a wealth of animal facts about rabbits, as well as learn about the various predators that hunt them. The interactive platform allows users to follow an educational food chain, discovering a diverse array of animals leading up to apex predators.
 
@@ -26,6 +26,7 @@ Each team member participated in all phases of the project, from ideation to dev
 ### Tech
 
 BE - Ruby on Rails, tested with RSpec, simplecov
+
 FE - Built with React and tested with Cypress
 
 ### Installation
@@ -47,7 +48,14 @@ FE - Built with React and tested with Cypress
 9. To run Cypress tests, use `npx cypress open`
 
 ## Usage
-<!-- This is where we will display the GIF (no more than 2 of functionality) -->
+### Accessibility
+<img src="./public/assets/accessibility.gif" alt="Home page view" width="50%">
+
+### Main Play
+<img src="./public/assets/main_play.gif" alt="Home page view" width="50%">
+
+<img src="./public/assets/responsive_design.gif" alt="Home page view" width="50%">
+
 
 ### Contributors:
 
@@ -78,9 +86,6 @@ Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](
   - Adhere to MVC architecture and refactor API consumption out of controllers.
 
 - **User Empathy and Design**: Develop user personas to understand target users better and conduct an equity analysis to prioritize inclusion.
-
-- **Optional Advanced Technologies**:
-  - Explore caching, background jobs, continuous integration, rate limiting, microservices, pagination, security scanning, OpenAPI documentation, circuit breaker design patterns, and observability tools.
 
 - **Frontend Development**:
   - Build a multi-page application with React Router.
