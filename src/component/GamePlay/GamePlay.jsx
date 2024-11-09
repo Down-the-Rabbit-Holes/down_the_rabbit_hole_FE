@@ -22,14 +22,14 @@ function normalizeAnimalData(animalData) {
 }
 
 function GamePlay({ favorites, setFavorites, errorMessage }) {
-  const [searchParams] = useSearchParams();
-  const animalName = searchParams.get("animal_name") || "rabbit";
+  const [searchParams, setSearchParams] = useSearchParams();
+  const animalName = searchParams.get("animal_name");
   const [currentAnimal, setCurrentAnimal] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
 
-
+  // let [category, setCategory] = useState(searchParams.get("category")
   useEffect(() => {
     fetchAnimalData(animalName);
   }, [animalName]);
@@ -153,6 +153,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   const handlePredatorClick = (predator) => {
     setCurrentAnimal(predator);
     closeModal();
+    setSearchParams({ animal_name: predator.attributes.name });
   };
 
   const predatorOptions = predatorData.map((predator) => (
