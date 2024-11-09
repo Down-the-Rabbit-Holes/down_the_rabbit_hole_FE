@@ -1,10 +1,10 @@
-# Down the Rabbit Hole 
+<h1 align="center"> Down the Rabbit Hole </h1>
 
-[Down the Rabbit Hole Deployed link](https://down-the-rabbit-hole.netlify.app/)
+[Down the Rabbit Hole Deployed Link](https://down-the-rabbit-hole.netlify.app/)
 
-[GitHub Project board](https://github.com/orgs/Down-the-Rabbit-Holes/projects/2)
+[GitHub Project Board](https://github.com/orgs/Down-the-Rabbit-Holes/projects/2)
 
-[Figma Planning project board](https://www.figma.com/board/ynLaURjRxnlzNZjrNNcEDD/Down-the-Rabbit-Hole?node-id=0-1&t=okU4GmhfPWX158Hi-1)
+[Figma Planning Project Board](https://www.figma.com/board/ynLaURjRxnlzNZjrNNcEDD/Down-the-Rabbit-Hole?node-id=0-1&t=okU4GmhfPWX158Hi-1)
 
 "Down the Rabbit Hole” is an engaging educational web application designed to immerse users in the fascinating world of animals and their ecosystems. Users can explore a wealth of animal facts about rabbits, as well as learn about the various predators that hunt them. The interactive platform allows users to follow an educational food chain, discovering a diverse array of animals leading up to apex predators.
 
@@ -17,19 +17,19 @@
 <img src="./public/assets/gameplay_mvp.png" alt="Home page view" width="50%">
 
 
-### Context
+<h2 align="center"> Context </h2>
 
 “Down the Rabbit Hole” was developed as a consultancy project, inspired by one team member’s vision and brought to life by a collaborative team of five. Over a two-week period, we transformed the initial idea into a fully functional web application.
 
 Each team member participated in all phases of the project, from ideation to development and presentation. Regular meetings facilitated discussions on progress and challenges, ensuring that everyone had a comprehensive understanding of the codebase and project architecture. This collaborative effort resulted in an engaging educational platform that explores animal ecosystems.
 
-### Tech
+<h2 align="center"> Tech </h2>
 
-BE - Ruby on Rails, tested with RSpec, simplecov
+BE - Ruby on Rails, tested with RSpec, simplecov, webmock & vcr
 
 FE - Built with React and tested with Cypress
 
-### Installation
+<h2 align="center"> Installation </h2>
 
 1. Fork and clone this BE repo 
 [Down The Rabbit Hole BE repo](https://github.com/Down-the-Rabbit-Holes/down_the_rabbit_hole_BE)
@@ -47,17 +47,20 @@ FE - Built with React and tested with Cypress
 8.  Enter `control + c` in your terminal to stop running the React app at any time
 9. To run Cypress tests, use `npx cypress open`
 
-## Usage
+<h2 align="center"> Usage </h2>
+
 ### Accessibility
+
 <img src="./public/assets/accessibility.gif" alt="Home page view" width="50%">
 
 ### Main Play
+
 <img src="./public/assets/main_play.gif" alt="Home page view" width="50%">
 
 <img src="./public/assets/responsive_design.gif" alt="Home page view" width="50%">
 
 
-### Contributors:
+<h2 align="center"> Contributors </h2>
 
 Candice Cirbo - [linkedin](https://www.linkedin.com/in/candicecirbo/) - [gitHub](https://github.com/CCirbo) - ccirbots@gmail.com
 
@@ -67,9 +70,9 @@ Marshall Hotaling - [linkedin](https://www.linkedin.com/in/marshall-hotaling-7b5
 
 Renee Messersmith - [linkedin](https://www.linkedin.com/in/reneemessersmith/) - [gitHub](https://github.com/reneemes) - rmessersmith@gmail.com
 
-Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](https://github.com/stefanjbloom) - stefanjbloom@gmail.com
+Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](https://github.com/stefanjbloom) - stefanjbloom88@gmail.com
 
-### Learning Goals
+<h2 align="center"> Learning Goals </h2>
 
 - **Project Ideation and Execution**: Develop a web application from a student-led idea, focusing on solving real-world problems.
 
