@@ -13,7 +13,6 @@ describe('Navigating to the game play view', () => {
   });
 });
 
-
 describe('GamePlay component', () => {
   beforeEach(() => {
     cy.intercept(
@@ -30,7 +29,7 @@ describe('GamePlay component', () => {
   });
 
   it('displays rabbit information', () => {
-    cy.get('[data-cy="animal-name"]').should('contain', 'RABBIT');
+    // cy.get('[data-cy="animal-name"]').should('contain', 'RABBIT');
     cy.get('[data-cy="animal-name"]').should('contain', 'RABBIT');
     cy.get('[data-cy="animal-pic"]').should('exist');
     cy.get('[data-cy="scientific-name-li"]').should('contain', 'oryctolagus cuniculus');
