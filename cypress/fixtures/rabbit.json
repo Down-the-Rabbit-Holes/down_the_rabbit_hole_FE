@@ -1,0 +1,19 @@
+{
+  "data": {
+    "id": "1",
+    "type": "animal",
+    "attributes": {
+      "name": "rabbit",
+      "photo_url": "https://images.pexels.com/photos/326012/pexels-photo-326012.jpeg",
+      "prey": "Clover, Grass, Crunchy vegetables",
+      "predators": "Fox, wolf, owl, bobcat, weasel, stoat, hawk",
+      "habitat": "forest thickets, meadows and woodland",
+      "scientific_name": "oryctolagus cuniculus",
+      "diet": "Herbivore",
+      "top_speed": "18 miles per hour",
+      "life_span": "4-9 years",
+      "weight": "0.5-3kg (1.1-6.6lbs)",
+      "fun_fact": "There are more than 50 different species!"
+    }
+  }
+}
