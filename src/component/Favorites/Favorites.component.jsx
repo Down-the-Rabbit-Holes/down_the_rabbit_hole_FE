@@ -35,7 +35,6 @@ const FavoritesView = ({ favorites }) => {
                   {animal.name}
                 </h3>
                 <div className="image-container">
-
                 <img
                   src={animal.photo_url}
                   alt={`A ${animal.name}`}
@@ -43,7 +42,6 @@ const FavoritesView = ({ favorites }) => {
                   data-cy="favorite-animal-pic"
                   // onClick={ () => {handleReturnToGame(animalName)}}
                 />
-                 
                 </div>
                 <div className="animal-info">
                   Fun Fact: {animal.fun_fact}

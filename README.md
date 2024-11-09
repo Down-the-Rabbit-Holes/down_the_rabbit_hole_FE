@@ -1,11 +1,21 @@
-# Down the rabbit hole 
+# Down the Rabbit Hole 
 
-[Down the Rabbit Hole](https://down-the-rabbit-hole.netlify.app/)
+[Down the Rabbit Hole Deployed link](https://down-the-rabbit-hole.netlify.app/)
+
+[GitHub Project board](https://github.com/orgs/Down-the-Rabbit-Holes/projects/2)
+
+[Figma Planning project board](https://www.figma.com/board/ynLaURjRxnlzNZjrNNcEDD/Down-the-Rabbit-Hole?node-id=0-1&t=okU4GmhfPWX158Hi-1)
 
 "Down the Rabbit Hole” is an engaging educational web application designed to immerse users in the fascinating world of animals and their ecosystems. Users can explore a wealth of animal facts about rabbits, as well as learn about the various predators that hunt them. The interactive platform allows users to follow an educational food chain, discovering a diverse array of animals leading up to apex predators.
 
-<!-- GIF preview of DTRH goes here in this link -->
-<!-- <img src="gifsAndPics/wireframe.png" width="80%"/> -->
+<img src="./public/assets/home.png" alt="Home page view" width="50%">
+
+<img src="./public/assets/components.png" alt="Home page view" width="50%">
+
+<img src="./public/assets/homepage_mvp.png" alt="Home page view" width="50%">
+
+<img src="./public/assets/gameplay_mvp.png" alt="Home page view" width="50%">
+
 
 ### Context
 
@@ -16,6 +26,7 @@ Each team member participated in all phases of the project, from ideation to dev
 ### Tech
 
 BE - Ruby on Rails, tested with RSpec, simplecov
+
 FE - Built with React and tested with Cypress
 
 ### Installation
@@ -37,19 +48,26 @@ FE - Built with React and tested with Cypress
 9. To run Cypress tests, use `npx cypress open`
 
 ## Usage
-<!-- This is where we will display the GIF (no more than 2 of functionality) -->
+### Accessibility
+<img src="./public/assets/accessibility.gif" alt="Home page view" width="50%">
+
+### Main Play
+<img src="./public/assets/main_play.gif" alt="Home page view" width="50%">
+
+<img src="./public/assets/responsive_design.gif" alt="Home page view" width="50%">
+
 
 ### Contributors:
 
-Candice Cirbo - [linkedin](https://www.linkedin.com/in/candicecirbo/) - [gitHub](https://github.com/CCirbo)
+Candice Cirbo - [linkedin](https://www.linkedin.com/in/candicecirbo/) - [gitHub](https://github.com/CCirbo) - ccirbots@gmail.com
 
 Jim Macur - [linkedin](https://www.linkedin.com/in/jimmacur/) - [gitHub](https://github.com/jimmacur) - jim.macur@gmail.com 
 
-Marshall Hotaling - [linkedin](https://www.linkedin.com/in/marshall-hotaling-7b52a8304/) - [gitHub](https://github.com/marshallhotaling)
+Marshall Hotaling - [linkedin](https://www.linkedin.com/in/marshall-hotaling-7b52a8304/) - [gitHub](https://github.com/marshallhotaling) - marshall.hotaling@gmail.com
 
-Renee Messersmith - [linkedin](https://www.linkedin.com/in/reneemessersmith/) - [gitHub](https://github.com/reneemes)
+Renee Messersmith - [linkedin](https://www.linkedin.com/in/reneemessersmith/) - [gitHub](https://github.com/reneemes) - rmessersmith@gmail.com
 
-Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](https://github.com/stefanjbloom)
+Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](https://github.com/stefanjbloom) - stefanjbloom@gmail.com
 
 ### Learning Goals
 
@@ -68,9 +86,6 @@ Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](
   - Adhere to MVC architecture and refactor API consumption out of controllers.
 
 - **User Empathy and Design**: Develop user personas to understand target users better and conduct an equity analysis to prioritize inclusion.
-
-- **Optional Advanced Technologies**:
-  - Explore caching, background jobs, continuous integration, rate limiting, microservices, pagination, security scanning, OpenAPI documentation, circuit breaker design patterns, and observability tools.
 
 - **Frontend Development**:
   - Build a multi-page application with React Router.

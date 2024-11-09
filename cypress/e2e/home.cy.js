@@ -1,7 +1,7 @@
 describe('Main Page', () => {
   beforeEach(() => {    
-  cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites', {
-  });
+    cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites', {
+    });
     cy.visit('https://down-the-rabbit-hole.netlify.app/')
   });
 
