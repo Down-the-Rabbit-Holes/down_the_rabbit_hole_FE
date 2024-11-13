@@ -68,7 +68,7 @@ Jim Macur - [linkedin](https://www.linkedin.com/in/jimmacur/) - [gitHub](https:/
 
 Marshall Hotaling - [linkedin](https://www.linkedin.com/in/marshall-hotaling-7b52a8304/) - [gitHub](https://github.com/marshallhotaling) - marshall.hotaling@gmail.com
 
-Renee Messersmith - [linkedin](https://www.linkedin.com/in/reneemessersmith/) - [gitHub](https://github.com/reneemes) - rmessersmith@gmail.com
+Renee Messersmith - [linkedin](https://www.linkedin.com/in/reneemessersmith/) - [gitHub](https://github.com/reneemes) - rmessersmith25@gmail.com
 
 Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](https://github.com/stefanjbloom) - stefanjbloom88@gmail.com
 
