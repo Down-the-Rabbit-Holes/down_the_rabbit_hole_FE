@@ -14,5 +14,3 @@ const rabbitPredatorsPhotos = [
 ];
 
 export default rabbitPredatorsPhotos;
-
-// console.log(rabbitPredatorsPhotos);

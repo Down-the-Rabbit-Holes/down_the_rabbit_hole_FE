@@ -1,8 +1,8 @@
 import "./Favorites.css";
 import NavBar from "../../component/nav_bar/nav_bar.component";
 
+
 const FavoritesView = ({ favorites }) => {
-  console.log("Favorites data:", favorites);
 
   return (
     <main data-cy="favorite-main" className="favorite-main">
@@ -13,7 +13,6 @@ const FavoritesView = ({ favorites }) => {
         </h2>
         <div className="favorite-list" data-cy="favorite-list">
           {favorites.map((animal, index) => {
-            console.log(`Favorite animal at index ${index}:`, animal);
             return (
               <div
                 className="favorite-index"

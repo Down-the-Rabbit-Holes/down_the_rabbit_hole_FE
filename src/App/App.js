@@ -19,7 +19,6 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         const favoritesArray = Array.isArray(data) ? data : [];
-        console.log("response", data);
         setFavorites(favoritesArray);
       } else {
         console.error('Response was not ok:', await response.text());
