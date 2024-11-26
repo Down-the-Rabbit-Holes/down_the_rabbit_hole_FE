@@ -56,7 +56,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
         const normalizedData = normalizeAnimalData(data);
         setCurrentAnimal(normalizedData);
       })
-      .catch((error) => console.log("Error fetching animal data:", error));
+      .catch((error) => console.error("Error fetching animal data:", error));
   }
 
   function fetchPredatorData() {
@@ -71,7 +71,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
         );
         setPredatorData(predators);
       })
-      .catch((error) => console.log("Error fetching predator data:", error));
+      .catch((error) => console.error("Error fetching predator data:", error));
   }
 
   const handleToggleFavorite = async () => {
@@ -100,7 +100,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             prevFavorites.filter((animal) => animal.id !== animalId)
           );
         } else {
-          console.log("Response was not ok:", await response.text());
+          console.error("Response was not ok:", await response.text());
         }
       } catch (error) {
         console.error("Error removing from favorites:", error);
@@ -131,7 +131,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             },
           ]);
         } else {
-          console.log("Response was not ok:", await response.text());
+          console.error("Response was not ok:", await response.text());
         }
       } catch (error) {
         console.error("Error adding to favorites:", error);

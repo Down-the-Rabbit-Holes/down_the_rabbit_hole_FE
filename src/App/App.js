@@ -19,7 +19,6 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         const favoritesArray = Array.isArray(data) ? data : [];
-        console.log("response", data);
         setFavorites(favoritesArray);
       } else {
         console.error('Response was not ok:', await response.text());
@@ -39,7 +38,7 @@ function App() {
         <Route path="/game" 
           element={<GamePlay favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/favorites" 
-          element={<FavoritesView favorites={favorites}/>} />
+          element={<FavoritesView favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="*" element={<h2>Cannot find anything under that route</h2>} />
       </Routes>
     </div>

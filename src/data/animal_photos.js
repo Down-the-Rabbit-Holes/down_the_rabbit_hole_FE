@@ -44,5 +44,3 @@ const animalImages = [
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Bobcat2.jpg'
   }
 ];
-
-console.log(animalImages);

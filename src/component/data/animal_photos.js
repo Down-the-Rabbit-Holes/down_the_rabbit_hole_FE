@@ -46,4 +46,3 @@ const animalImages = [
 ];
 
 export default animalImages
-// console.log(animalImages);

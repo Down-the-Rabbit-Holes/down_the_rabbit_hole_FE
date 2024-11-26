@@ -27,5 +27,3 @@ const rabbitPredators = [
 ];
 
 export default rabbitPredators;
-
-// console.log(rabbitPredators);
