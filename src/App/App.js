@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Home from "../component/home/home.component";
 import GamePlay from '../component/GamePlay/GamePlay.component';
 import FavoritesView from '../component/Favorites/Favorites.component';
+import ParkDetails from '../component/ParkDetails/ParkDetails.component';
 
 function App() {
   const [favorites, setFavorites] = useState([])
@@ -35,6 +36,8 @@ function App() {
       <Routes>
         <Route path="/" 
           element={<Home/>} />
+        <Route path="/park-details/:park" 
+          element={<ParkDetails favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/game" 
           element={<GamePlay favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/favorites" 

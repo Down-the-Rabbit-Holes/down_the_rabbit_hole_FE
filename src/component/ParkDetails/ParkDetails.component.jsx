@@ -1,50 +1,59 @@
 import "./ParkDetails.css";
 import NavBar from "../nav_bar/nav_bar.component";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const ParkDetails = ({ park }) => {
-  const [animals, setAnimals] = useState([]);
+const ParkDetails = () => {
+  const {state} = useLocation();
+  const [park, setPark] = useState(state)
+  const [animals, setAnimals] = useState({data: []});
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("ParkDetails - park", park);
+
     const fetchAnimals = async () => {
       try {
-        const response = await fetch(`/api/v1/parks/${park.id}/animals`);
+        const response = await fetch(`http://localhost:3001/api/v1/park_animals/${park.id}`);
         const data = await response.json();
-        setAnimals(data.animals);
+        console.log("data", data);
+        setAnimals(data);
       } catch (error) {
         console.error("Error fetching animals:", error);
       }
     };
 
     fetchAnimals();
-  }, [park.id]);
+  }, []);
+
+  
 
   const handleAnimalClick = (animalId) => {
     navigate(`/game?animal_id=${animalId}`);
   };
 
+  console.log("ParkDetails - animals", animals);
+
   return (
     <main className="park-details-main" data-cy="park-details-main">
       <NavBar isFavoritesClickable={true} />
-      <div>
+        <div className="park-details-text" data-cy="park-details-text">
         <img
-          className="park-details-image"
-          data-cy="park-details-image"
-          src={`/assets/park_posters/${park.name}.jpg`}
-          alt={`${park.name} poster`}
-        />
-      </div>
-      <div className="park-details-text" data-cy="park-details-text">
-        <h1>{park.name}</h1>
-        <h2>Location: {park.location}</h2>
-        <h2>Annual Visitors: {park.annual_visitors}  </h2>
-        <p>{park.description}</p>
+          className="parks-poster"
+          data-cy="parks-poster"
+          src={`/assets/parks_posters/${park.attributes.name
+            .toLowerCase()
+            .replace(/\s+/g, '_')}.jpeg`}
+          alt={`${park.attributes.name} poster`}
+         />
+        <h1>{park.attributes.name}</h1>
+        <h2>Location: {park.attributes.location}</h2>
+        <h2>Annual Visitors: {park.attributes.annual_visitors}  </h2>
+        <p>{park.attributes.description}</p>
       </div>
       <section className="park-animals-container" data-cy="park-animals-container">
-        {animals.length > 0 ? (
-          animals.map((animal) => (
+        {animals.data.length > 0 ? (
+          animals.data.map((animal) => (
             <div
               key={animal.id}
               className="animal-card"
@@ -52,11 +61,11 @@ const ParkDetails = ({ park }) => {
               onClick={() => handleAnimalClick(animal.id)}
             >
               <img
-                src={animal.image_url}
-                alt={animal.name}
+                src={animal.attributes.photo_url}
+                alt={animal.attributes.name}
                 className="animal-image"
               />
-              <p className="animal-name">{animal.name}</p>
+              <p className="animal-name">{animal.attributes.name}</p>
             </div>
           ))
         ) : (
