@@ -6,7 +6,9 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleGameStart = () => {
-    navigate("/game?animal_name=rabbit");
+    console.log("HERE")
+    navigate("/game?animal_id=7");
+    // change to animal ID
   };
 
   return (

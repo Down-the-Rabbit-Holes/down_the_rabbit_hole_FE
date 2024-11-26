@@ -6,7 +6,7 @@ const FavoritesView = ({ favorites, setFavorites }) => {
   const navigate = useNavigate();
 
   const handleAnimalClick = (animalName) => {
-    navigate(`/game?animal_name=${animalName}`);
+    navigate(`/game?animal_id=${animalName}`);
   }
 
   const handleUnfavorite = async (animalId) => {
