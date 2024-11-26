@@ -38,7 +38,7 @@ function App() {
         <Route path="/game" 
           element={<GamePlay favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/favorites" 
-          element={<FavoritesView favorites={favorites}/>} />
+          element={<FavoritesView favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="*" element={<h2>Cannot find anything under that route</h2>} />
       </Routes>
     </div>

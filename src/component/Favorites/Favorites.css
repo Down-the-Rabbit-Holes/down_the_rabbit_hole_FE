@@ -27,6 +27,7 @@
   margin: 0;
   font-weight: bold;
   font-size: 1.5rem ;
+  text-align: left;
 }
 
 .favorite-header {
@@ -79,4 +80,47 @@
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+}
+
+.favorite-header-container{
+  display: flex;
+  justify-content: space-between;  
+  align-items: center;
+  width: 100%; 
+}
+
+.favorites-love-heart {
+  position: relative;
+  width: 40px;
+  height: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+
+.favorites-love-heart::before,
+.favorites-love-heart::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 32px;
+  border-radius: 50px 50px 0 0;
+  background: hsl(347deg 99% 72%);
+}
+
+.favorites-love-heart::before {
+  left: 20px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.favorites-love-heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.favorites-love-heart:hover {
+  transform: scale(1.1);
 }
