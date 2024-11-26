@@ -22,10 +22,13 @@ function normalizeAnimalData(animalData) {
 
 function GamePlay({ favorites, setFavorites, errorMessage }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const animalName = searchParams.get("animal_name");
+  console.log(searchParams, 'HERE')
+  const animalName = searchParams.get("animal_id");
   const [currentAnimal, setCurrentAnimal] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPredatorsModalOpen, setIsPredatorsModalOpen] = useState(false);
+  const [isPreyModalOpen, setIsPreyModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
+  const [preyData, setPreyData] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
@@ -40,9 +43,11 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     setIsFavorited(favorites.some((animal) => animal.id === animalId));
   }, [favorites, currentAnimal]);
 
-  function fetchAnimalData(name) {
+  function fetchAnimalData(id) {
     fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=${name}`,
+      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=${name}`,
+      // `http://localhost:3001/api/v1/animals/${id}`,
+      `http://localhost:3001/api/v1/animals/${id}`,
       {
         method: "GET",
         headers: {
@@ -60,9 +65,11 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   }
 
   function fetchPredatorData() {
-    const animalName = currentAnimal?.attributes?.name;
+    // const animalName = currentAnimal?.attributes?.name;
+    const id = currentAnimal?.id;
     fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=eat_me&animal_name=${animalName}`
+      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=eat_me&animal_name=${animalName}`
+      `http://localhost:3001/api/v1/animals/${id}/relationships?predators=true`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -70,6 +77,21 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
           normalizeAnimalData({ data: predator })
         );
         setPredatorData(predators);
+      })
+      .catch((error) => console.error("Error fetching predator data:", error));
+  }
+
+  function fetchPreyData() {
+    const id = currentAnimal?.id;
+    fetch(
+      `http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const prey = data.data.map((prey) =>
+          normalizeAnimalData({ data: prey })
+        );
+        setPreyData(prey);
       })
       .catch((error) => console.error("Error fetching predator data:", error));
   }
@@ -139,19 +161,28 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     }
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
+  const openPredatorModal = () => {
+    setIsPredatorsModalOpen(true);
     fetchPredatorData();
   };
 
+  const openPreyModal = () => {
+    setIsPreyModalOpen(true);
+    fetchPreyData();
+  };
+
   const closeModal = () => {
-    setIsModalOpen(false);
+    setIsPredatorsModalOpen(false);
+    setIsPreyModalOpen(false);
+    setPredatorData([])
+    setPreyData([])
   };
 
   const handlePredatorClick = (predator) => {
     setCurrentAnimal(predator);
     closeModal();
-    setSearchParams({ animal_name: predator.attributes.name });
+    setSearchParams({ animal_id: predator.id });
+    // setSearchParams({ animal_name: predator.attributes.name });
   };
 
   const predatorOptions = predatorData.map((predator) => (
@@ -170,6 +201,25 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
         }}
       />
       <p>{predator.attributes.name}</p>
+    </section>
+  ));
+
+  const preyOptions = preyData.map((prey) => (
+    <section className="predator-card" key={prey.id}>
+      <img
+        src={prey.attributes.photo_url}
+        alt={`A ${prey.attributes.name}`}
+        className="predator-image"
+        data-cy="predator-image"
+        tabIndex="0"
+        onClick={() => handlePredatorClick(prey)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            handlePredatorClick(prey);
+          }
+        }}
+      />
+      <p>{prey.attributes.name}</p>
     </section>
   ));
 
@@ -220,10 +270,17 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             </section>
           </div>
           <section className="clickables">
+          <button
+              className="eat-me-button"
+              data-cy="eat-me-button"
+              onClick={openPreyModal}
+            >
+              Eat!
+            </button>
             <button
               className="eat-me-button"
               data-cy="eat-me-button"
-              onClick={openModal}
+              onClick={openPredatorModal}
             >
               Eat Me!
             </button>
@@ -252,7 +309,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             </div>
           </section>
 
-          {isModalOpen && (
+          {isPredatorsModalOpen && (
             <div
               className="modal-overlay"
               data-cy="modal-overlay"
@@ -263,12 +320,34 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 data-cy="modal-content"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 data-cy="predators-header">Prey's Predators</h2>
+                <h2 data-cy="predators-header">{attributes.name}'s Predators</h2>
                 <div
                   data-cy="predators-container"
                   className="predators-container"
                 >
                   {predatorOptions}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {isPreyModalOpen && (
+            <div
+              className="modal-overlay"
+              data-cy="modal-overlay"
+              onClick={closeModal}
+            >
+              <div
+                className="modal-content"
+                data-cy="modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <h2 data-cy="predators-header">{attributes.name}'s Prey</h2>
+                <div
+                  data-cy="predators-container"
+                  className="predators-container"
+                >
+                  {preyOptions}
                 </div>
               </div>
             </div>
