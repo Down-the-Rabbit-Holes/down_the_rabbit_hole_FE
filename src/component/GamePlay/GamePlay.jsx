@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../nav_bar/nav_bar.component";
 import { useSearchParams } from "react-router-dom";
 
-
 function normalizeAnimalData(animalData) {
   if (!animalData) return null;
 
@@ -22,11 +21,12 @@ function normalizeAnimalData(animalData) {
 
 function GamePlay({ favorites, setFavorites, errorMessage }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams, 'HERE')
+  console.log(searchParams, "HERE");
   const animalName = searchParams.get("animal_id");
   const [currentAnimal, setCurrentAnimal] = useState(null);
   const [isPredatorsModalOpen, setIsPredatorsModalOpen] = useState(false);
   const [isPreyModalOpen, setIsPreyModalOpen] = useState(false);
+  const [isYTModalOpen, setIsYTModalOpen] = useState(false);
   const [predatorData, setPredatorData] = useState([]);
   const [preyData, setPreyData] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
@@ -83,9 +83,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
 
   function fetchPreyData() {
     const id = currentAnimal?.id;
-    fetch(
-      `http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`
-    )
+    fetch(`http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`)
       .then((response) => response.json())
       .then((data) => {
         const prey = data.data.map((prey) =>
@@ -103,7 +101,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     const animalName = currentAnimal.attributes.name;
 
     if (isFavorited) {
-    
       try {
         const response = await fetch(
           `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`,
@@ -128,7 +125,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
         console.error("Error removing from favorites:", error);
       }
     } else {
-    
       try {
         const response = await fetch(
           "https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites",
@@ -174,8 +170,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   const closeModal = () => {
     setIsPredatorsModalOpen(false);
     setIsPreyModalOpen(false);
-    setPredatorData([])
-    setPreyData([])
+    setPredatorData([]);
+    setPreyData([]);
   };
 
   const handlePredatorClick = (predator) => {
@@ -258,7 +254,9 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 </li>
                 <li data-cy="habitat-li">
                   A {attributes.name}'s habitat includes{" "}
-                  {attributes.habitat ? attributes.habitat.toLowerCase() : 'Unknown'}
+                  {attributes.habitat
+                    ? attributes.habitat.toLowerCase()
+                    : "Unknown"}
                 </li>
                 <li data-cy="top-speed-li">
                   Top Speed: {attributes.top_speed}
@@ -270,7 +268,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             </section>
           </div>
           <section className="clickables">
-          <button
+            <button
               className="eat-me-button"
               data-cy="eat-me-button"
               onClick={openPreyModal}
@@ -320,7 +318,9 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 data-cy="modal-content"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 data-cy="predators-header">{attributes.name}'s Predators</h2>
+                <h2 data-cy="predators-header">
+                  {attributes.name}'s Predators
+                </h2>
                 <div
                   data-cy="predators-container"
                   className="predators-container"
@@ -348,6 +348,27 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                   className="predators-container"
                 >
                   {preyOptions}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {isYTModalOpen && (
+            <div
+              className="modal-overlay"
+              data-cy="modal-overlay"
+              onClick={closeModal}
+            >
+              <div
+                className="modal-content"
+                data-cy="modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <h2 data-cy="YT-header">How to Draw {currentAnimal.name}</h2>
+                <div
+                  data-cy="YT-container"
+                  className="YT-container"
+                >
                 </div>
               </div>
             </div>
