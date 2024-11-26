@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Home from "../component/home/home.component";
-import GamePlay from '../component/GamePlay/GamePlay';
+import GamePlay from '../component/GamePlay/GamePlay.component';
 import FavoritesView from '../component/Favorites/Favorites.component';
 
 function App() {
