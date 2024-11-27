@@ -27,6 +27,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   const [isPredatorsModalOpen, setIsPredatorsModalOpen] = useState(false);
   const [isPreyModalOpen, setIsPreyModalOpen] = useState(false);
   const [isYTModalOpen, setIsYTModalOpen] = useState(false);
+  const [ytVideoId, setYTVideoId] = useState(null);
   const [predatorData, setPredatorData] = useState([]);
   const [preyData, setPreyData] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
@@ -93,6 +94,33 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       })
       .catch((error) => console.error("Error fetching predator data:", error));
   }
+
+  console.log("current animal: ", currentAnimal)
+  console.log("current animal name: ", currentAnimal?.attributes?.name)
+
+  const fetchYTVideo = () => {
+    const animalName = currentAnimal?.attributes?.name;
+    if (!animalName) {
+      return console.error("Missing an animal name.");
+    };
+       
+    fetch(`http://localhost:3001/api/v1/animals/videos?name=${animalName}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((videoData) => {
+        if (videoData.error) {
+          throw new Error(videoData.error);
+        }
+        setYTVideoId(videoData.video_id);
+      })
+      .catch((error) => {
+        console.error("Error fetching YouTube video:", error);
+      });
+  };
 
   const handleToggleFavorite = async () => {
     if (!favorites || !currentAnimal) return;
@@ -167,9 +195,15 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     fetchPreyData();
   };
 
+  const openYTModal = () => {
+    setIsYTModalOpen(true);
+    fetchYTVideo();
+  }
+
   const closeModal = () => {
     setIsPredatorsModalOpen(false);
     setIsPreyModalOpen(false);
+    setIsYTModalOpen(false);
     setPredatorData([]);
     setPreyData([]);
   };
@@ -281,6 +315,13 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               onClick={openPredatorModal}
             >
               Eat Me!
+            </button>
+            <button
+              className="how-to-draw-button"
+              data-cy="how-to-draw-button"
+              onClick={{openYTModal}}
+              >
+              How to Draw
             </button>
             <div className="love">
               <input
