@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 const FavoritesView = ({ favorites, setFavorites }) => {
   const navigate = useNavigate();
 
-  const handleAnimalClick = (animalName) => {
-    navigate(`/game?animal_id=${animalName}`);
+  const handleAnimalClick = (animalId) => {
+    navigate(`/game?animal_id=${animalId}`);
   }
 
   const handleUnfavorite = async (animalId) => {
@@ -48,7 +48,7 @@ const FavoritesView = ({ favorites, setFavorites }) => {
                 className="favorite-index"
                 data-cy="favorite-index"
                 key={index}
-                onClick={() => handleAnimalClick(animal.name)}
+                onClick={() => handleAnimalClick(animal.id)}
               >
                 <div className="favorite-header-container"> 
                   <h3
