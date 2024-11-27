@@ -1,5 +1,4 @@
 .nav-wrapper {
-  background-color: purple;
   background-color: #8CC051;
   position: fixed;
   top: 0;
@@ -17,9 +16,9 @@
   height: 100px;
 }
 h1 {
+  font-size: clamp(22px, 3.0vw, 36px);;
   color: white;
-  font-size: 56px;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
   margin: 0;
   cursor: pointer;
   margin-left: 20px;
@@ -44,10 +43,6 @@ h1:hover {
 }
 
 @media screen and (max-width: 1514px) {
-  h1 {
-    font-size: 3.5vw;
-  }
-
   .my-save-view {
     font-size: 2.5vw;
   }
@@ -60,10 +55,6 @@ h1:hover {
 }
 
 @media screen and (max-width: 1000px) {
-  h1 {
-    font-size: 3.2vw; 
-  }
-
   .my-save-view {
     font-size: 2.5vw;
   }
@@ -74,6 +65,7 @@ h1:hover {
     display: block;
     height: 50px;
     width: 50px;
+    margin-right: 30px;
   }
 
   .my-save-view {

@@ -21,10 +21,8 @@ const Home = () => {
 
     fetchParks();
   }, []);
-
   
   const handleParkClick = (parkId, data) => {
-    // navigate(`/park-details/${parkId}`);
     navigate(`/park-details/${parkId}`, {state: data})
   };
 
@@ -59,8 +57,10 @@ const Home = () => {
         )}
       </div>
       <p className="main-page-p" data-cy="home-page-instructions">
-        Click a park to discover fascinating facts about it and the
-        intricate food web it belongs to!
+      Welcome to Down the Rabbit Hole! Dive into the wonders of nature by selecting a park from our list. Each park page unveils fascinating facts about its unique ecosystem, showcasing the diverse animals that call it home.
+      <br/>
+      <br/>
+      Click a park to start exploring!
       </p>
     </main>
   );
