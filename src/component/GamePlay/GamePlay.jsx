@@ -408,7 +408,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 id="yt-content"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 data-cy="YT-header">How to Draw {currentAnimal.name}</h2>
+                <h2 data-cy="YT-header">How to Draw a {currentAnimal?.attributes?.name}</h2>
                 <div
                   data-cy="YT-container"
                   className="YT-container"
