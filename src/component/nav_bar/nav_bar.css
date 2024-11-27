@@ -1,11 +1,11 @@
 .nav-wrapper {
-  background-color: #8CC051;
+  background-color: var(--fresh-green);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   border: 1px solid black;
-  border: 10px solid seagreen;
+  border: 10px solid var(--seagreen);
   z-index: 10;
 }
 
@@ -24,8 +24,9 @@ h1 {
   margin-left: 20px;
 }
 
+.my-save-view:hover,
 h1:hover {
-  color: #fbb02d;
+  color: var(--vibrant-orange);
 }
 
 .my-save-view {
@@ -36,10 +37,6 @@ h1:hover {
   letter-spacing: 2px;
   cursor: pointer;
   margin-right: 20px;
-}
-
-.my-save-view:hover {
-  color: #fbb02d;
 }
 
 @media screen and (max-width: 1514px) {
@@ -74,13 +71,13 @@ h1:hover {
 }
 
 @media screen and (max-width: 445px) {
- .home-button-icon {
-  display: block;
-  height: 60px;
-  width: 60px;
- }
+  .home-button-icon {
+    display: block;
+    height: 60px;
+    width: 60px;
+  }
 
- h1 {
-  display: none;
- }
+  h1 {
+    display: none;
+  }
 }

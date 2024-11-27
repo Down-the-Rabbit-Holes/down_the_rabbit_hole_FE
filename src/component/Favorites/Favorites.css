@@ -1,9 +1,9 @@
 .favorite-main {
   display: flex;
   flex-direction: column;
-  background: -moz-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
-  background: -webkit-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
-  background: linear-gradient(to bottom, #BBEAEA 0%, #D1E4D0 100%);
+  background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
 }
 
 .favorite-animal-pic {
@@ -14,8 +14,7 @@
 }
 
 .favorite-animal-pic:hover {
-  transform: scale(1.25);
-  box-shadow: 0px 0px 20px lightskyblue; 
+  transform: scale(1.1);
 }
 
 .animal-list {
@@ -31,9 +30,10 @@
 }
 
 .favorite-header {
+  margin-top: 130px;
   text-align: center;
   font-size: 2rem;
-  color: rgb(18, 86, 174);
+  color: var(--deep-blue);
 }
 
 .favorite-list {
@@ -51,7 +51,7 @@
   align-items: center;
   box-shadow: 0px 4px 8px black;
   transition: transform 0.3s, box-shadow 0.3s;
-  background-color: rgb(229, 169, 101);
+  background-color: var(--soft-orange);
   max-width: 250px;
   text-align: center;
   justify-content: space-evenly;  
@@ -106,7 +106,7 @@
   width: 20px;
   height: 32px;
   border-radius: 50px 50px 0 0;
-  background: hsl(347deg 99% 72%);
+  background: var(--bright-pink);
 }
 
 .favorites-love-heart::before {
