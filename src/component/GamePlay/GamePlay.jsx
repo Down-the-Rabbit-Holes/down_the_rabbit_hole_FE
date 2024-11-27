@@ -1,6 +1,7 @@
 import "./GamePlay.css";
 import React, { useEffect, useState } from "react";
 import NavBar from "../nav_bar/nav_bar.component";
+import YTPlayer from "../YTPlayer/YTPlayer.jsx"
 import { useSearchParams } from "react-router-dom";
 
 function normalizeAnimalData(animalData) {
@@ -317,11 +318,11 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               Eat Me!
             </button>
             <button
-              className="how-to-draw-button"
+              className="eat-me-button"
               data-cy="how-to-draw-button"
-              onClick={{openYTModal}}
+              onClick={openYTModal}
               >
-              How to Draw
+              Art Me!
             </button>
             <div className="love">
               <input
@@ -394,15 +395,17 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             </div>
           )}
 
-          {isYTModalOpen && (
+          {isYTModalOpen && ytVideoId && (
             <div
               className="modal-overlay"
               data-cy="modal-overlay"
+              
               onClick={closeModal}
             >
               <div
                 className="modal-content"
                 data-cy="modal-content"
+                id="yt-content"
                 onClick={(e) => e.stopPropagation()}
               >
                 <h2 data-cy="YT-header">How to Draw {currentAnimal.name}</h2>
@@ -410,6 +413,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                   data-cy="YT-container"
                   className="YT-container"
                 >
+                <YTPlayer ytVideoId={ytVideoId} />
                 </div>
               </div>
             </div>
