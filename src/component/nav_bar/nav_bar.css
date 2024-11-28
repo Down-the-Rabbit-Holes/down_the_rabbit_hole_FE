@@ -15,7 +15,8 @@
   justify-content: space-between;
   height: 100px;
 }
-h1 {
+
+.nav-title {
   font-size: clamp(22px, 3.0vw, 36px);;
   color: white;
   letter-spacing: 1px;
@@ -25,7 +26,7 @@ h1 {
 }
 
 .my-save-view:hover,
-h1:hover {
+.nav-title:hover {
   color: var(--vibrant-orange);
 }
 

@@ -16,6 +16,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
     <div className="nav-wrapper" data-cy="nav-bar">
       <nav className="navBar">
         <h1
+          className="nav-title"
           data-cy="title"
           tabIndex={isGamePage ? "0" : null}
           onClick={isGamePage ? handleHomeLoad : null}
