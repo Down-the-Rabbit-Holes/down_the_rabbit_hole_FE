@@ -266,7 +266,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       />
       {attributes ? (
         <>
-          <h2 className="animal-name" data-cy="animal-name">
+          <h2 className="game-animal-name" data-cy="animal-name">
             {attributes.name.toUpperCase()}
           </h2>
           <div className="animal-container" data-cy="animal-container">

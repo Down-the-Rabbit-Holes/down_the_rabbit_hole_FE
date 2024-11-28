@@ -4,9 +4,9 @@
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  background: -moz-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
-  background: -webkit-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
-  background: linear-gradient(to bottom, #BBEAEA 0%, #D1E4D0 100%);
+  background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
 }
 
 .animal-container {
@@ -59,11 +59,12 @@
   align-items: center;
 }
 
-.animal-name {
+.game-animal-name {
   text-align: center;
-  font-size: xxx-large;
-  margin: 0.5em;
-  color: rgb(18, 86, 174);
+  font-size: 40px;
+  margin: 10px;
+  margin-top: 25px;
+  color: var(--deep-blue);
 }
 
 .animal-pic { 
@@ -78,7 +79,7 @@
   align-items: center;
   border: none;
   border-radius: 8px;
-  background-color: #fbb02d;
+  background-color: var(--vibrant-orange);
   height: 70px;
   width: 300px;
   font-size: 50px;
@@ -110,7 +111,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fbb02d;;
+  background-color: var(--soft-orange);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -157,7 +158,7 @@
 .predator-image:hover
 {
   transform: scale(1.1);
-  box-shadow: 0px 0px 20px lightskyblue;
+  box-shadow: 0px 0px 20px var(--sky-blue);
   cursor: pointer;
 }
 
@@ -251,8 +252,8 @@ input:checked + label .round {
 input:checked + .love-heart,
 input:checked + .love-heart::after,
 input:checked + .love-heart .bottom {
-  border-color: hsl(347deg 81% 61%);
-  box-shadow: inset 6px -5px 0px 2px hsl(347deg 99% 72%);
+  border-color: var(--soft-pink);
+  box-shadow: inset 6px -5px 0px 2px var(--bright-pink);
 }
 
 .love-heart::after,

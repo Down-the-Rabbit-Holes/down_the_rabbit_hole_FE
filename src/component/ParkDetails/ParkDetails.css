@@ -1,9 +1,56 @@
+.park-details-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 150px;
+  background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  box-sizing: border-box; 
+}
+
+.park-details-details {
+  display: flex;
+  font-size: 20px;
+  text-align: left;
+  background-color: var(--sky-blue);
+  margin: 0px;
+  padding: 20px;
+  padding-top: 0px;
+  border-radius: 10px;
+}
+
+.parks-details-poster {
+  height: 500px;
+  padding: 10px;
+  padding-top: 40px;
+}
+
+.parks-details-text {
+  padding-top: 0px;
+}
+
+.park-name {
+  padding-top: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+}
+
+.park-location, 
+.park-annual-visitors, 
+.park-description {
+  font-size: 1.2em;
+  color: black;
+}
 .park-animals-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  margin-top: 20px;
+  row-gap: 1em;
+  column-gap: 10em;
   justify-content: center;
-  margin-top: 2rem;
 }
 
 .animal-card {
@@ -20,7 +67,7 @@
 }
 
 .animal-image {
-  width: 100%;
+  height: 150px;
   border-radius: 8px;
 }
 
@@ -31,10 +78,3 @@
   font-size: 1.2em;
 }
 
-.park-details-main {
-  margin-top: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
