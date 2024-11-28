@@ -1,37 +1,66 @@
 import "./home.css";
 import NavBar from "../../component/nav_bar/nav_bar.component";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [parks, setParks] = useState({data: []});
 
-  const handleGameStart = () => {
-    console.log("HERE")
-    navigate("/game?animal_id=7");
-    // change to animal ID
+  useEffect(() => {
+    const fetchParks = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/api/v1/parks");
+        const data = await response.json();
+        console.log("data", data);
+        setParks(data);
+      } catch (error) {
+        console.error("Error fetching parks:", error);
+      }
+    };
+
+    fetchParks();
+  }, []);
+
+  
+  const handleParkClick = (parkId, data) => {
+    // navigate(`/park-details/${parkId}`);
+    navigate(`/park-details/${parkId}`, {state: data})
   };
+
+  console.log("Home - parks", parks);
 
   return (
     <main className="home-main" data-cy="home-main">
       <NavBar isFavoritesClickable={true} />
-      <div>
-        <img
-          className="game-start-image"
-          data-cy="game-start-image"
-          src="/assets/rabbit.jpg"
-          alt="cute bunny"
-          tabIndex="0"
-          onClick={handleGameStart}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              handleGameStart();
-            }
-          }}
-        />
+      <div className="parks-container">
+        {parks && parks.data.length > 0 ? (
+          parks.data.map((park) => (
+            <div
+              key={park.id}
+              className="park-item"
+              onClick={() => {
+                handleParkClick(park.id, park)}
+              }
+            >
+              <img
+                className="parks-poster"
+                data-cy="parks-poster"
+                src={`/assets/parks_posters/${park.attributes.name
+                  .toLowerCase()
+                  .replace(/\s+/g, '_')}.jpeg`}
+                alt={`${park.attributes.name} poster`}
+                
+              />
+            </div>
+          ))
+        ) : (
+          <p>Loading parks...</p>
+        )}
       </div>
       <p className="main-page-p" data-cy="home-page-instructions">
-        Click the bunny to discover fascinating facts about them and the
-        intricate food web they belong to!
+        Click a park to discover fascinating facts about it and the
+        intricate food web it belongs to!
       </p>
     </main>
   );
