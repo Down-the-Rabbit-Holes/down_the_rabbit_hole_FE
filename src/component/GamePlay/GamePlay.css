@@ -119,6 +119,12 @@
   overflow-y: auto;
 }
 
+#yt-content {
+  max-width: 900px;
+  max-height: 90vh;
+  padding: 30px;
+}
+
 .predators-container {
   display: flex;
   flex-direction: row;
