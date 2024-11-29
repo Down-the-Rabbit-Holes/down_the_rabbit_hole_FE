@@ -207,43 +207,55 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     // setSearchParams({ animal_name: predator.attributes.name });
   };
 
-  const predatorOptions = predatorData.map((predator) => (
-    <section className="predator-card" key={predator.id}>
-      <img
-        src={predator.attributes.photo_url}
-        alt={`A ${predator.attributes.name}`}
-        className="predator-image"
-        data-cy="predator-image"
-        tabIndex="0"
-        onClick={() => handlePredatorClick(predator)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            handlePredatorClick(predator);
-          }
-        }}
-      />
-      <p className="predator-name">{predator.attributes.name}</p>
-    </section>
-  ));
+  const predatorOptions = 
+    predatorData.length > 0 ? (
+      predatorData.map((predator) => (
+        <section className="predator-card" key={predator.id}>
+          <img
+            src={predator.attributes.photo_url}
+            alt={`A ${predator.attributes.name}`}
+            className="predator-image"
+            data-cy="predator-image"
+            tabIndex="0"
+            onClick={() => handlePredatorClick(predator)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handlePredatorClick(predator);
+              }
+            }}
+          />
+          <p className="predator-name">{predator.attributes.name}</p>
+        </section>
+      ))
+    ) : (
+      <p className="apex-predator-message" data-cy="apex-predator-message">
+        {`${currentAnimal?.attributes?.name} is an apex predator. That means it is at the top of the food chain and nothing hunts it.`}
+      </p>
+    );
 
-  const preyOptions = preyData.map((prey) => (
-    <section className="predator-card" key={prey.id}>
-      <img
-        src={prey.attributes.photo_url}
-        alt={`A ${prey.attributes.name}`}
-        className="predator-image"
-        data-cy="predator-image"
-        tabIndex="0"
-        onClick={() => handlePredatorClick(prey)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            handlePredatorClick(prey);
-          }
-        }}
-      />
-      <p className="prey-name">{prey.attributes.name}</p>
-    </section>
-  ));
+  const preyOptions = 
+    preyData.length > 0 ? (
+      preyData.map((prey) => (
+        <section className="predator-card" key={prey.id}>
+          <img
+            src={prey.attributes.photo_url}
+            alt={`A ${prey.attributes.name}`}
+            className="predator-image"
+            data-cy="predator-image"
+            tabIndex="0"
+            onClick={() => handlePredatorClick(prey)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handlePredatorClick(prey);
+              }
+            }}
+          />
+          <p className="prey-name">{prey.attributes.name}</p>
+        </section>
+      ))
+    ) : (
+      <p className="no-prey-message" data-cy="no-prey-message"> {currentAnimal?.attributes?.name}s does not hunt other animals for food. We will soon be adding information about plants, nectar, and other food sources so you can learn more about the diets of non-predatory animals.</p> 
+  );
 
   const attributes = currentAnimal?.attributes;
 
@@ -303,11 +315,11 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               Eat Me!
             </button>
             <button
-              className="eat-me-button"
+              className="draw-me-button"
               data-cy="how-to-draw-button"
               onClick={openYTModal}
               >
-              Art Me!
+              Draw Me!
             </button>
             <div className="love">
               <input

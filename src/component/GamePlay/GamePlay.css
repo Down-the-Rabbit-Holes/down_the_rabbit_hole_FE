@@ -85,6 +85,7 @@
   margin-left: 5px;
 }
 
+.draw-me-button,
 .eat-me-button {
   display: flex;
   justify-content: center;
@@ -101,9 +102,14 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
+.draw-me-button:hover,
 .eat-me-button:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   transform: translateY(-3px);
+}
+
+.draw-me-button {
+  font-size: 40px;
 }
 
 .modal-overlay {
@@ -151,14 +157,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1em;
+  height: auto;
+  max-height: 300px;
+  width: 150px;
 }
 
 .predator-card p {
   font-weight: bold;
   max-width: 150px;
   word-wrap: break-word;
-  text-align: center; 
-  margin-top: 8px;
+  text-align: center;
+  height: 3em;
 }
 
 .predator-image {
