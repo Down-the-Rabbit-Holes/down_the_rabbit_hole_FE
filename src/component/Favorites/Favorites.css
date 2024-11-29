@@ -18,7 +18,7 @@
 }
 
 .animal-list {
-  margin-top: 11vh;
+  margin-top: 10vh;
   min-height: 89vh;
 }
 
@@ -30,9 +30,10 @@
 }
 
 .favorite-header {
-  margin-top: 130px;
+  margin-top: 50px;
+  margin-bottom: 0px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--deep-blue);
 }
 
