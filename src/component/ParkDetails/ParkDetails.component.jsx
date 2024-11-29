@@ -41,7 +41,7 @@ const ParkDetails = () => {
 
   return (
     <main className="park-details-main" data-cy="park-details-main">
-      <NavBar isFavoritesClickable={true} />
+      <NavBar isGamePage={true} isFavoritesClickable={true} />
       <div className="park-details-details" data-cy="park-details-details">
         <img
           className="parks-details-poster"
