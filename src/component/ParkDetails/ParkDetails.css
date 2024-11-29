@@ -97,3 +97,8 @@
 .instructions {
   background-color: var(--antique-white);
 }
+
+.parks-animals-message {
+  font-size: 1.5em;
+  color: black;
+}

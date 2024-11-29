@@ -78,7 +78,7 @@ const ParkDetails = () => {
             </div>
           ))
         ) : (
-          <p>Loading animals...</p>
+          <p className="parks-animals-message">{park.attributes.name}'s animals coming soon!</p>
         )}
       </section>
 
