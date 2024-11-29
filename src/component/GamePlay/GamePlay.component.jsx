@@ -48,7 +48,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   function fetchAnimalData(id) {
     fetch(
       // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=${name}`,
-      // `http://localhost:3001/api/v1/animals/${id}`,
       `http://localhost:3001/api/v1/animals/${id}`,
       {
         method: "GET",
@@ -104,7 +103,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     if (!animalName) {
       return console.error("Missing an animal name.");
     };
-       
+    
     fetch(`http://localhost:3001/api/v1/animals/videos?name=${animalName}`)
       .then((response) => {
         if (!response.ok) {
@@ -123,140 +122,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       });
   };
 
-  // old code
-  // const handleToggleFavorite = async () => {
-  //   if (!favorites || !currentAnimal) return;
 
-  //   const animalId = parseInt(currentAnimal.id);
-  //   const animalName = currentAnimal.attributes.name;
-
-  //   if (isFavorited) {
-  //     try {
-  //       const response = await fetch(
-  //         // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`,
-  //         `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`,
-  //         {
-  //           method: "DELETE",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Accept: "application/json",
-  //           },
-  //         }
-  //       );
-
-  //       if (response.ok) {
-  //         setIsFavorited(false);
-  //         setFavorites((prevFavorites) =>
-  //           prevFavorites.filter((animal) => animal.id !== animalId)
-  //         );
-  //       } else {
-  //         console.error("Response was not ok:", await response.text());
-  //       }
-  //     } catch (error) {
-  //       console.error("Error removing from favorites:", error);
-  //     }
-  //   } else {
-  //     try {
-  //       const response = await fetch(
-  //         // "https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites",
-  //         "http://localhost:3001/api/v1/users/1/user_favorites",
-  //         {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Accept: "application/json",
-  //           },
-  //           body: JSON.stringify({ animal_id: animalId }),
-  //         }
-  //       );
-
-  //       if (response.ok) {
-  //         setIsFavorited(true);
-  //         setFavorites((prevFavorites) => [
-  //           ...prevFavorites,
-  //           {
-  //             id: animalId,
-  //             name: animalName,
-  //             photo_url: currentAnimal.attributes.photo_url,
-  //           },
-  //         ]);
-  //       } else {
-  //         console.error("Response was not ok:", await response.text());
-  //       }
-  //     } catch (error) {
-  //       console.error("Error adding to favorites:", error);
-  //     }
-  //   }
-  // };
-
-  // fixed code
-  // const handleToggleFavorite = async () => {
-  //   if (!favorites || !currentAnimal) return;
-  
-  //   const animalId = parseInt(currentAnimal.id);
-  //   const animalName = currentAnimal.attributes.name;
-  
-  //   if (isFavorited) {
-  //     try {
-  //       const response = await fetch(
-  //         `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`,
-  //         {
-  //           method: "DELETE",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Accept: "application/json",
-  //           },
-  //         }
-  //       );
-  
-  //       if (response.ok) {
-  //         setIsFavorited(false);
-  //         setFavorites((prevFavorites) =>
-  //           prevFavorites.filter((animal) => animal.id !== animalId)
-  //         );
-  //       } else {
-  //         console.error("Response was not ok:", await response.text());
-  //       }
-  //     } catch (error) {
-  //       console.error("Error removing from favorites:", error);
-  //     }
-  //   } else {
-  //     try {
-  //       const response = await fetch(
-  //         "http://localhost:3001/api/v1/users/1/user_favorites",
-  //         {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Accept: "application/json",
-  //           },
-  //           body: JSON.stringify({ animal_id: animalId }),
-  //         }
-  //       );
-  
-  //       if (response.ok) {
-  //         const animalData = await response.json(); 
-  //         setIsFavorited(true);
-  //         setFavorites((prevFavorites) => [
-  //           ...prevFavorites,
-  //           {
-  //             id: animalData.id,
-  //             name: animalData.name,
-  //             photo_url: animalData.photo_url,
-  //             fun_fact: animalData.fun_fact, 
-  //           },
-  //         ]);
-  //       } else {
-  //         console.error("Response was not ok:", await response.text());
-  //       }
-  //     } catch (error) {
-  //       console.error("Error adding to favorites:", error);
-  //     }
-  //   }
-  // };
-
-
-  // refactored code from above
   const handleToggleFavorite = async () => {
     if (!favorites || !currentAnimal) return;
   
@@ -356,7 +222,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
           }
         }}
       />
-      <p>{predator.attributes.name}</p>
+      <p className="predator-name">{predator.attributes.name}</p>
     </section>
   ));
 
@@ -375,7 +241,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
           }
         }}
       />
-      <p>{prey.attributes.name}</p>
+      <p className="prey-name">{prey.attributes.name}</p>
     </section>
   ));
 
@@ -405,12 +271,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               <ul data-cy="facts-list" className="facts-list">
                 <li data-cy="scientific-name-li">
                   Scientific name: {attributes.scientific_name}
-                </li>
-                <li data-cy="diet-li">
-                  A {attributes.name}'s diet includes {attributes.prey}
-                </li>
-                <li data-cy="predators-li">
-                  A {attributes.name}'s predators include {attributes.predators}
                 </li>
                 <li data-cy="habitat-li">
                   A {attributes.name}'s habitat includes{" "}

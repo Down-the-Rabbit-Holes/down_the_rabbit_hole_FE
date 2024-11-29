@@ -10,7 +10,8 @@
   --deep-blue: hsl(211, 85%, 35%);
   --bright-pink: hsl(347deg 99% 72%);
   --soft-pink: hsl(347deg 81% 61%);
-  
+  --antique-white: hsl(34, 78%, 91%);
+  --icy-mint: hsl(150, 30%, 85%);
 
   /* others currently unused */
   --soft-yellow: hsl(45, 100%, 75%);
@@ -26,5 +27,4 @@
   --midnight-blue: hsl(220, 60%, 25%);
   --dusty-rose: hsl(340, 50%, 60%);
   --blush-pink: hsl(330, 60%, 70%);
-  --icy-mint: hsl(150, 30%, 85%);
 }

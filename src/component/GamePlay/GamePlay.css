@@ -12,16 +12,20 @@
 .animal-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .facts-section {
+  flex: 1;
   max-width: 50vw;
-  font-size: 2.1vh;
+  font-size: 2.3vh;
+  background-color: var(--antique-white);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 1404px) {
@@ -30,14 +34,14 @@
   }
 }
 
-@media screen and (max-width: 1016px) {
+@media screen and (max-width: 1050px) {
   .facts-section {
     font-size: 2vh;
     width: 70vw;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 930px) {
   .animal-container {
     flex-direction: column;
     align-items: center;
@@ -46,11 +50,13 @@
   .animal-pic {
     max-width: 37.5em;
     max-height: 25em;
+    border-radius: 10px;
   }
 
   .facts-section {
     width: 90vw; 
     max-width: none;
+    border-radius: 10px;
   }
 }
 
@@ -70,7 +76,9 @@
 .animal-pic { 
   max-width: 37.5em;
   max-height: 25em;
-  border-radius: 8px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-left: 5px;
 }
 
 .eat-me-button {
@@ -143,6 +151,10 @@
 
 .predator-card p {
   font-weight: bold;
+  max-width: 150px;
+  word-wrap: break-word;
+  text-align: center; 
+  margin-top: 8px;
 }
 
 .predator-image {
