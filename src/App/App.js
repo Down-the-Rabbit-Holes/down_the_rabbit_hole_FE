@@ -14,15 +14,37 @@ function App() {
     fetchAllFavorites();
   }, []);
 
+  // const fetchAllFavorites = async () => {
+  //   try {
+  //     // const response = await fetch('https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites');
+  //     const response = await fetch('http://localhost:3000/api/v1/users/1/user_favorites');
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       const favoritesArray = Array.isArray(data) ? data : [];
+  //       setFavorites(favoritesArray);
+  //     } else {
+  //       console.error('Response was not ok:', await response.text());
+  //       setErrorMessage('Failed to fetch favorites data');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching favorites:', error);
+  //     setErrorMessage('An error occurred while fetching favorites data');
+  //   }
+  // };
+
   const fetchAllFavorites = async () => {
     try {
-      const response = await fetch('https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites');
+      const response = await fetch("http://localhost:3001/api/v1/users/1/user_favorites");
       if (response.ok) {
         const data = await response.json();
-        const favoritesArray = Array.isArray(data) ? data : [];
+        const favoritesArray = data.map((animal) => ({
+          id: animal.id,
+          name: animal.name,
+          photo_url: animal.photo_url,
+          fun_fact: animal.fun_fact,
+        }));
         setFavorites(favoritesArray);
       } else {
-        console.error('Response was not ok:', await response.text());
         setErrorMessage('Failed to fetch favorites data');
       }
     } catch (error) {
