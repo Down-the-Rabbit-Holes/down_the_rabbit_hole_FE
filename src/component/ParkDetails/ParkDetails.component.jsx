@@ -33,8 +33,6 @@ const ParkDetails = () => {
     fetchAnimals();
   }, []);
 
-  
-
   const handleAnimalClick = (animalId) => {
     navigate(`/game?animal_id=${animalId}`);
   };
@@ -43,7 +41,7 @@ const ParkDetails = () => {
 
   return (
     <main className="park-details-main" data-cy="park-details-main">
-      <NavBar isFavoritesClickable={true} />
+      <NavBar isGamePage={true} isFavoritesClickable={true} />
       <div className="park-details-details" data-cy="park-details-details">
         <img
           className="parks-details-poster"
@@ -52,14 +50,14 @@ const ParkDetails = () => {
             .toLowerCase()
             .replace(/\s+/g, '_')}.jpeg`}
           alt={`${park.attributes.name} poster`}
-         />
+        />
         <div className="parks-details-text">
           <h1 className="park-name">{park.attributes.name}</h1>
           <hr />
           <p className="park-description">{park.attributes.description}</p>
           <h2 className="park-location">Location: {park.attributes.location}</h2>
           <h2 className="park-annual-visitors">Annual Visitors: {park.attributes.annual_visitors}  </h2>
-          <p>Get ready to meet some of {park.attributes.name}’s amazing creatures! Click on any animal to dive into the fascinating food web and see how they connect to the world around them.</p>
+          <p className="instructions">Get ready to meet some of {park.attributes.name}’s amazing creatures! Click on any animal to dive into the fascinating food web and see how they connect to the world around them.</p>
         </div>
       </div>
       <section className="park-animals-container" data-cy="park-animals-container">
@@ -80,7 +78,7 @@ const ParkDetails = () => {
             </div>
           ))
         ) : (
-          <p>Loading animals...</p>
+          <p className="parks-animals-message">{park.attributes.name}'s animals coming soon!</p>
         )}
       </section>
 

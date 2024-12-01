@@ -48,33 +48,57 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  row-gap: 1em;
-  column-gap: 10em;
+  margin-left: 20px;
+  row-gap: 2em;
+  column-gap: 2em;
   justify-content: center;
 }
 
 .animal-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  justify-content: flex-start;
   cursor: pointer;
-  width: 150px;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;;
 }
 
 .animal-card:hover {
   transform: scale(1.05);
   transition: transform 0.2s;
+  box-shadow: 0 0 10px 5px var(--deep-blue);
 }
 
 .animal-image {
-  height: 150px;
-  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  flex-grow: 1;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .animal-name {
+  width: 100%;
   text-align: center;
-  margin-top: 0.5rem;
+  margin: 0;
+  padding: .5em;
   font-weight: bold;
   font-size: 1.2em;
+  background-color: var(--antique-white);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
+.instructions {
+  background-color: var(--antique-white);
+}
+
+.parks-animals-message {
+  font-size: 1.5em;
+  color: black;
+}
