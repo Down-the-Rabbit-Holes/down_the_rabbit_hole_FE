@@ -37,9 +37,14 @@ const Home = () => {
             <div
               key={park.id}
               className="park-item"
+              tabIndex="0"
               onClick={() => {
-                handleParkClick(park.id, park)}
-              }
+                handleParkClick(park.id, park)}}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleParkClick(park.id, park);
+                  }
+                }}
             >
               <img
                 className="parks-poster"

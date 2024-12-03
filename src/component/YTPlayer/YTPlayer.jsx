@@ -17,6 +17,8 @@ const YTPlayer = ({ ytVideoId }) => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen="true"
+        tabIndex="0"
+        // data-cy="yt-iframe"
       ></iframe>
     </div>
   );

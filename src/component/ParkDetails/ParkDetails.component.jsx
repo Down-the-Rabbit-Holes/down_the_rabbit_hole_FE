@@ -67,7 +67,13 @@ const ParkDetails = () => {
               key={animal.id}
               className="animal-card"
               data-cy={`animal-card-${animal.id}`}
+              tabIndex="0"
               onClick={() => handleAnimalClick(animal.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleAnimalClick(animal.id);
+                }
+              }}
             >
               <img
                 src={animal.attributes.photo_url}
