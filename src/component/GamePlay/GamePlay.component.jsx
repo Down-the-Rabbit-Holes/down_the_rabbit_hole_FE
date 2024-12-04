@@ -34,6 +34,22 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  };
+
+  if (isPredatorsModalOpen || isPreyModalOpen || isYTModalOpen) {
+    document.addEventListener("keydown", handleKeyDown);
+  }
+
+  return () => {
+    document.removeEventListener("keydown", handleKeyDown);
+  };
+}, [isPredatorsModalOpen, isPreyModalOpen, isYTModalOpen]);
+
+  useEffect(() => {
     fetchAnimalData(animalName);
   }, [animalName]);
 
@@ -351,6 +367,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               className="modal-overlay"
               data-cy="modal-overlay"
               onClick={closeModal}
+              
             >
               <div
                 className="modal-content"
