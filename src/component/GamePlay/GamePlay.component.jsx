@@ -259,6 +259,11 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
 
   const attributes = currentAnimal?.attributes;
 
+  function playButtonAudio() {
+    let audio = new Audio("/assets/audio/munch-sound-effect.mp3");
+    audio.play();
+  }
+
   return (
     <section className="game-play-section" data-cy="GamePlay-section">
       {errorMessage && <div className="error-message">{errorMessage}</div>}
@@ -303,14 +308,20 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             <button
               className="eat-me-button"
               data-cy="eat-me-button"
-              onClick={openPreyModal}
+              onClick={() => {
+                openPreyModal();
+                playButtonAudio();
+              }}
             >
               Eat!
             </button>
             <button
               className="eat-me-button"
               data-cy="eat-me-button"
-              onClick={openPredatorModal}
+              onClick={() => {
+                openPredatorModal();
+                playButtonAudio();
+              }}
             >
               Eat Me!
             </button>
