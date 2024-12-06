@@ -281,14 +281,19 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             />
             <section className="facts-section" data-cy="facts-section">
               <ul data-cy="facts-list" className="facts-list">
+                <li data-cy="description"> {attributes.description}</li>
+                <li data-cy="diet"> Diet: <strong>{attributes.diet}</strong></li>
                 <li data-cy="scientific-name-li">
-                  Scientific name: {attributes.scientific_name}
+                  A baby {attributes.name} is called a <strong>{attributes.baby_name}</strong>
+                </li>
+                <li data-cy="group-name-li"> 
+                  Group name: <strong>{attributes.group_name}</strong>
                 </li>
                 <li data-cy="habitat-li">
-                  A {attributes.name}'s habitat includes{" "}
-                  {attributes.habitat
+                  Habitat: <strong>
+                    {attributes.habitat
                     ? attributes.habitat.toLowerCase()
-                    : "Unknown"}
+                    : "Unknown"}</strong>
                 </li>
                 <li data-cy="top-speed-li">
                   Top Speed: {attributes.top_speed}
