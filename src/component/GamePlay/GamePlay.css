@@ -89,7 +89,9 @@
 }
 
 .animal-pic { 
-  max-width: 37.5em;
+  width: auto;
+  height: auto;
+  max-width: 25em;
   max-height: 25em;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -317,12 +319,12 @@ input:checked + .love-heart .bottom {
 
 /* Standard Font */
 .game-play-section .facts-section {
-  font-size: 3.8vh; 
+  font-size: clamp(10px, 2.3vw, 20px);
 }
 
 /* Dyslexia Font (15:25 ratio) */
 body.dyslexia-font .game-play-section .facts-section {
-  font-size: 2.2vh;
+  font-size: clamp(10px, 1.5vw, 13px);
 }
 
 
