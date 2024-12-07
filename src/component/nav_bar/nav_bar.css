@@ -82,3 +82,35 @@
     display: none;
   }
 }
+
+.font-toggle-button {
+  font-size: 1em;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-right: 20px;
+  background: none;
+  border: 1.5px solid var(--seagreen);
+}
+
+.font-toggle-button:hover {
+  color: var(--vibrant-orange);
+}
+.dyslexia-font .font-toggle-button {
+  font-size: 1.4em; /* Smaller size when dyslexia font is active */
+}
+
+@media screen and (max-width: 1514px) {
+  .font-toggle-button {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .font-toggle-button {
+    font-size: 2.5vw;
+    display: block;
+    margin-right: 30px;
+  }
+}

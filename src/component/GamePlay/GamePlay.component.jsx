@@ -359,6 +359,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 className="love-heart"
                 htmlFor="switch"
                 tabIndex="0"
+                aria-label="Toggle favorite"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     handleToggleFavorite();
@@ -403,6 +404,9 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               className="modal-overlay"
               data-cy="modal-overlay"
               onClick={closeModal}
+              role="dialog"
+              aria-labelledby="predators-header"
+              aria-modal="true"
             >
               <div
                 className="modal-content"

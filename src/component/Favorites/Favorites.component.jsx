@@ -51,6 +51,14 @@ const FavoritesView = ({ favorites, setFavorites }) => {
               data-cy="favorite-index"
               key={index}
               onClick={() => handleAnimalClick(animal.id)}
+              role="button"
+              aria-label={`View details for ${animal.name}`}
+              tabIndex="0"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleAnimalClick(animal.id);
+                }
+              }}
             >
               <div className="favorite-header-container"> 
                 <h3
@@ -62,6 +70,8 @@ const FavoritesView = ({ favorites, setFavorites }) => {
                 <label
                   className="favorites-love-heart"
                   htmlFor={`heart-${animal.id}`}
+                  role="button"
+                  aria-label={`Unfavorite ${animal.name}`}
                   tabIndex="0"
                   onClick={(e) => {
                     e.stopPropagation();

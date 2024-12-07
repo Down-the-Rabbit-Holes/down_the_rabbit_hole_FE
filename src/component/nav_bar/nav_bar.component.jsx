@@ -4,6 +4,18 @@ import { useNavigate } from 'react-router-dom';
 const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
   const navigate = useNavigate();
 
+  const toggleFont = () => {
+    const body = document.body;
+    if (body.classList.contains('default-font')) {
+      body.classList.remove('default-font');
+      body.classList.add('dyslexia-font');
+    } else {
+      body.classList.remove('dyslexia-font');
+      body.classList.add('default-font');
+    }
+  };
+
+
   const handleHomeLoad = () => {
     navigate("/");
   };
@@ -20,6 +32,8 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
           data-cy="title"
           tabIndex={isGamePage ? "0" : null}
           onClick={isGamePage ? handleHomeLoad : null}
+          role="link"
+          aria-label="Navigate to Home"
           onKeyDown={(e) => {
             if (isGamePage && (e.key === "Enter" || e.key === " ")) {
               handleHomeLoad();
@@ -34,17 +48,21 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
           src="/assets/home_icon.png"
           onClick={handleHomeLoad}
           tabIndex="0"
+          role="link"
+          aria-label="Go to Home"
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               handleHomeLoad();
             }
           }}
         />
-        <label
+        <a
           data-cy="favorites-button"
           className="my-save-view"
           onClick={isFavoritesClickable ? handleFavoritesLoad : null}
           tabIndex={isFavoritesClickable ? "0" : null}
+          role="link"
+          aria-label="Navigate to Favorites"
           onKeyDown={(e) => {
             if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
               handleFavoritesLoad();
@@ -52,19 +70,31 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
           }}
         >
           My Favorites
-        </label>
+        </a>
         <img
           data-cy="favorites-button"
           className="favorites-button-icon"
           src="/assets/white_heart.png"
           onClick={isFavoritesClickable ? handleFavoritesLoad : null}
           tabIndex={isFavoritesClickable ? "0" : null}
+          role="link"
+          aria-label="Go to Favorites"
           onKeyDown={(e) => {
             if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
               handleFavoritesLoad();
             }
           }}
         />
+         <button
+          className="font-toggle-button"
+          onClick={toggleFont}
+          tabIndex="0"
+          data-cy="font-toggle-button"
+          aria-label="Toggle Dyslexia Font"
+          aria-pressed={document.body.classList.contains('dyslexia-font')}
+        >
+          Dyslexia Font
+        </button>
       </nav>
     </div>
   );
