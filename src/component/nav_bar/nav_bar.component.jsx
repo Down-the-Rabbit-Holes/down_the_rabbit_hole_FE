@@ -40,7 +40,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
             }
           }}
         />
-        <label
+        {/* <label
           data-cy="favorites-button"
           className="my-save-view"
           onClick={isFavoritesClickable ? handleFavoritesLoad : null}
@@ -52,7 +52,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
           }}
         >
           My Favorites
-        </label>
+        </label> */}
         <img
           data-cy="favorites-button"
           className="favorites-button-icon"

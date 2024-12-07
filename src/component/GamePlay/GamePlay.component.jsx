@@ -269,9 +269,34 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       />
       {attributes ? (
         <>
-          <h2 className="game-animal-name" data-cy="animal-name">
-            {attributes.name.toUpperCase()}
-          </h2>
+          <div className="animal-header">
+            <h2 className="game-animal-name" data-cy="animal-name">
+              {attributes.name.toUpperCase()}
+            </h2>
+            <div className="love">
+              <input
+                id="switch"
+                type="checkbox"
+                checked={isFavorited}
+                onChange={handleToggleFavorite}
+              />
+              <label
+                className="love-heart"
+                htmlFor="switch"
+                tabIndex="0"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleToggleFavorite();
+                  }
+                }}
+              >
+                <i className="left"></i>
+                <i className="right"></i>
+                <i className="bottom"></i>
+                <div className="round"></div>
+              </label>
+            </div>
+          </div>``
           <div className="animal-container" data-cy="animal-container">
             <img
               data-cy="animal-pic"
@@ -326,29 +351,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               >
               Draw Me!
             </button>
-            <div className="love">
-              <input
-                id="switch"
-                type="checkbox"
-                checked={isFavorited}
-                onChange={handleToggleFavorite}
-              />
-              <label
-                className="love-heart"
-                htmlFor="switch"
-                tabIndex="0"
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleToggleFavorite();
-                  }
-                }}
-              >
-                <i className="left"></i>
-                <i className="right"></i>
-                <i className="bottom"></i>
-                <div className="round"></div>
-              </label>
-            </div>
+          
           </section>
 
           {isPredatorsModalOpen && (
