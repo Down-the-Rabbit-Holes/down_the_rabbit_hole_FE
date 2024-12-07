@@ -11,12 +11,19 @@
 }
 
 .main-page-p {
-  font-size: 21px;
   text-align: left;
   background-color: var(--sky-blue);
   margin: 0px;
   padding: 20px;
   border-radius: 10px;
+}
+
+body.dyslexia-font .main-page-p {
+  font-size: 17px; 
+}
+
+body.default-font .main-page-p {
+  font-size: 26px; 
 }
 
 .parks-container {
@@ -28,7 +35,6 @@
   margin-top: 20px;
   overflow-x: auto;
   background-color: var(--icy-mint);
-  /* scrollbar-color: var(--seagreen) transparent; */
   scrollbar-color: gray transparent;
   scrollbar-width: auto;
 }

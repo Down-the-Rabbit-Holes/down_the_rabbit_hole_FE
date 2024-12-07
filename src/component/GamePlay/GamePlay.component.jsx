@@ -317,7 +317,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 <div className="round"></div>
               </label>
             </div>
-          </div>``
+          </div>
           <div className="animal-container" data-cy="animal-container">
             <img
               data-cy="animal-pic"
@@ -379,6 +379,14 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               Draw Me!
             </button>
           
+            <div className="love">
+              <input
+                id="switch"
+                type="checkbox"
+                checked={isFavorited}
+                onChange={handleToggleFavorite}
+              />
+            </div>
           </section>
 
           {isPredatorsModalOpen && (
@@ -386,7 +394,9 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               className="modal-overlay"
               data-cy="modal-overlay"
               onClick={closeModal}
-              
+              role="dialog"
+              aria-labelledby="predators-header"
+              aria-modal="true"
             >
               <div
                 className="modal-content"
@@ -411,16 +421,19 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               className="modal-overlay"
               data-cy="modal-overlay"
               onClick={closeModal}
+              role="dialog"
+              aria-labelledby="prey-header"
+              aria-modal="true"
             >
               <div
                 className="modal-content"
                 data-cy="modal-content"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 data-cy="predators-header">{attributes.name}'s Prey</h2>
+                <h2 data-cy="prey-header">{attributes.name}'s Prey</h2>
                 <div
-                  data-cy="predators-container"
-                  className="predators-container"
+                  data-cy="prey-container"
+                  className="prey-container"
                 >
                   {preyOptions}
                 </div>

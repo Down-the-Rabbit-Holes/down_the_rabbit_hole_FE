@@ -144,9 +144,10 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  max-width: 550px;
+  max-width: 600px;
   max-height: 80vh;
   overflow-y: auto;
+  gap: 20px;
 }
 
 #yt-content {
@@ -313,3 +314,16 @@ input:checked + .love-heart .bottom {
   top: 5px;
   border-radius: 0px 0px 0px 5px;
 }
+
+/* Standard Font */
+.game-play-section .facts-section {
+  font-size: 3.8vh; 
+}
+
+/* Dyslexia Font (15:25 ratio) */
+body.dyslexia-font .game-play-section .facts-section {
+  font-size: 2.2vh;
+}
+
+
+

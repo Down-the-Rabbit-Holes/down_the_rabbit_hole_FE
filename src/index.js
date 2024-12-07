@@ -5,6 +5,7 @@ import App from './App/App';
 import {BrowserRouter} from 'react-router-dom';
 import './styles/colors.css';
 
+document.body.classList.add('default-font');
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
