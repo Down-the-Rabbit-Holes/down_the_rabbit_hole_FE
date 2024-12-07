@@ -290,9 +290,34 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       />
       {attributes ? (
         <>
-          <h2 className="game-animal-name" data-cy="animal-name">
-            {attributes.name.toUpperCase()}
-          </h2>
+          <div className="animal-header">
+            <h2 className="game-animal-name" data-cy="animal-name">
+              {attributes.name.toUpperCase()}
+            </h2>
+            <div className="love">
+              <input
+                id="switch"
+                type="checkbox"
+                checked={isFavorited}
+                onChange={handleToggleFavorite}
+              />
+              <label
+                className="love-heart"
+                htmlFor="switch"
+                tabIndex="0"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleToggleFavorite();
+                  }
+                }}
+              >
+                <i className="left"></i>
+                <i className="right"></i>
+                <i className="bottom"></i>
+                <div className="round"></div>
+              </label>
+            </div>
+          </div>``
           <div className="animal-container" data-cy="animal-container">
             <img
               data-cy="animal-pic"
@@ -302,14 +327,19 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
             />
             <section className="facts-section" data-cy="facts-section">
               <ul data-cy="facts-list" className="facts-list">
+                <li data-cy="description"> {attributes.description}</li>
+                <li data-cy="diet"> Diet: <strong>{attributes.diet}</strong></li>
                 <li data-cy="scientific-name-li">
-                  Scientific name: {attributes.scientific_name}
+                  A baby {attributes.name} is called a <strong>{attributes.baby_name}</strong>
+                </li>
+                <li data-cy="group-name-li"> 
+                  Group name: <strong>{attributes.group_name}</strong>
                 </li>
                 <li data-cy="habitat-li">
-                  A {attributes.name}'s habitat includes{" "}
-                  {attributes.habitat
+                  Habitat: <strong>
+                    {attributes.habitat
                     ? attributes.habitat.toLowerCase()
-                    : "Unknown"}
+                    : "Unknown"}</strong>
                 </li>
                 <li data-cy="top-speed-li">
                   Top Speed: {attributes.top_speed}
@@ -348,29 +378,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               >
               Draw Me!
             </button>
-            <div className="love">
-              <input
-                id="switch"
-                type="checkbox"
-                checked={isFavorited}
-                onChange={handleToggleFavorite}
-              />
-              <label
-                className="love-heart"
-                htmlFor="switch"
-                tabIndex="0"
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleToggleFavorite();
-                  }
-                }}
-              >
-                <i className="left"></i>
-                <i className="right"></i>
-                <i className="bottom"></i>
-                <div className="round"></div>
-              </label>
-            </div>
+          
           </section>
 
           {isPredatorsModalOpen && (
