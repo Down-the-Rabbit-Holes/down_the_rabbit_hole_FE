@@ -63,8 +63,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
 
   function fetchAnimalData(id) {
     fetch(
-      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}`,
-      "http://localhost:3001/api/v1/animals/${id}",
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}`,
+      // "http://localhost:3001/api/v1/animals/${id}",
       {
         method: "GET",
         headers: {
@@ -84,8 +84,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   function fetchPredatorData() {
     const id = currentAnimal?.id;
     fetch(
-      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?predators=true`
-      `http://localhost:3001/api/v1/animals/${id}/relationships?predators=true`
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?predators=true`
+      // `http://localhost:3001/api/v1/animals/${id}/relationships?predators=true`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -100,8 +100,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   function fetchPreyData() {
     const id = currentAnimal?.id;
     fetch(
-      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?prey=true`
-      `http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?prey=true`
+      // `http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -123,8 +123,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     };
     
     fetch(
-      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/videos?name=${animalName}`
-      `http://localhost:3001/api/v1/animals/videos?name=${animalName}`
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/videos?name=${animalName}`
+      // `http://localhost:3001/api/v1/animals/videos?name=${animalName}`
       )
       .then((response) => {
         if (!response.ok) {
@@ -153,8 +153,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       if (isFavorited) {
     
         const response = await fetch(
-          // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`
-          `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`
+          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`
+          // `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`
           ,
           {
             method: "DELETE",
@@ -176,8 +176,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       } else {
    
         const response = await fetch(
-          // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites`,
-          `http://localhost:3001/api/v1/users/1/user_favorites`,
+          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites`,
+          // `http://localhost:3001/api/v1/users/1/user_favorites`,
           {
             method: "POST",
             headers: {

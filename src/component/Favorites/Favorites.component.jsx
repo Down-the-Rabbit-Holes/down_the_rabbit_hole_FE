@@ -12,8 +12,8 @@ const FavoritesView = ({ favorites, setFavorites }) => {
   const handleUnfavorite = async (animalId) => {
     try {
       const response = await fetch(
-        // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`,
-        `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`,
+        `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`,
+        // `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`,
         {
           method: "DELETE",
           headers: {

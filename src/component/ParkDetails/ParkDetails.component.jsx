@@ -15,8 +15,8 @@ const ParkDetails = () => {
     const fetchAnimals = async () => {
       try {
         const response = await fetch(
-          // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/park_animals/${park.id}`
-          `http://localhost:3001/api/v1/park_animals/${park.id}`
+          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/park_animals/${park.id}`
+          // `http://localhost:3001/api/v1/park_animals/${park.id}`
         );
         const data = await response.json();
         const sortedAnimals = {
