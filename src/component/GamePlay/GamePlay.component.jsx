@@ -63,8 +63,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
 
   function fetchAnimalData(id) {
     fetch(
-      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=${name}`,
-      `http://localhost:3001/api/v1/animals/${id}`,
+      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}`,
+      "http://localhost:3001/api/v1/animals/${id}",
       {
         method: "GET",
         headers: {
@@ -82,10 +82,9 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   }
 
   function fetchPredatorData() {
-    // const animalName = currentAnimal?.attributes?.name;
     const id = currentAnimal?.id;
     fetch(
-      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=eat_me&animal_name=${animalName}`
+      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?predators=true`
       `http://localhost:3001/api/v1/animals/${id}/relationships?predators=true`
     )
       .then((response) => response.json())
@@ -100,7 +99,10 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
 
   function fetchPreyData() {
     const id = currentAnimal?.id;
-    fetch(`http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`)
+    fetch(
+      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?prey=true`
+      `http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`
+    )
       .then((response) => response.json())
       .then((data) => {
         const prey = data.data.map((prey) =>
@@ -120,7 +122,10 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       return console.error("Missing an animal name.");
     };
     
-    fetch(`http://localhost:3001/api/v1/animals/videos?name=${animalName}`)
+    fetch(
+      // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/videos?name=${animalName}`
+      `http://localhost:3001/api/v1/animals/videos?name=${animalName}`
+      )
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -148,7 +153,9 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       if (isFavorited) {
     
         const response = await fetch(
-          `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`,
+          // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`
+          `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`
+          ,
           {
             method: "DELETE",
             headers: {
@@ -169,7 +176,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       } else {
    
         const response = await fetch(
-          "http://localhost:3001/api/v1/users/1/user_favorites",
+          // `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites`,
+          `http://localhost:3001/api/v1/users/1/user_favorites`,
           {
             method: "POST",
             headers: {
@@ -378,15 +386,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               >
               Draw Me!
             </button>
-          
-            <div className="love">
-              <input
-                id="switch"
-                type="checkbox"
-                checked={isFavorited}
-                onChange={handleToggleFavorite}
-              />
-            </div>
           </section>
 
           {isPredatorsModalOpen && (
