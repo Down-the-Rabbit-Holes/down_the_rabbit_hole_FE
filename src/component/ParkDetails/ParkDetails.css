@@ -47,8 +47,7 @@
 .park-animals-container {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin: 20px;
   row-gap: 2em;
   column-gap: 2em;
   justify-content: center;
