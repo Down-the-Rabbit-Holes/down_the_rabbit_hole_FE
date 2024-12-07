@@ -1,0 +1,133 @@
+.park-details-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 150px;
+  background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  box-sizing: border-box; 
+}
+
+.park-animals-container .animal-name {
+  font-size: 1em; 
+}
+
+.park-details-details {
+  display: flex;
+  font-size: 1.8em;
+  text-align: left;
+  background-color: var(--sky-blue);
+  margin: 0px;
+  padding: 20px;
+  padding-top: 0px;
+  border-radius: 10px;
+}
+
+.parks-details-poster {
+  height: 500px;
+  padding: 10px;
+  padding-top: 40px;
+}
+
+.parks-details-text {
+  padding-top: 0px;
+}
+
+.park-name {
+  padding-top: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+}
+
+.park-location, 
+.park-annual-visitors, 
+.park-description {
+  font-size: 1.2em;
+  color: black;
+}
+.park-animals-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  row-gap: 2em;
+  column-gap: 2em;
+  justify-content: center;
+}
+
+.animal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  cursor: pointer;
+  width: 225px;
+  height: 325px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;;
+}
+
+.animal-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+  box-shadow: 0 0 10px 5px var(--deep-blue);
+}
+
+.animal-image {
+  width: auto;
+  height: 70%;
+  flex-grow: 1;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.animal-name {
+  width: 93%;
+  text-align: center;
+  margin: 0;
+  padding: .5em;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: var(--antique-white);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.instructions {
+  background-color: var(--antique-white);
+}
+
+.parks-animals-message {
+  font-size: 1.5em;
+  color: black;
+}
+
+body.dyslexia-font .park-details-details {
+  font-size: 18px; 
+}
+
+body.standard-font .animal-name {
+  font-size: 1.8em;
+}
+
+body.dyslexia-font .park-details-details {
+  font-size: 12px; 
+}
+
+body.dyslexia-font .park-animals-container .animal-name {
+  font-size: 1em;
+}
+
+body.dyslexia-font .park-name {
+  font-size: 2.4em;
+}
+body.dyslexia-font .instructions,
+body.dyslexia-font .park-location,
+body.dyslexia-font .park-annual-visitors,
+body.dyslexia-font .park-description {
+  font-size: 1.7em;
+}

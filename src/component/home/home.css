@@ -4,29 +4,65 @@
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  background: -moz-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
-  background: -webkit-linear-gradient(top, #BBEAEA 0%, #D1E4D0 100%);
-  background: linear-gradient(to bottom, #BBEAEA 0%, #D1E4D0 100%);
+  background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
   box-sizing: border-box; 
 }
 
-.home-screen {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.game-start-image {
-  height: 73.5vh;
-  width: 150vh;
-  cursor: pointer;
-}
-
 .main-page-p {
-  max-width: 150vh;
-  font-size: x-large;
-  text-align: center;
-  background-color: #fbb02d;
-  margin: 0;
-  padding: 0;
+  text-align: left;
+  background-color: var(--sky-blue);
+  margin: 0px;
+  padding: 20px;
+  border-radius: 10px;
 }
+
+body.dyslexia-font .main-page-p {
+  font-size: 17px; 
+}
+
+body.default-font .main-page-p {
+  font-size: 26px; 
+}
+
+.parks-container {
+  max-width: 97%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+  overflow-x: auto;
+  background-color: var(--icy-mint);
+  scrollbar-color: gray transparent;
+  scrollbar-width: auto;
+}
+
+.park-item {
+  flex: 0 0 auto;
+  width: 240px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.park-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.parks-poster {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+

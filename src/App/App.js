@@ -2,8 +2,9 @@ import './App.css';
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Home from "../component/home/home.component";
-import GamePlay from '../component/GamePlay/GamePlay';
+import GamePlay from '../component/GamePlay/GamePlay.component';
 import FavoritesView from '../component/Favorites/Favorites.component';
+import ParkDetails from '../component/ParkDetails/ParkDetails.component';
 
 function App() {
   const [favorites, setFavorites] = useState([])
@@ -15,14 +16,20 @@ function App() {
 
   const fetchAllFavorites = async () => {
     try {
-      const response = await fetch('https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites');
+      const response = await fetch(
+        // "https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites"
+        "http://localhost:3001/api/v1/users/1/user_favorites"
+        );
       if (response.ok) {
         const data = await response.json();
-        const favoritesArray = Array.isArray(data) ? data : [];
-        console.log("response", data);
+        const favoritesArray = data.map((animal) => ({
+          id: animal.id,
+          name: animal.name,
+          photo_url: animal.photo_url,
+          fun_fact: animal.fun_fact,
+        }));
         setFavorites(favoritesArray);
       } else {
-        console.error('Response was not ok:', await response.text());
         setErrorMessage('Failed to fetch favorites data');
       }
     } catch (error) {
@@ -36,10 +43,12 @@ function App() {
       <Routes>
         <Route path="/" 
           element={<Home/>} />
+        <Route path="/park-details/:park" 
+          element={<ParkDetails favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/game" 
           element={<GamePlay favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/favorites" 
-          element={<FavoritesView favorites={favorites}/>} />
+          element={<FavoritesView favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="*" element={<h2>Cannot find anything under that route</h2>} />
       </Routes>
     </div>
