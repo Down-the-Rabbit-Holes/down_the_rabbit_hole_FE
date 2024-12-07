@@ -94,3 +94,37 @@
     display: none;
   }
 }
+
+.font-toggle-button {
+  font-size: 1em;
+  color: black;
+  background-color: var(--vibrant-orange);
+  font-size: 40px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 1.5px solid var(--seagreen);
+  box-shadow: 0 0 10px var(--seagreen);
+}
+
+.font-toggle-button:hover {
+  transform: scale(1.1);
+}
+.dyslexia-font .font-toggle-button {
+  font-size: 1.4em; 
+}
+
+@media screen and (max-width: 1514px) {
+  .font-toggle-button {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .font-toggle-button {
+    font-size: 2.5vw;
+    display: block;
+    margin-right: 30px;
+  }
+}
