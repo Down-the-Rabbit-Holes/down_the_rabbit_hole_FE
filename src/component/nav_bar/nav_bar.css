@@ -18,11 +18,23 @@
 
 .nav-title {
   font-size: clamp(22px, 3.0vw, 36px);;
-  color: white;
+  color: rgb(27, 43, 38);
   letter-spacing: 1px;
   margin: 0;
   cursor: pointer;
   margin-left: 20px;
+}
+.nav-title-clickable{
+  font-size: clamp(22px, 3.0vw, 36px);;
+  color: rgb(27, 43, 38);
+  letter-spacing: 1px;
+  margin: 0;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.screen-right {
+  display: flex;
 }
 
 .favorites-button-icon {
