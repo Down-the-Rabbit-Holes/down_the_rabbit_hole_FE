@@ -65,31 +65,32 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
             }
           }}
         />
-
-        <img
-          data-cy="favorites-button"
-          className="favorites-button-icon"
-          src="/assets/white_heart.png"
-          onClick={isFavoritesClickable ? handleFavoritesLoad : null}
-          tabIndex={isFavoritesClickable ? "0" : null}
-          role="link"
-          aria-label="Go to Favorites"
-          onKeyDown={(e) => {
-            if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
-              handleFavoritesLoad();
-            }
-          }}
-        />
-        <button
-          className="font-toggle-button"
-          onClick={toggleFont}
-          tabIndex="0"
-          data-cy="font-toggle-button"
-          aria-label="Toggle Dyslexia Font"
-          aria-pressed={document.body.classList.contains("dyslexia-font")}
-        >
-          {fontMode}
-        </button>
+         <div className='screen-right'>
+          <img
+            data-cy="favorites-button"
+            className="favorites-button-icon"
+            src="/assets/white_heart.png"
+            onClick={isFavoritesClickable ? handleFavoritesLoad : null}
+            tabIndex={isFavoritesClickable ? "0" : null}
+            role="link"
+            aria-label="Go to Favorites"
+            onKeyDown={(e) => {
+              if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
+                handleFavoritesLoad();
+              }
+            }}
+          />
+          <button
+            className="font-toggle-button"
+            onClick={toggleFont}
+            tabIndex="0"
+            data-cy="font-toggle-button"
+            aria-label="Toggle Dyslexia Font"
+            aria-pressed={document.body.classList.contains("dyslexia-font")}
+          >
+            {fontMode}
+          </button>
+        </div>
       </nav>
     </div>
   );

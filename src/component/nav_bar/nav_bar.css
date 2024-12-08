@@ -33,6 +33,10 @@
   margin-left: 20px;
 }
 
+.screen-right {
+  display: flex;
+}
+
 .favorites-button-icon {
   display: block;
   cursor: pointer;
