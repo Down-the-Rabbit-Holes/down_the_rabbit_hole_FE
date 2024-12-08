@@ -1,21 +1,21 @@
-import './nav_bar.css'
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import "./nav_bar.css";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
   const navigate = useNavigate();
-  const [fontMode, setFontMode] = useState('Dyslexic Font');
+  const [fontMode, setFontMode] = useState("Dyslexic Font");
 
   const toggleFont = () => {
     const body = document.body;
-    if (body.classList.contains('default-font')) {
-      body.classList.remove('default-font');
-      body.classList.add('dyslexia-font');
-      setFontMode('Default Font'); 
+    if (body.classList.contains("default-font")) {
+      body.classList.remove("default-font");
+      body.classList.add("dyslexia-font");
+      setFontMode("Default Font");
     } else {
-      body.classList.remove('dyslexia-font');
-      body.classList.add('default-font');
-      setFontMode('Dyslexia Font');
+      body.classList.remove("dyslexia-font");
+      body.classList.add("default-font");
+      setFontMode("Dyslexia Font");
     }
   };
 
@@ -30,21 +30,27 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
   return (
     <div className="nav-wrapper" data-cy="nav-bar">
       <nav className="navBar">
-        <h1
-          className="nav-title"
-          data-cy="title"
-          tabIndex={isGamePage ? "0" : null}
-          onClick={isGamePage ? handleHomeLoad : null}
-          role="link"
-          aria-label="Navigate to Home"
-          onKeyDown={(e) => {
-            if (isGamePage && (e.key === "Enter" || e.key === " ")) {
-              handleHomeLoad();
-            }
-          }}
-        >
-          Down The Rabbit Hole
-        </h1>
+        {!isGamePage ? (
+          <h1 className="nav-title" data-cy="title">
+            Down The Rabbit Hole
+          </h1>
+        ) : (
+          <h1
+            className="nav-title-clickable"
+            data-cy="title"
+            tabIndex="0"
+            role="link"
+            aria-label="Navigate to Home"
+            onClick={handleHomeLoad}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handleHomeLoad();
+              }
+            }}
+          >
+            Down The Rabbit Hole
+          </h1>
+        )}
         <img
           data-cy="home-button"
           className="home-button-icon"
@@ -59,7 +65,6 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
             }
           }}
         />
-        
 
         <img
           data-cy="favorites-button"
@@ -81,7 +86,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
           tabIndex="0"
           data-cy="font-toggle-button"
           aria-label="Toggle Dyslexia Font"
-          aria-pressed={document.body.classList.contains('dyslexia-font')}
+          aria-pressed={document.body.classList.contains("dyslexia-font")}
         >
           {fontMode}
         </button>
