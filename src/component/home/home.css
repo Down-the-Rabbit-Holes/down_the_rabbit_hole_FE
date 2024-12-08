@@ -24,6 +24,7 @@ body.dyslexia-font .main-page-p {
 
 body.default-font .main-page-p {
   font-size: 26px; 
+  text-align: center;
 }
 
 .parks-container {
