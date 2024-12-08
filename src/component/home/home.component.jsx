@@ -15,7 +15,6 @@ const Home = () => {
           // "http://localhost:3001/api/v1/parks"
         );
         const data = await response.json();
-        console.log("data", data);
         setParks(data);
       } catch (error) {
         console.error("Error fetching parks:", error);
@@ -28,8 +27,6 @@ const Home = () => {
   const handleParkClick = (parkId, data) => {
     navigate(`/park-details/${parkId}`, {state: data})
   };
-
-  console.log("Home - parks", parks);
 
   return (
     <main className="home-main" data-cy="home-main">

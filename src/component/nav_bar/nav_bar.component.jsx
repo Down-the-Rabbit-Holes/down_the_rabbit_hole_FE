@@ -19,7 +19,6 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
     }
   };
 
-
   const handleHomeLoad = () => {
     navigate("/");
   };
@@ -76,7 +75,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
             }
           }}
         />
-         <button
+        <button
           className="font-toggle-button"
           onClick={toggleFont}
           tabIndex="0"

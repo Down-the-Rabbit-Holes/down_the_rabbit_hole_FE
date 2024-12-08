@@ -18,7 +18,6 @@ const YTPlayer = ({ ytVideoId }) => {
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen="true"
         tabIndex="0"
-        // data-cy="yt-iframe"
       ></iframe>
     </div>
   );
