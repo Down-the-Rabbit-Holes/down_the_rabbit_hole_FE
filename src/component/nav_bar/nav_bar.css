@@ -96,35 +96,35 @@
 }
 
 .font-toggle-button {
-  font-size: 1em;
+  font-size: clamp(0.8em, 2vw, 25px);
   color: black;
   background-color: var(--vibrant-orange);
-  font-size: 40px;
   letter-spacing: 2px;
   cursor: pointer;
   margin-right: 20px;
   border-radius: 10px;
   border: 1.5px solid var(--seagreen);
   box-shadow: 0 0 10px var(--seagreen);
+  transition: font-size 0.2s ease; 
+}
+
+body.dyslexia-font .font-toggle-button {
+  font-size: clamp(1em, 3.5vw, 30px);
+  font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+body:not(.dyslexia-font) .font-toggle-button {
+  font-size: clamp(0.8em, 2vw, 25px);
+  font-family: 'OpenDyslexia';
 }
 
 .font-toggle-button:hover {
   transform: scale(1.1);
 }
-.dyslexia-font .font-toggle-button {
-  font-size: 1.4em; 
-}
-
-@media screen and (max-width: 1514px) {
-  .font-toggle-button {
-    font-size: 2.5vw;
-  }
-}
 
 @media screen and (max-width: 800px) {
   .font-toggle-button {
-    font-size: 2.5vw;
-    display: block;
     margin-right: 30px;
   }
 }

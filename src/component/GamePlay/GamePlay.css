@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  padding-top: 100px;
-  background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
-  background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  justify-content: space-between; 
+  height: 100vh; 
+  box-sizing: border-box; 
+  padding: 100px 0 0;
   background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
 }
 
@@ -158,6 +158,7 @@
   padding: 30px;
 }
 
+.prey-container,
 .predators-container {
   display: flex;
   flex-direction: row;
@@ -165,6 +166,7 @@
   align-items: center;
   justify-content: space-around;
 }
+
 
 .predator-card {
   display: flex;
@@ -175,7 +177,9 @@
   height: auto;
   max-height: 300px;
   width: 150px;
+  padding: 20px;
 }
+
 
 .predator-card p {
   font-weight: bold;

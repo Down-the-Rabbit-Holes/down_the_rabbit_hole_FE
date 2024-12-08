@@ -10,8 +10,6 @@ const ParkDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("ParkDetails - park", park);
-
     const fetchAnimals = async () => {
       try {
         const response = await fetch(
@@ -39,8 +37,6 @@ const ParkDetails = () => {
   const handleAnimalClick = (animalId) => {
     navigate(`/game?animal_id=${animalId}`);
   };
-
-  console.log("ParkDetails - animals", animals);
 
   return (
     <main className="park-details-main" data-cy="park-details-main">

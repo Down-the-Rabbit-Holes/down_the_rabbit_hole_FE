@@ -11,14 +11,13 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
     if (body.classList.contains('default-font')) {
       body.classList.remove('default-font');
       body.classList.add('dyslexia-font');
-      setFontMode('Standard Font'); 
+      setFontMode('Default Font'); 
     } else {
       body.classList.remove('dyslexia-font');
       body.classList.add('default-font');
       setFontMode('Dyslexia Font');
     }
   };
-
 
   const handleHomeLoad = () => {
     navigate("/");
@@ -76,7 +75,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
             }
           }}
         />
-         <button
+        <button
           className="font-toggle-button"
           onClick={toggleFont}
           tabIndex="0"

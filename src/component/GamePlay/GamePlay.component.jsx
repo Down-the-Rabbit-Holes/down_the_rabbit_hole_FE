@@ -22,7 +22,6 @@ function normalizeAnimalData(animalData) {
 
 function GamePlay({ favorites, setFavorites, errorMessage }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams, "HERE");
   const animalName = searchParams.get("animal_id");
   const [currentAnimal, setCurrentAnimal] = useState(null);
   const [isPredatorsModalOpen, setIsPredatorsModalOpen] = useState(false);
@@ -113,9 +112,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
       .catch((error) => console.error("Error fetching predator data:", error));
   }
 
-  console.log("current animal: ", currentAnimal)
-  console.log("current animal name: ", currentAnimal?.attributes?.name)
-
   const fetchYTVideo = () => {
     const animalName = currentAnimal?.attributes?.name;
     if (!animalName) {
@@ -174,7 +170,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
           console.error("Unfavorite failed:", await response.text());
         }
       } else {
-   
+  
         const response = await fetch(
           `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites`,
           // `http://localhost:3001/api/v1/users/1/user_favorites`,
@@ -228,7 +224,6 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     setCurrentAnimal(predator);
     closeModal();
     setSearchParams({ animal_id: predator.id });
-    // setSearchParams({ animal_name: predator.attributes.name });
   };
 
   const predatorOptions = 

@@ -35,8 +35,6 @@ const FavoritesView = ({ favorites, setFavorites }) => {
     }
   };
 
-
-  console.log("favorites:", favorites);
   return (
     <main data-cy="favorite-main" className="favorite-main">
       <NavBar isGamePage={true} isFavoritesClickable={true} />
