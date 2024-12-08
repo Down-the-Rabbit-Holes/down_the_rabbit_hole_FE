@@ -303,11 +303,13 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 type="checkbox"
                 checked={isFavorited}
                 onChange={handleToggleFavorite}
+                
               />
               <label
                 className="love-heart"
                 htmlFor="switch"
                 tabIndex="0"
+                aria-label="Toggle favorite"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     handleToggleFavorite();
@@ -397,7 +399,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 data-cy="modal-content"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 data-cy="predators-header">
+                <h2 id="predators-header" data-cy="predators-header">
                   {attributes.name}'s Predators
                 </h2>
                 <div
@@ -424,7 +426,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 data-cy="modal-content"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 data-cy="prey-header">{attributes.name}'s Prey</h2>
+                <h2 id="prey-header" data-cy="prey-header">{attributes.name}'s Prey</h2>
                 <div
                   data-cy="prey-container"
                   className="prey-container"
@@ -441,6 +443,9 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
               data-cy="modal-overlay"
               
               onClick={closeModal}
+              role="dialog"
+              aria-labelledby="yt-header" 
+              aria-modal="true"
             >
               <div
                 className="modal-content"
