@@ -39,7 +39,7 @@
 }
 
 .my-save-view:hover,
-.nav-title:hover {
+.nav-title-clickable:hover {
   color: var(--vibrant-orange);
 }
 
