@@ -131,3 +131,55 @@ body.dyslexia-font .park-annual-visitors,
 body.dyslexia-font .park-description {
   font-size: 1.7em;
 }
+
+@media screen and (max-width: 930px) {
+  .park-details-details {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .park-details-details {
+    margin-top: 20px; 
+    text-align: center; 
+    width: 90%; 
+  }
+
+  .parks-details-poster {
+    max-width: 90%; 
+    height: auto; 
+  }
+
+  .park-name {
+    font-size: 1.2em;
+  }
+  
+  .instructions,
+  .park-location, 
+  .park-annual-visitors, 
+  .park-description {
+    font-size: 1em; 
+  }
+
+  .park-animals-container .animal-name {
+    font-size: 0.9em;
+  }
+
+  body.dyslexia-font .park-details-details {
+    font-size: 1em;
+  }
+
+  body.dyslexia-font .park-name {
+    font-size: 1.5em;
+  }
+
+  body.dyslexia-font .instructions,
+  body.dyslexia-font .park-location,
+  body.dyslexia-font .park-annual-visitors,
+  body.dyslexia-font .park-description {
+    font-size: 0.9em; 
+  }
+
+  body.dyslexia-font .park-animals-container .animal-name {
+    font-size: 0.8em;
+  }
+}
