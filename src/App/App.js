@@ -5,36 +5,23 @@ import Home from "../component/home/home.component";
 import GamePlay from '../component/GamePlay/GamePlay.component';
 import FavoritesView from '../component/Favorites/Favorites.component';
 import ParkDetails from '../component/ParkDetails/ParkDetails.component';
+import { fetchAllFavorites } from '../services/services';
 
 function App() {
   const [favorites, setFavorites] = useState([])
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    fetchAllFavorites();
+    loadFavorites();
   }, []);
 
-  const fetchAllFavorites = async () => {
+  const loadFavorites = async () => {
     try {
-      const response = await fetch(
-        "https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites"
-        // "http://localhost:3001/api/v1/users/1/user_favorites"
-        );
-      if (response.ok) {
-        const data = await response.json();
-        const favoritesArray = data.map((animal) => ({
-          id: animal.id,
-          name: animal.name,
-          photo_url: animal.photo_url,
-          fun_fact: animal.fun_fact,
-        }));
-        setFavorites(favoritesArray);
-      } else {
-        setErrorMessage('Failed to fetch favorites data');
-      }
+      const favoritesArray = await fetchAllFavorites();
+      setFavorites(favoritesArray);
     } catch (error) {
       console.error('Error fetching favorites:', error);
-      setErrorMessage('An error occurred while fetching favorites data');
+      setErrorMessage(error.essage || 'An error occurred while fetching favorites data');
     }
   };
 
