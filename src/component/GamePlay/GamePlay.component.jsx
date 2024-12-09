@@ -63,7 +63,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   function fetchAnimalData(id) {
     fetch(
       `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}`,
-      // "http://localhost:3001/api/v1/animals/${id}",
+      // `http://localhost:3001/api/v1/animals/${id}`,
       {
         method: "GET",
         headers: {
@@ -83,8 +83,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   function fetchPredatorData() {
     const id = currentAnimal?.id;
     fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?predators=true`
-      // `http://localhost:3001/api/v1/animals/${id}/relationships?predators=true`
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/predators`
+      // `http://localhost:3001/api/v1/animals/${id}/predators`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -99,8 +99,8 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   function fetchPreyData() {
     const id = currentAnimal?.id;
     fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/relationships?prey=true`
-      // `http://localhost:3001/api/v1/animals/${id}/relationships?prey=true`
+      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/prey`
+      // `http://localhost:3001/api/v1/animals/${id}/prey`
     )
       .then((response) => response.json())
       .then((data) => {
