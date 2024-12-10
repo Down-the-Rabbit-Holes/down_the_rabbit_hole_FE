@@ -2,6 +2,7 @@ import "./ParkDetails.css";
 import NavBar from "../nav_bar/nav_bar.component";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { fetchAnimals } from "../../services/services";
 
 const ParkDetails = () => {
   const { state } = useLocation();
@@ -10,28 +11,16 @@ const ParkDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchAnimals = async () => {
+    const getAnimals = async () => {
       try {
-        const response = await fetch(
-          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/park_animals/${park.id}`
-          // `http://localhost:3001/api/v1/park_animals/${park.id}`
-        );
-        const data = await response.json();
-        const sortedAnimals = {
-          ...data,
-          data: data.data.sort((a, b) => {
-            const nameA = a.attributes.name.toLowerCase();
-            const nameB = b.attributes.name.toLowerCase();
-            return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
-          }),
-        };
+        const sortedAnimals = await fetchAnimals(park.id);
         setAnimals(sortedAnimals);
       } catch (error) {
         console.error("Error fetching animals:", error);
       }
     };
 
-    fetchAnimals();
+    getAnimals();
   }, []);
 
   const handleAnimalClick = (animalId) => {
