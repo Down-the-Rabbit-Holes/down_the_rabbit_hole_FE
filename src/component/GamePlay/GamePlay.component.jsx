@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../nav_bar/nav_bar.component";
 import YTPlayer from "../YTPlayer/YTPlayer.jsx"
 import { useSearchParams } from "react-router-dom";
+import { getAnimalData, getPredatorData, getPreyData, getYouTubeVideo, toggleFavorite } from "../../services/services.js";
 
 function normalizeAnimalData(animalData) {
   if (!animalData) return null;
@@ -60,143 +61,67 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
     setIsFavorited(favorites.some((animal) => animal.id === animalId));
   }, [favorites, currentAnimal]);
 
-  function fetchAnimalData(id) {
-    fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}`,
-      // `http://localhost:3001/api/v1/animals/${id}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const normalizedData = normalizeAnimalData(data);
-        setCurrentAnimal(normalizedData);
-      })
-      .catch((error) => console.error("Error fetching animal data:", error));
+  async function fetchAnimalData(id) {
+    try {
+      const data = await getAnimalData(id);
+      const normalizedData = normalizeAnimalData(data);
+      setCurrentAnimal(normalizedData);
+    } catch (error) {
+      console.error("Error fetching animal data:", error);
+    }
   }
 
-  function fetchPredatorData() {
-    const id = currentAnimal?.id;
-    fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/predators`
-      // `http://localhost:3001/api/v1/animals/${id}/predators`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const predators = data.data.map((predator) =>
-          normalizeAnimalData({ data: predator })
-        );
-        setPredatorData(predators);
-      })
-      .catch((error) => console.error("Error fetching predator data:", error));
+  async function fetchPredatorData() {
+    if (!currentAnimal?.id) return;
+    try {
+      const data = await getPredatorData(currentAnimal.id);
+      const predators = data.data.map((predator) =>
+        normalizeAnimalData({ data: predator })
+      );
+      setPredatorData(predators);
+    } catch (error) {
+      console.error("Error fetching predator data:", error);
+    }
   }
 
-  function fetchPreyData() {
-    const id = currentAnimal?.id;
-    fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/${id}/prey`
-      // `http://localhost:3001/api/v1/animals/${id}/prey`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const prey = data.data.map((prey) =>
-          normalizeAnimalData({ data: prey })
-        );
-        setPreyData(prey);
-      })
-      .catch((error) => console.error("Error fetching predator data:", error));
+  async function fetchPreyData() {
+    if (!currentAnimal?.id) return;
+    try {
+      const data = await getPreyData(currentAnimal.id);
+      const prey = data.data.map((prey) =>
+        normalizeAnimalData({ data: prey })
+      );
+      setPreyData(prey);
+    } catch (error) {
+      console.error("Error fetching prey data:", error);
+    }
   }
 
-  const fetchYTVideo = () => {
+  async function fetchYTVideo() {
     const animalName = currentAnimal?.attributes?.name;
     if (!animalName) {
       return console.error("Missing an animal name.");
-    };
-    
-    fetch(
-      `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals/videos?name=${animalName}`
-      // `http://localhost:3001/api/v1/animals/videos?name=${animalName}`
-      )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((videoData) => {
-        if (videoData.error) {
-          throw new Error(videoData.error);
-        }
-        setYTVideoId(videoData.video_id);
-      })
-      .catch((error) => {
-        console.error("Error fetching YouTube video:", error);
-      });
-  };
-
-
-  const handleToggleFavorite = async () => {
-    if (!favorites || !currentAnimal) return;
-  
-    const animalId = parseInt(currentAnimal.id);
-  
+    }
     try {
-      if (isFavorited) {
-    
-        const response = await fetch(
-          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`
-          // `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`
-          ,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          }
-        );
-  
-        if (response.ok) {
-          setIsFavorited(false);
-          setFavorites((prevFavorites) =>
-            prevFavorites.filter((animal) => animal.id !== animalId)
-          );
-        } else {
-          console.error("Unfavorite failed:", await response.text());
-        }
-      } else {
-  
-        const response = await fetch(
-          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites`,
-          // `http://localhost:3001/api/v1/users/1/user_favorites`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({ animal_id: animalId }),
-          }
-        );
-  
-        if (response.ok) {
-          const animalData = await response.json();
-          setIsFavorited(true);
-          setFavorites((prevFavorites) => [...prevFavorites, animalData]);
-        } else {
-          console.error("Favorite failed:", await response.text());
-        }
-      }
+      const videoData = await getYouTubeVideo(animalName);
+      setYTVideoId(videoData.video_id);
+    } catch (error) {
+      console.error("Error fetching YouTube video:", error);
+    }
+  }
+
+  async function handleToggleFavorite() {
+    if (!favorites || !currentAnimal) return;
+    const animalId = parseInt(currentAnimal.id);
+    try {
+      const updatedFavorites = await toggleFavorite(animalId, isFavorited);
+      setIsFavorited(!isFavorited);
+      setFavorites(updatedFavorites);
     } catch (error) {
       console.error("Error toggling favorite:", error);
     }
-  };
-
+  }
+  
   const openPredatorModal = () => {
     setIsPredatorsModalOpen(true);
     fetchPredatorData();

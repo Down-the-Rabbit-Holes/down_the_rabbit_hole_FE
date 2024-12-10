@@ -15,13 +15,13 @@ function App() {
     loadFavorites();
   }, []);
 
-  const loadFavorites = async () => {
+  const loadFavorites = async () => {{}
     try {
       const favoritesArray = await fetchAllFavorites();
       setFavorites(favoritesArray);
     } catch (error) {
       console.error('Error fetching favorites:', error);
-      setErrorMessage(error.essage || 'An error occurred while fetching favorites data');
+      setErrorMessage(error.message || 'An error occurred while fetching favorites data');
     }
   };
 
