@@ -17,8 +17,8 @@ function App() {
   const fetchAllFavorites = async () => {
     try {
       const response = await fetch(
-        // "https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites"
-        "http://localhost:3001/api/v1/users/1/user_favorites"
+        "https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites"
+        // "http://localhost:3001/api/v1/users/1/user_favorites"
         );
       if (response.ok) {
         const data = await response.json();
