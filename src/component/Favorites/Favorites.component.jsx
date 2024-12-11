@@ -1,11 +1,8 @@
 import "./Favorites.css";
 import NavBar from "../../component/nav_bar/nav_bar.component";
 import { useNavigate } from "react-router-dom";
-import { removeFavorite } from "../../services/services";
-import { useState } from "react";
 
 const FavoritesView = ({ favorites, setFavorites }) => {
-  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleAnimalClick = (animalId) => {
@@ -14,11 +11,27 @@ const FavoritesView = ({ favorites, setFavorites }) => {
 
   const handleUnfavorite = async (animalId) => {
     try {
-      await removeFavorite(animalId);
-      setFavorites(favorites.filter((fav) => fav.id !== animalId));
+      const response = await fetch(
+        `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites/${animalId}`,
+        // `http://localhost:3001/api/v1/users/1/user_favorites/${animalId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        setFavorites((prevFavorites) =>
+          prevFavorites.filter((animal) => animal.id !== animalId)
+        );
+      } else {
+        console.error("Response was not ok:", await response.text());
+      }
     } catch (error) {
       console.error("Error removing from favorites:", error);
-      setErrorMessage(error.message || "An error occurred while removing from favorites");
     }
   };
 
