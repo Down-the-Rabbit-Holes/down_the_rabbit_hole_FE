@@ -2,23 +2,26 @@ import "./home.css";
 import NavBar from "../../component/nav_bar/nav_bar.component";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchParks } from "../../services/services";
 
 const Home = () => {
   const navigate = useNavigate();
   const [parks, setParks] = useState({data: []});
 
   useEffect(() => {
-    const getParks = async () => {
+    const fetchParks = async () => {
       try {
-        const data = await fetchParks();
+        const response = await fetch(
+          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/parks`,
+          // "http://localhost:3001/api/v1/parks"
+        );
+        const data = await response.json();
         setParks(data);
       } catch (error) {
         console.error("Error fetching parks:", error);
       }
     };
 
-    getParks();
+    fetchParks();
   }, []);
   
   const handleParkClick = (parkId, data) => {
