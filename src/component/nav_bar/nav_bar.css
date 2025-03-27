@@ -1,12 +1,15 @@
 .nav-wrapper {
-  background-color: var(--fresh-green);
+  /* background-color: var(--fresh-green); */
+  /* background-color: var(--seagreen); */
+  /* background-color: white; */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  border: 1px solid black;
-  border: 10px solid var(--seagreen);
+  /* border: 1px solid black; */
+  /* border: 10px solid var(--seagreen); */
   z-index: 10;
+  /* box-shadow: rgba(0, 0, 0, 0.044) 0px 3px 3px 0px; */
 }
 
 .navBar {
@@ -17,13 +20,16 @@
 }
 
 .nav-title {
-  font-size: clamp(22px, 3.0vw, 36px);;
+  /* font-size: clamp(22px, 3.0vw, 36px); */
+  /* font-size: xxx-large; */
+  font-size: 8vh;
   color: rgb(27, 43, 38);
   letter-spacing: 1px;
   margin: 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   margin-left: 20px;
 }
+
 .nav-title-clickable{
   font-size: clamp(22px, 3.0vw, 36px);;
   color: rgb(27, 43, 38);
@@ -40,8 +46,9 @@
 .favorites-button-icon {
   display: block;
   cursor: pointer;
-  height: 50px;
+  height: 100px;
   width: 50px;
+
   margin-right: 30px;
 }
 
@@ -50,12 +57,12 @@
   transform: scale(1.1);
 }
 
-.my-save-view:hover,
+/* .my-save-view:hover,
 .nav-title-clickable:hover {
   color: var(--vibrant-orange);
-}
+} */
 
-.my-save-view {
+/* .my-save-view {
   top:5px;
   right:2px;
   color: white;
@@ -63,12 +70,12 @@
   letter-spacing: 2px;
   cursor: pointer;
   margin-right: 20px;
-}
+} */
 
 @media screen and (max-width: 1514px) {
-  .my-save-view {
+  /* .my-save-view {
     font-size: 2.5vw;
-  }
+  } */
 }
 
 .home-button-icon {
@@ -77,22 +84,22 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .my-save-view {
+  /* .my-save-view {
     font-size: 2.5vw;
-  }
+  } */
 }
 
 @media screen and (max-width: 800px) {
-  .favorites-button-icon {
+  /* .favorites-button-icon {
     display: block;
     height: 50px;
     width: 50px;
     margin-right: 30px;
-  }
+  } */
 
-  .my-save-view {
+  /* .my-save-view {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 445px) {
@@ -111,12 +118,13 @@
   font-size: clamp(0.8em, 2vw, 25px);
   color: black;
   background-color: var(--vibrant-orange);
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   cursor: pointer;
   margin-right: 20px;
   border-radius: 10px;
-  border: 1.5px solid var(--seagreen);
-  box-shadow: 0 0 10px var(--seagreen);
+  border: none;
+  /* border: 1.5px solid var(--seagreen); */
+  /* box-shadow: 0 0 10px var(--seagreen); */
   transition: font-size 0.2s ease; 
 }
 

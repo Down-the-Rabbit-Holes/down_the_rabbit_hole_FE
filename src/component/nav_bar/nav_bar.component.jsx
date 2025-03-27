@@ -1,6 +1,7 @@
 import "./nav_bar.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
   const navigate = useNavigate();
@@ -66,7 +67,22 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
           }}
         />
          <div className='screen-right'>
-          <img
+          <FavoriteIcon 
+            data-cy="favorites-button"
+            className="favorites-button-icon"
+            sx={{ fontSize: 45 }}
+            // src="/assets/white_heart.png"
+            onClick={isFavoritesClickable ? handleFavoritesLoad : null}
+            tabIndex={isFavoritesClickable ? "0" : null}
+            role="link"
+            aria-label="Go to Favorites"
+            onKeyDown={(e) => {
+              if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
+                handleFavoritesLoad();
+              }
+            }}
+          />
+          {/* <img
             data-cy="favorites-button"
             className="favorites-button-icon"
             src="/assets/white_heart.png"
@@ -79,7 +95,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
                 handleFavoritesLoad();
               }
             }}
-          />
+          /> */}
           <button
             className="font-toggle-button"
             onClick={toggleFont}
