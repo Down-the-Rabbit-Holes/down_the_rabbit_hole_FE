@@ -3,7 +3,7 @@ import NavBar from "../nav_bar/nav_bar.component";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const ParkDetails = () => {
+function ParkDetails() {
   const { state } = useLocation();
   const [park, setPark] = useState(state);
   const [animals, setAnimals] = useState({ data: [] });
@@ -41,32 +41,33 @@ const ParkDetails = () => {
   return (
     <main className="park-details-main" data-cy="park-details-main">
       <NavBar isGamePage={true} isFavoritesClickable={true} />
-      <div className="park-details-details" data-cy="park-details-details">
+      <div className="park-details-header" data-cy="park-details-details">
+        <h1 className="park-name">{park.attributes.name}</h1>
+        {/* <hr /> */}
         <img
           className="parks-details-poster"
           data-cy="parks-details-poster"
           src={`/assets/parks_posters/${park.attributes.name
             .toLowerCase()
-            .replace(/\s+/g, "_")}.jpeg`}
-          alt={`${park.attributes.name} poster`}
+            .replace(/\s+/g, "_")}.jpg`}
+            alt={`${park.attributes.name} poster`}
         />
-        <div className="parks-details-text">
-          <h1 className="park-name">{park.attributes.name}</h1>
-          <hr />
-          <p className="park-description">{park.attributes.description}</p>
-          <h2 className="park-location">
-            Location: {park.attributes.location}
-          </h2>
-          <h2 className="park-annual-visitors">
-            Annual Visitors: {park.attributes.annual_visitors}{" "}
-          </h2>
-          <p className="instructions">
-            Get ready to meet some of {park.attributes.name}’s amazing
-            creatures! Click on any animal to dive into the fascinating food web
-            and see how they connect to the world around them.
-          </p>
-        </div>
       </div>
+      <div className="parks-details-text">
+        <p className="park-description">{park.attributes.description}</p>
+        <h2 className="park-location">
+          Location: {park.attributes.location}
+        </h2>
+        <h2 className="park-annual-visitors">
+          Annual Visitors: {park.attributes.annual_visitors}{" "}
+        </h2>
+        <p className="instructions">
+          Get ready to meet some of {park.attributes.name}’s amazing
+          creatures! Click on any animal to dive into the fascinating food web
+          and see how they connect to the world around them.
+        </p>
+      </div>
+      {/* </div> */}
       <section
         className="park-animals-container"
         data-cy="park-animals-container"

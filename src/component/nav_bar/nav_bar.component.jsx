@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
+function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
   const navigate = useNavigate();
   const [fontMode, setFontMode] = useState("Dyslexic Font");
 
@@ -20,10 +20,11 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
     }
   };
 
+  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
   const handleHomeLoad = () => {
     navigate("/");
   };
-
+  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
   const handleFavoritesLoad = () => {
     navigate("/favorites", { state: favorites });
   };

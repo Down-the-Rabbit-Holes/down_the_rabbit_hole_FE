@@ -3,10 +3,12 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding-top: 150px;
-  background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  padding-top: 100px;
+  /* background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
   background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
-  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
+  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%); */
+  background-color: var(--pale-teal);
+  background-color: white;
   box-sizing: border-box; 
 }
 
@@ -14,32 +16,56 @@
   font-size: 1em; 
 }
 
-.park-details-details {
+.park-details-header {
+  /* border: 2px solid orange; */
   display: flex;
-  font-size: 1.8em;
-  text-align: left;
-  background-color: var(--sky-blue);
+  flex-direction: column;
+  align-items: center;
+  /* font-size: 1.8em; */
+  /* text-align: left; */
+  /* background-color: var(--sky-blue); */
   margin: 0px;
-  padding: 20px;
-  padding-top: 0px;
-  border-radius: 10px;
+  width: 100vw;
+  /* padding: 20px; */
+  /* padding-top: 0px; */
+  /* border-radius: 10px; */
 }
 
+/* hr {
+  height: 2px;
+  border-width: 0;
+  color: black;
+  background-color: black;
+} */
+
+/* .instructions {
+  /* background-color: var(--antique-white); */
+
+
 .parks-details-poster {
-  height: 500px;
-  padding: 10px;
-  padding-top: 40px;
+  object-fit: cover;
+  width: 100vw;
+  height: 60vh;
+  padding: 10px 0;
+  /* padding-top: 40px; */
+}
+
+/* .parks-details-text {
+  padding-top: 0px;
+} */
+
+.park-name {
+  /* padding-top: 10px; */
+  font-size: 5vh;
+  font-weight: bold;
+  color: black;
+  margin: 0;
 }
 
 .parks-details-text {
-  padding-top: 0px;
-}
-
-.park-name {
-  padding-top: 10px;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .park-location, 
@@ -48,6 +74,7 @@
   font-size: 1.2em;
   color: black;
 }
+
 .park-animals-container {
   display: flex;
   flex-wrap: wrap;
@@ -73,7 +100,7 @@
 .animal-card:hover {
   transform: scale(1.05);
   transition: transform 0.2s;
-  box-shadow: 0 0 10px 5px var(--deep-blue);
+  /* box-shadow: 0 0 10px 5px var(--deep-blue); */
 }
 
 .animal-image {
@@ -92,13 +119,9 @@
   padding: .5em;
   font-weight: bold;
   font-size: 1em;
-  background-color: var(--antique-white);
+  background-color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-}
-
-.instructions {
-  background-color: var(--antique-white);
 }
 
 .parks-animals-message {

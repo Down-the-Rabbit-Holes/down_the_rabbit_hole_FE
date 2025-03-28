@@ -1,37 +1,40 @@
 import "./home.css";
 import NavBar from "../../component/nav_bar/nav_bar.component";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+// import { useEffect, useState } from "react";
+import ForwardIcon from '@mui/icons-material/Forward';
+import ParkSelection from "../ParkSelection/ParkSelection.component";
 
-const Home = () => {
-  const navigate = useNavigate();
-  const [parks, setParks] = useState({data: []});
+function Home() {
+  // const navigate = useNavigate();
+  // const [parks, setParks] = useState({data: []});
 
-  useEffect(() => {
-    const fetchParks = async () => {
-      try {
-        const response = await fetch(
-          `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/parks`,
-          // "http://localhost:3001/api/v1/parks"
-        );
-        const data = await response.json();
-        setParks(data);
-      } catch (error) {
-        console.error("Error fetching parks:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchParks = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/parks`,
+  //         // "http://localhost:3001/api/v1/parks"
+  //       );
+  //       const data = await response.json();
+  //       setParks(data);
+  //     } catch (error) {
+  //       console.error("Error fetching parks:", error);
+  //     }
+  //   };
 
-    fetchParks();
-  }, []);
+  //   fetchParks();
+  // }, []);
   
-  const handleParkClick = (parkId, data) => {
-    navigate(`/park-details/${parkId}`, {state: data})
-  };
+  // const handleParkClick = (parkId, data) => {
+  //   navigate(`/park-details/${parkId}`, {state: data})
+  // };
 
   return (
     <main className="home-main" data-cy="home-main">
       <NavBar isFavoritesClickable={true} />
-      <div className="parks-container">
+      {/* <div className="parks-container">
         {parks && parks.data.length > 0 ? (
           parks.data.map((park) => (
             <div
@@ -60,13 +63,27 @@ const Home = () => {
         ) : (
           <p>Loading parks...</p>
         )}
+      </div> */}
+      {/* <p className="main-page-p" data-cy="home-page-instructions">
+        Welcome to Down the Rabbit Hole! Dive into the wonders of nature by selecting a park from our list. Each park page unveils fascinating facts about its unique ecosystem, showcasing the diverse animals that call it home.
+        <br/>
+        <br/>
+        Click a park to start exploring!
+      </p> */}
+      {/* <Routes> */}
+        <Link to={"/park-selection"} element={<ParkSelection/>}>
+            <ForwardIcon sx={{ fontSize: 150 }} className="arrow"/>
+        </Link>
+      {/* </Routes> */}
+      <div className="rabbit-box">
+        <div className="rabbit-instructions">
+          Click on the arrow to journey down the rabbit hole!
+        </div>
       </div>
-      <p className="main-page-p" data-cy="home-page-instructions">
-      Welcome to Down the Rabbit Hole! Dive into the wonders of nature by selecting a park from our list. Each park page unveils fascinating facts about its unique ecosystem, showcasing the diverse animals that call it home.
-      <br/>
-      <br/>
-      Click a park to start exploring!
-      </p>
+      {/* <div className="rabbit-instructions">
+        Click on the arrow to journey down the rabbit hole!
+      </div>
+      <div className="rabbit-box"></div> */}
     </main>
   );
 };

@@ -1,0 +1,51 @@
+.park-selection {
+  padding-top: 80px;
+
+}
+
+.main-page-p {
+  text-align: left;
+  background-color: var(--sky-blue);
+  margin: 0px;
+  padding: 20px;
+  /* border-radius: 10px; */
+}
+
+.parks-container {
+  max-width: 97%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+  overflow-x: auto;
+  /* background-color: var(--pale-teal); */
+  scrollbar-color: gray transparent;
+  scrollbar-width: auto;
+}
+
+.park-item {
+  flex: 0 0 auto;
+  width: 240px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.park-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.parks-poster {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 10px;
+}

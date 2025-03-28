@@ -8,15 +8,19 @@
   right: 0;
   /* border: 1px solid black; */
   /* border: 10px solid var(--seagreen); */
+  /* background-color: var(--pale-teal); */
+  /* background-color: seagreen; */
+  background-color: black;
+  background-color: lightcyan;
   z-index: 10;
-  /* box-shadow: rgba(0, 0, 0, 0.044) 0px 3px 3px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.044) 0px 3px 3px 0px;
 }
 
 .navBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
 }
 
 .nav-title {
@@ -24,6 +28,8 @@
   /* font-size: xxx-large; */
   font-size: 8vh;
   color: rgb(27, 43, 38);
+  /* color: #FBFFE4; */
+  /* color: white; */
   letter-spacing: 1px;
   margin: 0;
   /* cursor: pointer; */
@@ -33,6 +39,7 @@
 .nav-title-clickable{
   font-size: clamp(22px, 3.0vw, 36px);;
   color: rgb(27, 43, 38);
+  color: white;
   letter-spacing: 1px;
   margin: 0;
   cursor: pointer;
@@ -118,6 +125,8 @@
   font-size: clamp(0.8em, 2vw, 25px);
   color: black;
   background-color: var(--vibrant-orange);
+  /* background-color: #FBFFE4;
+  background-color: #B3D8A8; */
   /* letter-spacing: 2px; */
   cursor: pointer;
   margin-right: 20px;
