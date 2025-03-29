@@ -4,10 +4,15 @@
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  background-image: url("../../../public/assets/rabbit-hole.jpg");
+  /* background-image: url("../../../public/assets/rabbit-hole.jpg"); */
+  background-image: url("../../../public/assets/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  /* opacity: 0.5; */
+
+  /* background: url("../../../public/assets/background.jpg") no-repeat center cover; */
+
   /* height: 100vh;
   width: 100vw; */
   /* background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
@@ -20,8 +25,7 @@
   box-sizing: border-box;
 }
 
-.arrow {
-  /* margin-top: 300px; */
+/* .arrow {
   margin-right: 450px;
   transform: rotate(90deg);
   color: darkorange;
@@ -29,49 +33,38 @@
 
 .arrow:hover {
   color: orangered;
-}
-
-.rabbit-instructions {
-  display: none;
-  position: absolute;
-  border-radius: 30px 30px 30px 0;
-  background-color: aliceblue;
-  top: 40px;
-  left: 120%;
-  /* transform: translateX(-50%); */
-  padding: 10px 20px;
-  white-space: nowrap;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.rabbit-instructions::before {
-  content: "";
-  position: absolute;
-  
-  /* background-color: #0074D9; */
-  background-color: transparent;
-  bottom: -50px;
-  left: 0%;
-  height: 50px;
-  width: 16px;
-  border-top-left-radius: 25px;
-  /* box-shadow: 0 -25px 0 0 #001f3f; This is where the magic happens! */
-
-  box-shadow: 0 -25px 0 0 aliceblue;
-}
-
-.rabbit-box {
+} */
+.rabbit-container {
   position: relative;
-  /* background-color: orange; */
-  height: 105px;
-  width: 100px;
-  top: 188px;
-  right: 150px;
+  position: fixed;
+  bottom: 5px; /* Adjust distance from the bottom */
+  right: 100px; /* Adjust distance from the right */
+  display: inline-block; /* Keeps the container size around the image */
+  width: 500px; /* Adjust based on your image */
+  height: 600px;
 }
 
-.rabbit-box:hover .rabbit-instructions {
-  display: block;
+.rabbit-image {
+  width: 100%; /* Ensures the image scales with the container */
+  height: auto;
 }
+
+.overlay-text {
+  position: absolute;
+  top: 50%; /* Centers text vertically */
+  left: 50%; /* Centers text horizontally */
+  top: 16%;
+  left: 42%;
+  transform: translate(-50%, -50%); /* Adjusts to perfect centering */
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
 
 body.dyslexia-font .main-page-p {
   font-size: 17px;
@@ -82,49 +75,3 @@ body.default-font .main-page-p {
   font-size: 26px; 
   text-align: center;
 }
-
-/* .main-page-p {
-  text-align: left;
-  background-color: var(--sky-blue);
-  margin: 0px;
-  padding: 20px;
-  border-radius: 10px;
-} */
-
-/* .parks-container {
-  max-width: 97%;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  padding: 20px;
-  margin-top: 20px;
-  overflow-x: auto;
-  scrollbar-color: gray transparent;
-  scrollbar-width: auto;
-}
-
-.park-item {
-  flex: 0 0 auto;
-  width: 240px;
-  height: 360px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.park-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.parks-poster {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 10px;
-} */
