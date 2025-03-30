@@ -47,7 +47,7 @@ function ParkDetails() {
         <img
           className="parks-details-poster"
           data-cy="parks-details-poster"
-          src={`/assets/parks_posters/${park.attributes.name
+          src={`/assets/park_photos/${park.attributes.name
             .toLowerCase()
             .replace(/\s+/g, "_")}.jpg`}
             alt={`${park.attributes.name} poster`}
