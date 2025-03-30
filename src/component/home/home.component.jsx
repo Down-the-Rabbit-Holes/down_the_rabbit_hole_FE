@@ -12,7 +12,9 @@ function Home() {
       <div className="rabbit-container">
         <Link to={"/park-selection"} element={<ParkSelection/>}>
           <img src="/assets/rabbit-drawing.png" alt="waving rabbit" className="rabbit-image"/>
-          <p className="overlay-text">Welcome! <br></br> Click to journey down <br></br> the rabbit hole!</p>
+          <p className="overlay-text">Welcome! <br></br> 
+          Click here to journey<br></br> 
+          Down the Rabbit Hole!</p>
         </Link>
       </div>
     </main>

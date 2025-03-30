@@ -4,36 +4,13 @@
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  /* background-image: url("../../../public/assets/rabbit-hole.jpg"); */
-  background-image: url("../../../public/assets/background.jpg");
+  background-image: url("../../../public/assets/parks_posters/rocky_mountain_national_park.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* opacity: 0.5; */
-
-  /* background: url("../../../public/assets/background.jpg") no-repeat center cover; */
-
-  /* height: 100vh;
-  width: 100vw; */
-  /* background: -moz-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
-  background: -webkit-linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%);
-  background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%); */
-  /* background-color: var(--light-green-tint); */
-  /* background-color: var(--pale-teal);
-  background-color: white; */
-  /* background-size: 100vh 100vw; */
   box-sizing: border-box;
 }
 
-/* .arrow {
-  margin-right: 450px;
-  transform: rotate(90deg);
-  color: darkorange;
-}
-
-.arrow:hover {
-  color: orangered;
-} */
 .rabbit-container {
   position: relative;
   position: fixed;
@@ -51,11 +28,9 @@
 
 .overlay-text {
   position: absolute;
-  top: 50%; /* Centers text vertically */
-  left: 50%; /* Centers text horizontally */
-  top: 16%;
-  left: 42%;
-  transform: translate(-50%, -50%); /* Adjusts to perfect centering */
+  top: 15%;
+  left: 39%;
+  transform: translate(-50%, -50%) rotate(-5deg); /* Adjusts to perfect centering */
   color: black;
   font-size: 1.5rem;
   font-weight: bold;

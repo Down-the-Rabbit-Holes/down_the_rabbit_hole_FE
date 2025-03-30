@@ -11,7 +11,7 @@
   /* background-color: var(--pale-teal); */
   /* background-color: seagreen; */
   background-color: black;
-  background-color: lightcyan;
+  background-color: seagreen;
   z-index: 10;
   box-shadow: rgba(0, 0, 0, 0.044) 0px 3px 3px 0px;
 }
@@ -26,8 +26,9 @@
 .nav-title {
   /* font-size: clamp(22px, 3.0vw, 36px); */
   /* font-size: xxx-large; */
-  font-size: 8vh;
+  font-size: 4vh;
   color: rgb(27, 43, 38);
+  color: black;
   /* color: #FBFFE4; */
   /* color: white; */
   letter-spacing: 1px;
@@ -39,7 +40,7 @@
 .nav-title-clickable{
   font-size: clamp(22px, 3.0vw, 36px);;
   color: rgb(27, 43, 38);
-  color: white;
+  color: black;
   letter-spacing: 1px;
   margin: 0;
   cursor: pointer;
