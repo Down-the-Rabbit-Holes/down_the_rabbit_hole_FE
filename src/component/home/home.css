@@ -5,6 +5,8 @@
   min-height: 100vh;
   padding-top: 100px;
   background-image: url("../../../public/assets/park_photos/rocky_mountain_national_park.jpg");
+  background-color: rgba(255,255,255,0.2);
+  background-blend-mode: lighten;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,15 +40,4 @@
   border-radius: 10px;
   text-align: center;
   white-space: nowrap; /* Prevents text from wrapping */
-}
-
-
-body.dyslexia-font .main-page-p {
-  font-size: 17px;
-  text-align: center;
-}
-
-body.default-font .main-page-p {
-  font-size: 26px; 
-  text-align: center;
 }

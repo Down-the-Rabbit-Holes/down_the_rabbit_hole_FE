@@ -2,6 +2,9 @@ import "./nav_bar.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
 function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
   const navigate = useNavigate();
@@ -67,15 +70,15 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
             }
           }}
         />
-         <div className='screen-right'>
+        <div className='screen-right'>
           <FavoriteIcon 
             data-cy="favorites-button"
             className="favorites-button-icon"
-            sx={{ fontSize: 45 }}
-            // src="/assets/white_heart.png"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             onClick={isFavoritesClickable ? handleFavoritesLoad : null}
             tabIndex={isFavoritesClickable ? "0" : null}
             role="link"
+            aria-hidden="false"
             aria-label="Go to Favorites"
             onKeyDown={(e) => {
               if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
@@ -83,30 +86,27 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
               }
             }}
           />
-          {/* <img
-            data-cy="favorites-button"
-            className="favorites-button-icon"
-            src="/assets/white_heart.png"
-            onClick={isFavoritesClickable ? handleFavoritesLoad : null}
-            tabIndex={isFavoritesClickable ? "0" : null}
-            role="link"
-            aria-label="Go to Favorites"
-            onKeyDown={(e) => {
-              if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
-                handleFavoritesLoad();
-              }
-            }}
-          /> */}
-          <button
+          <TextFieldsIcon
             className="font-toggle-button"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             onClick={toggleFont}
             tabIndex="0"
+            aria-hidden="false"
             data-cy="font-toggle-button"
             aria-label="Toggle Dyslexia Font"
             aria-pressed={document.body.classList.contains("dyslexia-font")}
-          >
+            >
             {fontMode}
-          </button>
+          </TextFieldsIcon>
+          <VolumeUpIcon 
+            className="volume-up"
+            aria-hidden="false"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+          />
+          {/* <VolumeOffIcon 
+            className="volume-up"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+          /> */}
         </div>
       </nav>
     </div>
