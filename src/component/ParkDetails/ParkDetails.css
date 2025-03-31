@@ -25,34 +25,11 @@
   /* text-align: left; */
   /* background-color: var(--sky-blue); */
   margin: 0px;
-  width: 100vw;
+  width: 100%;
   /* padding: 20px; */
   /* padding-top: 0px; */
   /* border-radius: 10px; */
 }
-
-/* hr {
-  height: 2px;
-  border-width: 0;
-  color: black;
-  background-color: black;
-} */
-
-/* .instructions {
-  /* background-color: var(--antique-white); */
-
-
-.parks-details-poster {
-  object-fit: cover;
-  width: 100vw;
-  height: 60vh;
-  padding: 10px 0;
-  /* padding-top: 40px; */
-}
-
-/* .parks-details-text {
-  padding-top: 0px;
-} */
 
 .park-name {
   /* padding-top: 10px; */
@@ -62,18 +39,46 @@
   margin: 0;
 }
 
-.parks-details-text {
+.parks-details-photo {
+  object-fit: cover;
+  /* width: 100vw; */
+  /* width: 99.1vw; */
+  width: 100%;
+  height: 60vh;
+  padding: 10px 0;
+  /* padding-top: 40px; */
+}
+
+/* .parks-details-text {
+  padding-top: 0px;
+} */
+
+.park-details-text {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  align-items: flex-start;
+  padding: 0 20px;
+  line-height: 25px;
+  /* font-size: medium; */
+  /* font-size: clamp(22px, 1vw, 36px); */
+  font-size: 22px;
+  max-width: 88vw;
+}
+
+/* .parks-details-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  padding: 0 20px;
+} */
 
-.park-location, 
+/* .park-location, 
 .park-annual-visitors, 
 .park-description {
   font-size: 1.2em;
   color: black;
-}
+} */
 
 .park-animals-container {
   display: flex;

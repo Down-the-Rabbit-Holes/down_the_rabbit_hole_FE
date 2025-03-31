@@ -36,7 +36,7 @@ function ParkSelection() {
           <img src="/assets/left-rabbit-drawing.png" alt="waving rabbit" className="details-rabbit-image"/>
           <p className="main-page-p" data-cy="home-page-instructions">
             Dive into the wonders of nature<br/> by selecting a park from the list.<br/>
-            Each park page unveils fascinating facts<br/> about its unique ecosystem,<br/>
+            Each park unveils fascinating facts<br/> about its unique ecosystem,<br/>
             showcasing the diverse animals<br/> that call it home.
             <br/>
             <br/>
