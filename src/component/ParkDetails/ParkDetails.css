@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   padding-top: 100px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 .park-details-header {
@@ -75,7 +75,7 @@
 
 .animal-name {
   width: 93%;
-  font-size: var(--fs-small);
+  font-size: var(--fs-medium);
   text-align: center;
   margin: 0;
   padding: .5em;
