@@ -98,11 +98,11 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
             >
             {fontMode}
           </TextFieldsIcon>
-          <VolumeUpIcon 
+          {/* <VolumeUpIcon 
             className="volume-up"
             aria-hidden="false"
             sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
-          />
+          /> */}
           {/* <VolumeOffIcon 
             className="volume-up"
             sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
