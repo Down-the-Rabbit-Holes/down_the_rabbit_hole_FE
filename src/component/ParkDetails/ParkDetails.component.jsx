@@ -43,7 +43,6 @@ function ParkDetails() {
       <NavBar isGamePage={true} isFavoritesClickable={true} />
       <div className="park-details-header" data-cy="park-details-details">
         <h1 className="park-name">{park.attributes.name}</h1>
-        {/* <hr /> */}
         <img
           className="parks-details-photo"
           data-cy="parks-details-poster"
@@ -53,32 +52,6 @@ function ParkDetails() {
             alt={`${park.attributes.name} poster`}
         />
       </div>
-      {/* <div className="parks-details-text"> */}
-        {/* <p className="park-description">{park.attributes.description}</p> */}
-        {/* <h2 className="park-location">
-          Location: {park.attributes.location}
-        </h2>
-        <h2 className="park-annual-visitors">
-          Annual Visitors: {park.attributes.annual_visitors}{" "}
-        </h2> */}
-
-        {/* <p className="park-location">
-          Location: {park.attributes.location}
-        </p>
-        <p className="park-annual-visitors">
-          Annual Visitors: {park.attributes.annual_visitors}{" "}
-        </p> */}
-        {/* <p className="instructions">
-          Get ready to meet some of {park.attributes.name}’s amazing
-          creatures! Click on any animal to dive into the fascinating food web
-          and see how they connect to the world around them.
-        </p> */}
-        {/* <p className="park-description">
-          {park.attributes.description} <br/>
-          <b>Location: {park.attributes.location}</b> <br/>
-          <b>Annual Visitors: {park.attributes.annual_visitors}{" "}</b> <br/>
-        </p> */}
-        {/* <hr /> */}
         <p className="park-details-text">
           {park.attributes.description} <br/>
           <b>Location: {park.attributes.location}</b>
@@ -87,8 +60,6 @@ function ParkDetails() {
           Click on any animal to dive into the fascinating food web
           and see how they connect to the world around them.
         </p>
-      {/* </div> */}
-      {/* </div> */}
       <section
         className="park-animals-container"
         data-cy="park-animals-container"
