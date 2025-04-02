@@ -17,19 +17,17 @@
 }
 
 .nav-title {
-  /* font-size: 3.5rem; */
   font-size: var(--fs-title);
   color: rgb(27, 43, 38);
   color: black;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   margin: 0;
-  /* cursor: pointer; */
   margin-left: 20px;
 }
 
 .nav-title-clickable {
-  font-size: clamp(22px, 3.0vw, 36px);
-  color: rgb(27, 43, 38);
+  font-size: var(--fs-title);
+  /* color: rgb(27, 43, 38); */
   color: black;
   letter-spacing: 1px;
   margin: 0;
@@ -54,7 +52,6 @@
   width: 50px;
   margin-right: 20px;
   font-size: 45px !important;
-  /* transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out; */
   will-change: transform, filter, color;
 }
 
@@ -62,7 +59,6 @@
   filter: brightness(1.2); 
   transform: scale(1.4);
   color: PaleVioletRed;
-  /* transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out, color 0.3s ease-in-out; */
 }
 
 .font-toggle-button,
@@ -84,65 +80,19 @@
 }
 
 /* Tablets */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   
-
-  /* body.dyslexia-font .nav-title {
-    font-size: 1.5rem;
-  } */
-}
+} */
 
 /* Responsive */
 /* mobile (320px-480px), tablets (768px-1024px), and desktops (1200px and above) */
 /* 768, 480, 375 */
 
 /* Smaller Mobile */
-@media screen and (max-width: 375px) {
+/* @media screen and (max-width: 375px) {
   
-}
-
-
-@media screen and (max-width: 1514px) {
-  /* .my-save-view {
-    font-size: 2.5vw;
-  } */
-}
-
-/* .home-button-icon {
-  display: none;
-  cursor: pointer;
 } */
 
-@media screen and (max-width: 1000px) {
-  /* .my-save-view {
-    font-size: 2.5vw;
-  } */
-}
-
-@media screen and (max-width: 800px) {
-  /* .favorites-button-icon {
-    display: block;
-    height: 50px;
-    width: 50px;
-    margin-right: 30px;
-  } */
-
-  /* .my-save-view {
-    display: none;
-  } */
-}
-
-@media screen and (max-width: 445px) {
-  /* .home-button-icon {
-    display: block;
-    height: 60px;
-    width: 60px;
-  }
-
-  h1 {
-    display: none;
-  } */
-}
 
 body.dyslexia-font .font-toggle-button {
   font-size: clamp(1em, 3.5vw, 30px);
@@ -153,10 +103,4 @@ body.dyslexia-font .font-toggle-button {
 body:not(.dyslexia-font) .font-toggle-button {
   font-size: clamp(0.8em, 2vw, 25px);
   font-family: 'OpenDyslexia';
-}
-
-@media screen and (max-width: 800px) {
-  /* .font-toggle-button {
-    margin-right: 30px;
-  } */
 }
