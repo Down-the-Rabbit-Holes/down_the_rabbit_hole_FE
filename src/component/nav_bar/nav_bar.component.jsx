@@ -56,7 +56,7 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
             Down The Rabbit Hole
           </h1>
         )}
-        <img
+        {/* <img
           data-cy="home-button"
           className="home-button-icon"
           src="/assets/home_icon.png"
@@ -69,7 +69,7 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
               handleHomeLoad();
             }
           }}
-        />
+        /> */}
         <div className='screen-right'>
           <FavoriteIcon 
             data-cy="favorites-button"

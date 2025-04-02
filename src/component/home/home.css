@@ -16,15 +16,15 @@
 .rabbit-container {
   position: relative;
   position: fixed;
-  bottom: 5px; /* Adjust distance from the bottom */
-  right: 100px; /* Adjust distance from the right */
-  display: inline-block; /* Keeps the container size around the image */
-  width: 500px; /* Adjust based on your image */
+  bottom: 5px;
+  right: 100px;
+  display: inline-block;
+  width: 500px;
   height: 600px;
 }
 
 .rabbit-image {
-  width: 100%; /* Ensures the image scales with the container */
+  width: 100%;
   height: auto;
 }
 
@@ -32,12 +32,47 @@
   position: absolute;
   top: 15%;
   left: 39%;
-  transform: translate(-50%, -50%) rotate(-5deg); /* Adjusts to perfect centering */
+  transform: translate(-50%, -50%) rotate(-5deg);
   color: black;
-  font-size: 1.5rem;
+  font-size: var(--fs-medium);
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 10px;
   text-align: center;
-  white-space: nowrap; /* Prevents text from wrapping */
+  white-space: nowrap;
+}
+
+/* Responsive */
+/* mobile (320px-480px), tablets (768px-1024px), and desktops (1200px and above) */
+/* 768, 480, 375 */
+
+/* Tablets */
+/* @media screen and (max-width: 768px) {
+
+} */
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .rabbit-container {
+    right: 0;
+    width: 400px;
+    height: 500px;
+  }
+
+  .overlay-text {
+    top: 13%;
+  }
+}
+
+/* Smaller Mobile */
+@media screen and (max-width: 375px) {
+  .rabbit-container {
+    right: 0;
+    width: 300px;
+    height: 400px;
+  }
+
+  .overlay-text {
+    top: 11%;
+  }
 }
