@@ -1,7 +1,8 @@
 :root {
-  --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem);
+  /* --fs-xl: clamp(3.5rem, 12vw + 1rem, 6.5rem); */
+  /* --fs-xl: 3.5rem; */
   --fs-title: clamp(1.2rem, 1.5vw + 1rem, 3.25rem);
-  --fs-large: 2rem;
+  --fs-large: 3.5rem;
   --fs-medium: 1.5rem;
   --fs-small: 1rem;
 }
@@ -12,8 +13,10 @@
 
 @media screen and (max-width: 480px) {
   :root {
+    /* --fs-xl: 3.2rem; */
+
     --fs-large: 3rem;
-    /* --fs-medium: 1.5rem; */
+    --fs-medium: 1rem;
     --fs-small: 0.9rem;
   }
 
@@ -25,8 +28,8 @@
 
 @media screen and (max-width: 375px) {
   :root {
-    --fs-large: 3rem;
-    --fs-medium: 1.3rem;
+    --fs-large: 2rem;
+    /* --fs-medium: 1.3rem; */
     --fs-small: 0.85rem;
   }
 
