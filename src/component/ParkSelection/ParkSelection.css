@@ -1,0 +1,221 @@
+.park-selection {
+  margin-top: 80px;
+  height: 91.5vh;
+  display: flex;
+  justify-content: flex-end;
+  background-image: url("../../../public/assets/rabbit-hole-bg.jpg");
+  background-color: rgba(255,255,255,0.2);
+  background-blend-mode: lighten;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.details-rabbit-container {
+  position: relative;
+  position: fixed;
+  bottom: 25px;
+  left: 100px;
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+}
+
+.details-rabbit-image {
+  width: 100%;
+  height: auto;
+}
+
+.main-page-p {
+  position: absolute;
+  top: 25%;
+  left: 51%;
+  transform: translate(-50%, -50%) rotate(2deg);
+  color: black;
+
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+body.dyslexia-font .main-page-p {
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+body.default-font .main-page-p {
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.parks-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 30px;
+  padding: 20px;
+  height: 87vh;
+  width: 60vw;
+  overflow: auto;
+  left: 20%;
+}
+
+.park-item {
+  flex: 0 0 auto;
+  width: 240px;
+  height: 395px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.park-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.parks-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.park-poster-name {
+  background-color: orange;
+  margin: 0;
+  width: 93%;
+  text-align: center;
+  margin: 0;
+  padding: .5em;
+  font-weight: bold;
+  line-height: 1;
+  font-size: var(--fs-small);
+  background-color: white;
+}
+
+/* @media screen and (max-width: 1459px) {
+  .parks-container {
+    gap: 10px;
+  }
+
+  .details-rabbit-container {
+    width: 400px;
+    height: 400px;
+    left: 37px;
+  }
+
+  body.default-font .main-page-p {
+    font-size: 0.9rem;
+  }
+
+  body.dyslexia-font .main-page-p {
+    font-size: 0.85rem;
+  }
+} */
+
+@media screen and (max-width: 1024px) {
+  .park-selection {
+    height: 94.1vh;
+    overflow: hidden;
+  }
+
+  .details-rabbit-container {
+    width: 500px;
+    height: 500px;
+    bottom: 2px;
+  }
+
+  .parks-container {
+    height: 55vh;
+    padding: 0;
+    width: 100vw;
+    gap: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: scroll;
+  }
+
+  .park-item{
+    width: 235px;
+    height: 390px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .park-selection {
+    height: 100vh;
+  }
+
+  .details-rabbit-container {
+    bottom: 2px;
+  }
+
+  .parks-container {
+    height: 45vh;
+    padding: 0;
+    width: 100vw;
+    gap: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .park-item{
+    width: 235px;
+    height: 390px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .details-rabbit-container {
+    width: 400px;
+    height: 400px;
+    left: 0;
+  }
+
+  body.default-font .main-page-p {
+    font-size: 1rem;
+  }
+
+  body.dyslexia-font .main-page-p {
+    font-size: 0.95rem;
+  }
+
+  .park-item{
+    height: 350px;
+    width: 190px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .details-rabbit-container {
+    width: 300px;
+    height: 300px;
+    left: 37px;
+  }
+
+  body.default-font .main-page-p {
+    font-size: 0.7rem;
+  }
+
+  body.dyslexia-font .main-page-p {
+    font-size: 0.75rem;
+  }
+
+  .parks-container {
+    height: 40vh;
+  }
+
+  .park-item{
+    height: 255px;
+    width: 140px;
+  }
+}

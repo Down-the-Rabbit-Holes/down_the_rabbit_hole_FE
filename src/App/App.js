@@ -5,6 +5,7 @@ import Home from "../component/home/home.component";
 import GamePlay from '../component/GamePlay/GamePlay.component';
 import FavoritesView from '../component/Favorites/Favorites.component';
 import ParkDetails from '../component/ParkDetails/ParkDetails.component';
+import ParkSelection from '../component/ParkSelection/ParkSelection.component';
 
 function App() {
   const [favorites, setFavorites] = useState([])
@@ -35,6 +36,7 @@ function App() {
     } catch (error) {
       console.error('Error fetching favorites:', error);
       setErrorMessage('An error occurred while fetching favorites data');
+      // console.error('Error fetching favorites:', errorMessage);
     }
   };
 
@@ -43,6 +45,8 @@ function App() {
       <Routes>
         <Route path="/" 
           element={<Home/>} />
+        <Route path="/park-selection" 
+          element={<ParkSelection/>} />
         <Route path="/park-details/:park" 
           element={<ParkDetails favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/game" 

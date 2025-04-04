@@ -1,8 +1,12 @@
 import "./nav_bar.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
-const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
+function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
   const navigate = useNavigate();
   const [fontMode, setFontMode] = useState("Dyslexic Font");
 
@@ -19,10 +23,11 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
     }
   };
 
+  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
   const handleHomeLoad = () => {
     navigate("/");
   };
-
+  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
   const handleFavoritesLoad = () => {
     navigate("/favorites", { state: favorites });
   };
@@ -51,7 +56,7 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
             Down The Rabbit Hole
           </h1>
         )}
-        <img
+        {/* <img
           data-cy="home-button"
           className="home-button-icon"
           src="/assets/home_icon.png"
@@ -64,15 +69,16 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
               handleHomeLoad();
             }
           }}
-        />
-         <div className='screen-right'>
-          <img
+        /> */}
+        <div className='screen-right'>
+          <FavoriteIcon 
             data-cy="favorites-button"
             className="favorites-button-icon"
-            src="/assets/white_heart.png"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             onClick={isFavoritesClickable ? handleFavoritesLoad : null}
             tabIndex={isFavoritesClickable ? "0" : null}
             role="link"
+            aria-hidden="false"
             aria-label="Go to Favorites"
             onKeyDown={(e) => {
               if (isFavoritesClickable && (e.key === "Enter" || e.key === " ")) {
@@ -80,16 +86,27 @@ const NavBar = ({ favorites, isGamePage, isFavoritesClickable }) => {
               }
             }}
           />
-          <button
+          <TextFieldsIcon
             className="font-toggle-button"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             onClick={toggleFont}
             tabIndex="0"
+            aria-hidden="false"
             data-cy="font-toggle-button"
             aria-label="Toggle Dyslexia Font"
             aria-pressed={document.body.classList.contains("dyslexia-font")}
-          >
+            >
             {fontMode}
-          </button>
+          </TextFieldsIcon>
+          {/* <VolumeUpIcon 
+            className="volume-up"
+            aria-hidden="false"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+          /> */}
+          {/* <VolumeOffIcon 
+            className="volume-up"
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+          /> */}
         </div>
       </nav>
     </div>
