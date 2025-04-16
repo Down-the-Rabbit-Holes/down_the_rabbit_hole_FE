@@ -2,7 +2,7 @@ describe('Main Page', () => {
   beforeEach(() => {    
     cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites', {
     });
-    cy.visit('https://down-the-rabbit-hole.netlify.app/')
+    cy.visit('http://localhost:3000/');
   });
 
   it('displays NavBar on page load', () => {
@@ -10,9 +10,13 @@ describe('Main Page', () => {
   });
 
   it('clicking on My Favorites takes user to Favorites', () => {
-
     cy.get('[data-cy="favorites-button"]').first().click();
     cy.url().should('include', '/favorites');
+  });
+
+  it('clicking the font button toggles the dyslexic font', () => {
+    cy.get('[data-cy="font-toggle-button"]').click();
+    cy.get('[data-cy="title"]').should('have.css', 'font-family', 'OpenDyslexia, -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif')
   });
 
   it('clicking on Down The Rabbit Hole keeps user on main page', () => {
@@ -21,25 +25,26 @@ describe('Main Page', () => {
   });
 
   it('displays game start image and instructions on load', () => {
-    cy.get('[data-cy="game-start-image"]').should('be.visible');
-    cy.get('[data-cy="home-page-instructions"]').should('contain', 'Click the bunny to discover fascinating facts about them and the intricate food web they belong to!');
+    cy.get('.rabbit-image').should('be.visible');
+    cy.get('.overlay-text').should('contain', 'Welcome!')
+      .should('contain', 'Click here to journey')
+      .should('contain', 'Down the Rabbit Hole!');
   });
 
-  it('clicking on game start image takes user to Game page with rabbit data', () => {
-    cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=rabbit', {
-    })
-    cy.get('[data-cy="game-start-image"]').click();
-    cy.url().should('include', '/game');
-    cy.url().should('include', 'animal_name=rabbit');
+  it('clicking on game start image takes user to Park Selection component', () => {
+    cy.get('.rabbit-image').should('be.visible').click();
+    cy.url().should('include', '/park-selection');
   });
 
-  it('allows navigating to Game page by pressing Enter or Space on game start image', () => {
-    cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/animals?action_type=start&name=rabbit', {
-    })
-    cy.get('[data-cy="game-start-image"]').focus().type('{enter}');
-    cy.url().should('include', '/game');
-    cy.visit('https://down-the-rabbit-hole.netlify.app/'); // Reset to main page
-    cy.get('[data-cy="game-start-image"]').focus().type(' ');
-    cy.url().should('include', '/game');
+  it('allows navigating to Park Selection by pressing Enter or Space on rabbit image image', () => {
+    cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/parks', {
+    });
+
+    cy.get('[data-cy="start-button"]').focus().type('{enter}');
+    cy.url().should('include', '/park-selection');
+
+    cy.visit('http://localhost:3000/');
+    cy.get('[data-cy="start-button"]').focus().type(' ');
+    cy.url().should('include', '/park-selection'); 
   });
 });
