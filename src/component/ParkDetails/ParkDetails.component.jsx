@@ -52,14 +52,25 @@ function ParkDetails() {
             alt={`${park.attributes.name} poster`}
         />
       </div>
+      <section className="park-details-info">
         <p className="park-details-text">
           {park.attributes.description} <br/>
           <b>Location: {park.attributes.location}</b>
           <b>Annual Visitors: {park.attributes.annual_visitors}</b> <br/>
-          Get ready to meet some of {park.attributes.name}’s amazing creatures!
+          Get ready to meet some of {park.attributes.name}’s amazing creatures!<br/> 
           Click on any animal to dive into the fascinating food web
           and see how they connect to the world around them.
         </p>
+        <div className="park-rabbit-container">
+          <img src="/assets/rabbit-drawing.png" alt="waving rabbit" className="park-rabbit-image"/>
+          <p className="park-overlay-text">
+            Click on an animal!
+            {/* Get ready to meet some of {park.attributes.name}’s amazing creatures!<br/> 
+            Click on any animal to dive into the fascinating food web<br/> 
+            and see how they connect to the world around them. */}
+          </p>
+        </div>
+      </section>
       <section
         className="park-animals-container"
         data-cy="park-animals-container"
