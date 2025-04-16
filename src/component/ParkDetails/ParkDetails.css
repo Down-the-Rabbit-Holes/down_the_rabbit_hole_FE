@@ -5,6 +5,7 @@
   min-height: 100vh;
   padding-top: 100px;
   box-sizing: border-box;
+  /* background-color: #e8f7ee; */
 }
 
 .park-details-header {
@@ -28,13 +29,54 @@
   padding: 10px 0;
 }
 
+.park-details-info {
+  display: flex;
+  padding: 0 20px;
+  max-width: 88vw;
+}
+
 .park-details-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   font-size: var(--fs-medium);
-  max-width: 88vw;
+  max-width: 65vw;
+}
+
+.park-rabbit-container {
+  position: relative;
+  /* position: fixed; */
+  /* bottom: 5px; */
+  /* right: 100px; */
+  display: inline-block;
+  width: 500px;
+  /* height: 600px; */
+}
+
+.park-rabbit-image {
+  width: 100%;
+  height: auto;
+}
+
+.park-overlay-text {
+  position: absolute;
+  top: 13%;
+  left: 40%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  color: black;
+  /* font-size: var(--fs-medium); */
+  font-size: var(--fs-pd-rabbit);
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  /* white-space: nowrap; */
+  white-space: wrap;
+}
+
+body.dyslexia-font .park-overlay-text {
+  line-height: 1;
 }
 
 .park-animals-container {
@@ -47,6 +89,7 @@
 }
 
 .animal-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -81,6 +124,7 @@
   padding: .5em;
   font-weight: bold;
   background-color: seagreen;
+  background-color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -88,4 +132,44 @@
 .parks-animals-message {
   font-size: var(--fs-medium);
   color: black;
+}
+
+@media screen and (max-width: 820px) {
+  .park-details-info {
+    flex-direction: column;
+  }
+
+  .park-details-text {
+    max-width: 80vw;
+  }
+
+  .park-animals-container {
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .park-rabbit-container {
+    width: 300px;
+  }
+
+  .park-overlay-text {
+    top: 16%;
+  }
+
+  .animal-card {
+    width: 175px;
+    height: 275px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .animal-card {
+    width: 125px;
+    height: 225px;
+  }
+
+  .animal-name {
+    padding: 5px;
+  }
 }
