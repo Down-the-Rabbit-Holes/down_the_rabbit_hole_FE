@@ -34,7 +34,7 @@ function ParkSelection() {
       <NavBar isGamePage={true} isFavoritesClickable={true} />
         <div className='details-rabbit-container'>
           <img src="/assets/left-rabbit-drawing.png" alt="waving rabbit" className="details-rabbit-image"/>
-          <p className="main-page-p" data-cy="home-page-instructions">
+          <p className="selection-page-p" data-cy="selection-page-instructions">
             Dive into the wonders of nature<br/> by selecting a park from the list.<br/>
             Each park unveils fascinating facts<br/> about its unique ecosystem,<br/>
             showcasing the diverse animals<br/> that call it home.

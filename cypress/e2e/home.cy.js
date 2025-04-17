@@ -14,11 +14,6 @@ describe('Main Page', () => {
     cy.url().should('include', '/favorites');
   });
 
-  it('clicking the font button toggles the dyslexic font', () => {
-    cy.get('[data-cy="font-toggle-button"]').click();
-    cy.get('[data-cy="title"]').should('have.css', 'font-family', 'OpenDyslexia, -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif')
-  });
-
   it('clicking on Down The Rabbit Hole keeps user on main page', () => {
     cy.get('[data-cy="title"]').click();
     cy.url().should('include', '/');

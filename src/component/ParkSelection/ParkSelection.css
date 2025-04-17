@@ -26,7 +26,7 @@
   height: auto;
 }
 
-.main-page-p {
+.selection-page-p {
   position: absolute;
   top: 25%;
   left: 51%;
@@ -40,12 +40,12 @@
   white-space: nowrap;
 }
 
-body.dyslexia-font .main-page-p {
+body.dyslexia-font .selection-page-p {
   font-size: 1.15rem;
   line-height: 1.5;
 }
 
-body.default-font .main-page-p {
+body.default-font .selection-page-p {
   font-size: 1.3rem;
   line-height: 1.4;
 }
@@ -181,11 +181,11 @@ body.default-font .main-page-p {
     left: 0;
   }
 
-  body.default-font .main-page-p {
+  body.default-font .selection-page-p {
     font-size: 1rem;
   }
 
-  body.dyslexia-font .main-page-p {
+  body.dyslexia-font .selection-page-p {
     font-size: 0.95rem;
   }
 
@@ -202,11 +202,11 @@ body.default-font .main-page-p {
     left: 37px;
   }
 
-  body.default-font .main-page-p {
+  body.default-font .selection-page-p {
     font-size: 0.7rem;
   }
 
-  body.dyslexia-font .main-page-p {
+  body.dyslexia-font .selection-page-p {
     font-size: 0.75rem;
   }
 
