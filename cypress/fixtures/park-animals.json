@@ -1,0 +1,343 @@
+{
+"data": [
+    {
+        "id": "17",
+        "type": "animal",
+        "attributes": {
+            "name": "Abert's Squirrel",
+            "scientific_name": "Sciurus aberti",
+            "photo_url": "https://images.pexels.com/photos/8365761/pexels-photo-8365761.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+            "description": "A tree squirrel distinguished by its long ear tufts.",
+            "group_name": "dray or scurry",
+            "baby_name": "kit",
+            "top_speed": "12 mph",
+            "life_span": "7 years",
+            "weight": "1.5 lbs",
+            "height": "6 inches",
+            "length": "1.5 ft",
+            "habitat": "Ponderosa pine forests",
+            "fun_fact": "Abert's squirrels depend on ponderosa pine for both food and shelter.",
+            "animal_type": "mammal",
+            "diet": "Herbivore"
+        },
+        "relationships": {
+            "prey": {
+                "data": []
+            },
+            "predators": {
+                "data": [
+                    {
+                        "id": "7",
+                        "type": "animal"
+                    },
+                    {
+                        "id": "10",
+                        "type": "animal"
+                    },
+                    {
+                        "id": "15",
+                        "type": "animal"
+                    },
+                    {
+                        "id": "23",
+                        "type": "animal"
+                    }
+                ]
+            },
+            "parks": {
+                "data": [
+                    {
+                        "id": "6",
+                        "type": "park"
+                    },
+                    {
+                        "id": "5",
+                        "type": "park"
+                    },
+                    {
+                        "id": "4",
+                        "type": "park"
+                    },
+                    {
+                        "id": "2",
+                        "type": "park"
+                    },
+                    {
+                        "id": "1",
+                        "type": "park"
+                    }
+                ]
+            }
+        }
+    },
+    {
+      "id": "13",
+      "type": "animal",
+      "attributes": {
+          "name": "Cottontail Rabbit",
+          "scientific_name": "Sylvilagus nuttallii",
+          "photo_url": "https://images.pexels.com/photos/2285996/pexels-photo-2285996.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+          "description": "A small rabbit with a distinctive white tail, commonly found in open habitats.",
+          "group_name": "herd or colony",
+          "baby_name": "kit or bunny",
+          "top_speed": "18 mph",
+          "life_span": "3 years",
+          "weight": "2.5 lbs",
+          "height": "1.2 ft",
+          "length": "14 in",
+          "habitat": "Grasslands, shrubs, and lowland forests",
+          "fun_fact": "Mountain Cottontails often use their tail to signal alarm when danger approaches.",
+          "animal_type": "mammal",
+          "diet": "Herbivore"
+      },
+      "relationships": {
+          "prey": {
+              "data": []
+          },
+          "predators": {
+              "data": [
+                  {
+                      "id": "2",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "7",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "10",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "15",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "21",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "23",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "24",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "25",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "28",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "36",
+                      "type": "animal"
+                  },
+                  {
+                      "id": "70",
+                      "type": "animal"
+                  }
+              ]
+          },
+          "parks": {
+            "data": [
+                {
+                    "id": "6",
+                    "type": "park"
+                },
+                {
+                    "id": "5",
+                    "type": "park"
+                },
+                {
+                    "id": "4",
+                    "type": "park"
+                },
+                {
+                    "id": "1",
+                    "type": "park"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "7",
+          "type": "animal",
+          "attributes": {
+              "name": "Coyote",
+              "scientific_name": "Canis latrans",
+              "photo_url": "https://images.pexels.com/photos/1603783/pexels-photo-1603783.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+              "description": "A versatile canine known for its intelligence and adaptability.",
+              "group_name": "band, pack, or rout",
+              "baby_name": "pup",
+              "top_speed": "43 mph",
+              "life_span": "10 years",
+              "weight": "30 lbs",
+              "height": "2 ft",
+              "length": "4.5 ft",
+              "habitat": "Grasslands, forests, mountains",
+              "fun_fact": "Coyotes communicate using a variety of howls, yips, and barks.",
+              "animal_type": "mammal",
+              "diet": "Omnivore"
+          },
+          "relationships": {
+              "prey": {
+                  "data": [
+                      {
+                          "id": "1",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "4",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "5",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "6",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "8",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "9",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "11",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "12",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "13",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "15",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "16",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "17",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "18",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "19",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "20",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "21",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "22",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "29",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "30",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "31",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "36",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "47",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "66",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "69",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "72",
+                          "type": "animal"
+                      }
+                  ]
+              },
+              "predators": {
+                  "data": [
+                      {
+                          "id": "2",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "10",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "14",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "70",
+                          "type": "animal"
+                      }
+                  ]
+              },
+              "parks": {
+                  "data": [
+                      {
+                          "id": "6",
+                          "type": "park"
+                      },
+                      {
+                          "id": "5",
+                          "type": "park"
+                      },
+                      {
+                          "id": "3",
+                          "type": "park"
+                      },
+                      {
+                          "id": "4",
+                          "type": "park"
+                      },
+                      {
+                          "id": "2",
+                          "type": "park"
+                      },
+                      {
+                          "id": "1",
+                          "type": "park"
+                      }
+                  ]
+              }
+          }
+      }
+  ]
+}

@@ -42,6 +42,16 @@
   /* padding: 0 20px; */
   font-size: var(--fs-medium);
   max-width: 65vw;
+  list-style: none;
+}
+
+.bold-info {
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+.spaced-info {
+  margin-top: 1.25em;
 }
 
 .park-rabbit-container {
