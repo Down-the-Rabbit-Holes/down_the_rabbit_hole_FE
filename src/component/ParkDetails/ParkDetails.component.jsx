@@ -53,21 +53,18 @@ function ParkDetails() {
         />
       </div>
       <section className="park-details-info">
-        <p className="park-details-text">
-          {park.attributes.description} <br/>
-          <b>Location: {park.attributes.location}</b>
-          <b>Annual Visitors: {park.attributes.annual_visitors}</b> <br/>
-          Get ready to meet some of {park.attributes.name}’s amazing creatures!<br/> 
-          Click on any animal to dive into the fascinating food web
-          and see how they connect to the world around them.
-        </p>
+        <ul className="park-details-text">
+          <li>{park.attributes.description}</li>
+          <li className="bold-info">Location: {park.attributes.location}</li>
+          <li className="bold-info">Annual Visitors: {park.attributes.annual_visitors}</li>
+          <li className="spaced-info">Get ready to meet some of {park.attributes.name}’s amazing creatures!</li>
+          <li>Click on any animal to dive into the fascinating food web
+          and see how they connect to the world around them.</li>
+        </ul>
         <div className="park-rabbit-container">
           <img src="/assets/rabbit-drawing.png" alt="waving rabbit" className="park-rabbit-image"/>
           <p className="park-overlay-text">
             Click on an animal!
-            {/* Get ready to meet some of {park.attributes.name}’s amazing creatures!<br/> 
-            Click on any animal to dive into the fascinating food web<br/> 
-            and see how they connect to the world around them. */}
           </p>
         </div>
       </section>

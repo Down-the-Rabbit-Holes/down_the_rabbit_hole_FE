@@ -1,0 +1,148 @@
+{
+  "data": [
+      {
+          "id": "1",
+          "type": "park",
+          "attributes": {
+              "name": "Great Smoky Mountains National Park",
+              "location": "Tennessee/North Carolina",
+              "description": "Known for its mist-covered mountains, diverse plant and animal life, and rich history, this park is America’s most visited, offering a blend of scenic beauty and cultural heritage.",
+              "annual_visitors": "13.3 million visitors"
+          },
+          "relationships": {
+              "animals": {
+                  "data": [
+                      {
+                          "id": "2",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "3",
+                          "type": "animal"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "id": "2",
+          "type": "park",
+          "attributes": {
+              "name": "Grand Canyon National Park",
+              "location": "Arizona",
+              "description": "Famous for its massive, awe-inspiring canyon carved by the Colorado River, this iconic park attracts visitors for hiking, rafting, and stunning vistas.",
+              "annual_visitors": "4.7 million visitors"
+          },
+          "relationships": {
+              "animals": {
+                  "data": [
+                      {
+                          "id": "2",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "3",
+                          "type": "animal"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "id": "3",
+          "type": "park",
+          "attributes": {
+              "name": "Zion National Park",
+              "location": "Utah",
+              "description": "With towering sandstone cliffs, canyons, and trails like Angel’s Landing, Zion is a haven for adventurous hikers and nature lovers.",
+              "annual_visitors": "4.6 million visitors"
+          },
+          "relationships": {
+              "animals": {
+                  "data": [
+                      {
+                          "id": "2",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "5",
+                          "type": "animal"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "id": "4",
+          "type": "park",
+          "attributes": {
+              "name": "Yellowstone National Park",
+              "location": "Wyoming/Montana/Idaho",
+              "description": "The first national park in the world, Yellowstone features geothermal wonders like Old Faithful, as well as abundant wildlife including bison and grizzly bears.",
+              "annual_visitors": "4.5 million visitors"
+          },
+          "relationships": {
+              "animals": {
+                  "data": [
+                      {
+                          "id": "1",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "2",
+                          "type": "animal"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "id": "5",
+          "type": "park",
+          "attributes": {
+              "name": "Yosemite National Park",
+              "location": "California",
+              "description": "Famous for its granite cliffs, waterfalls, and giant sequoias, Yosemite is a paradise for outdoor enthusiasts and photographers alike.",
+              "annual_visitors": "3.9 million visitors"
+          },
+          "relationships": {
+              "animals": {
+                  "data": [
+                      {
+                          "id": "2",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "5",
+                          "type": "animal"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "id": "6",
+          "type": "park",
+          "attributes": {
+              "name": "Rocky Mountain National Park",
+              "location": "Colorado",
+              "description": "Known for its high-altitude trails, alpine lakes, and towering peaks, Rocky Mountain National Park offers breathtaking views and diverse ecosystems.",
+              "annual_visitors": "4.1 million visitors"
+          },
+          "relationships": {
+              "animals": {
+                  "data": [
+                      {
+                          "id": "1",
+                          "type": "animal"
+                      },
+                      {
+                          "id": "2",
+                          "type": "animal"
+                      }
+                  ]
+              }
+          }
+      }
+  ]
+}
