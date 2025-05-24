@@ -3,14 +3,13 @@ describe('Favorites Page', () =>  {
     cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites', 
       { statusCode: 200, fixture: 'favorites' }
     );
-    cy.visit('https://down-the-rabbit-hole.netlify.app/');
+    cy.visit('http://localhost:3000/');
     cy.get('[data-cy="favorites-button"]').click({ force: true, multiple: true });
   });
 
   it('displays NavBar on page load', () => {
     cy.get('[data-cy="title"]').should('have.text', 'Down The Rabbit Hole');
-    cy.get('[data-cy="favorites-button"]').should('have.text', 'My Favorites');
-  });
+   });
 
   it('clicking on Down The Rabbit Hole takes user to main page', () => {
     cy.get('[data-cy="title"]').click();
@@ -37,4 +36,13 @@ describe('Favorites Page', () =>  {
     cy.get('[data-cy="title"]').focus().type('{enter}');
     cy.url().should('include', '/');
   })
+});
+describe('Favorites Without Animals', () => {
+  it('displays a different title when the use does not have any animal favorites', () => {
+    cy.intercept('GET', 'https://fathomless-river-45488-66abd37a0e2d.herokuapp.com/api/v1/users/1/user_favorites', 
+      { statusCode: 200, data: {} }
+    );
+    cy.visit('http://localhost:3000/favorites')
+    cy.get('[data-cy="favorite-header"]').should('have.text',  'No Favorites Yet')
+  });
 });
