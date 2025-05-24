@@ -13,4 +13,23 @@
   --antique-white: hsl(34, 78%, 91%);
   --icy-mint: hsl(150, 30%, 85%);
 
+  --shadow-color: 0deg 0% 0%;
+  --shadow-elevation-low:
+    0px 0.5px 0.6px hsl(var(--shadow-color) / 0.08),
+    0px 0.9px 1.1px -1px hsl(var(--shadow-color) / 0.1),
+    0px 2.1px 2.5px -2px hsl(var(--shadow-color) / 0.11);
+  --shadow-elevation-medium:
+    0px 0.5px 0.6px hsl(var(--shadow-color) / 0.09),
+    0px 1.9px 2.3px -0.7px hsl(var(--shadow-color) / 0.1),
+    -0.1px 4.4px 5.3px -1.3px hsl(var(--shadow-color) / 0.11),
+    -0.2px 10.3px 12.4px -2px hsl(var(--shadow-color) / 0.12);
+  --shadow-elevation-high:
+    0px 0.5px 0.6px hsl(var(--shadow-color) / 0.08),
+    -0.1px 3.5px 4.2px -0.3px hsl(var(--shadow-color) / 0.09),
+    -0.1px 6.4px 7.7px -0.6px hsl(var(--shadow-color) / 0.09),
+    -0.2px 10.1px 12.1px -0.9px hsl(var(--shadow-color) / 0.1),
+    -0.3px 15.6px 18.7px -1.1px hsl(var(--shadow-color) / 0.1),
+    -0.5px 23.8px 28.6px -1.4px hsl(var(--shadow-color) / 0.11),
+    -0.7px 35.4px 42.5px -1.7px hsl(var(--shadow-color) / 0.11),
+    -1px 51.5px 61.8px -2px hsl(var(--shadow-color) / 0.12);
 }

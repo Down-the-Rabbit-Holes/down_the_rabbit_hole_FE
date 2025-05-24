@@ -13,6 +13,7 @@
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .nav-title {
