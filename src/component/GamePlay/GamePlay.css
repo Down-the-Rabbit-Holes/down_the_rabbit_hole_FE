@@ -235,6 +235,7 @@ li {
   box-sizing: border-box;
   cursor: pointer;
   top: 0;
+  border-color: hsl(231deg 28% 86%);
 }
 
 input:checked + .love-heart,
@@ -256,6 +257,7 @@ input:checked + .love-heart .bottom {
   right: -9px;
   transform: rotate(90deg);
   top: 7px;
+  border-color: hsl(231deg 28% 86%);
 }
 
 .love-heart .bottom {
