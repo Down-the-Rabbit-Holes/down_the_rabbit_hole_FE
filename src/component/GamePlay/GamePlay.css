@@ -41,6 +41,8 @@
 .game-animal-name {
   text-align: center;
   font-size: var(--fs-large);
+  font-size: 3rem;
+  line-height: 4rem;
   margin: 25px 10px 10px;
 }
 
@@ -76,6 +78,10 @@ li {
   line-height: 2.35rem;
   font-weight: 600;
   letter-spacing: 0.05rem;
+}
+
+body.dyslexia-font li {
+  font-size: 1.2rem;
 }
 
 /* === Buttons === */
@@ -123,9 +129,9 @@ li {
   align-items: center;
   background-color: var(--peach-orange);
   padding: 20px;
-  /* border-radius: 10px; */
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  max-width: 900px;
+  max-width: 885px;
   max-height: 80vh;
   overflow-y: auto;
   gap: 20px;
@@ -172,14 +178,14 @@ li {
 }
 
 .predator-card p {
-  font-size: var(--fs-medium);
+  /* font-size: var(--fs-medium); */
   font-size: 1.35rem;
   font-weight: bold;
   /* max-width: 150px; */
   width: 200px;
   text-align: center;
   height: 3em;
-  line-height: 3rem;
+  line-height: 1.7rem;
   word-wrap: break-word;
   /* padding: 5px; */
   background-color: white;
