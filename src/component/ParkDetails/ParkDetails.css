@@ -5,7 +5,7 @@
   min-height: 100vh;
   padding-top: 100px;
   box-sizing: border-box;
-  /* background-color: #e8f7ee; */
+  background-color: mintcream;
 }
 
 .park-details-header {
@@ -109,7 +109,7 @@ body.dyslexia-font .park-overlay-text {
   height: 325px;
   overflow: hidden;
   border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .animal-card:hover {

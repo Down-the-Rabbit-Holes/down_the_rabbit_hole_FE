@@ -1,25 +1,29 @@
+/* === Layout === */
 .game-play-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between;  */
-  justify-content: flex-start; 
-  min-height: 100vh; 
-  box-sizing: border-box; 
-  padding: 100px 0 0;
-  /* background: linear-gradient(to bottom, var(--pale-teal) 0%, var(--light-green-tint) 100%); */
-  background: var(--light-green-tint);
-  /* background: white; */
+  justify-content: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 100px;
+  background-color: mintcream;
+}
+
+.animal-header,
+.clickables {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clickables {
+  flex-wrap: wrap;
 }
 
 .animal-header {
-  display: flex;
-  /* flex-direction: row; */
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100px;
-  /* margin-top: 20px; */
 }
 
 .animal-container {
@@ -28,81 +32,53 @@
   align-items: stretch;
   justify-content: center;
   width: 100%;
-  height: auto;
   margin-bottom: 20px;
+
+  /* height: 500px; */
+}
+
+/* === Animal Info === */
+.game-animal-name {
+  text-align: center;
+  font-size: var(--fs-large);
+  margin: 25px 10px 10px;
+}
+
+.animal-pic {
+  width: auto;
+  height: auto;
+  /* max-width: 25em; */
+  max-width: 50em;
+  /* max-height: 25em; */
+  max-height: 38em;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-left: 5px;
+  /* border: px solid seagreen; */
+
 }
 
 .facts-section {
   flex: 1;
   max-width: 50vw;
-  font-size: 2.3vh;
-  /* background-color: var(--antique-white); */
+  /* font-size: var(--fs-small); */
   background-color: white;
-  /* background: var(--light-green-tint); */
-
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border: 1px solid seagreen;
+  /* border-left: none; */
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
+  border-radius: 0 10px 10px 0;
   margin-right: 5px;
 }
 
-@media screen and (max-width: 1404px) {
-  .facts-section {
-    font-size: 2.3vh;
-  }
+li {
+  font-size: var(--fs-medium);
+  line-height: 2.35rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
 }
 
-@media screen and (max-width: 1050px) {
-  .facts-section {
-    font-size: 2vh;
-    width: 70vw;
-  }
-}
-
-@media screen and (max-width: 930px) {
-  .animal-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .animal-pic {
-    max-width: 37.5em;
-    max-height: 25em;
-    border-radius: 10px;
-  }
-
-  .facts-section {
-    width: 90vw; 
-    max-width: none;
-    border-radius: 10px;
-  }
-}
-
-.clickables {
-  display: flex;
-  flex-direction:row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.game-animal-name {
-  text-align: center;
-  font-size: 40px;
-  margin: 10px;
-  margin-top: 25px;
-  /* color: var(--deep-blue); */
-}
-
-.animal-pic { 
-  width: auto;
-  height: auto;
-  max-width: 25em;
-  max-height: 25em;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  margin-left: 5px;
-}
-
+/* === Buttons === */
 .draw-me-button,
 .eat-me-button {
   display: flex;
@@ -110,13 +86,14 @@
   align-items: center;
   border: none;
   border-radius: 8px;
-  background-color: var(--vibrant-orange);
+  background-color: var(--peach-orange);
   height: 70px;
   width: 300px;
-  font-size: 50px;
+  /* font-size: 50px; */
+  font-size: var(--fs-button);
+  font-family: inherit;
   cursor: pointer;
   margin: 10px;
-  font-family: inherit;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
@@ -126,10 +103,7 @@
   transform: translateY(-3px);
 }
 
-.draw-me-button {
-  font-size: 40px;
-}
-
+/* === Modal === */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -139,7 +113,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
@@ -147,14 +121,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--soft-orange);
+  background-color: var(--peach-orange);
   padding: 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  max-width: 600px;
+  max-width: 900px;
   max-height: 80vh;
   overflow-y: auto;
   gap: 20px;
+}
+
+#predators-header,
+#prey-header {
+  /* font-size: var(--fs-title); */
+  font-size: 2.5rem;
 }
 
 #yt-content {
@@ -163,55 +143,68 @@
   padding: 30px;
 }
 
+/* === Prey/Predator Cards === */
 .prey-container,
 .predators-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
+  align-items: baseline;
+  justify-content: space-evenly;
+  gap: 20px;
+  gap: 42px;
 }
-
 
 .predator-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1em;
-  height: auto;
-  max-height: 300px;
+  margin: 8px 20px;
+  max-height: 350px;
   width: 150px;
-  padding: 20px;
+  padding: 15px;
+  padding: 0;
+  /* transition: transform 0.5s ease, box-shadow 0.5s ease; */
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
 .predator-card p {
+  font-size: var(--fs-medium);
+  font-size: 1.35rem;
   font-weight: bold;
-  max-width: 150px;
-  word-wrap: break-word;
+  /* max-width: 150px; */
+  width: 200px;
   text-align: center;
   height: 3em;
+  line-height: 3rem;
+  word-wrap: break-word;
+  /* padding: 5px; */
+  background-color: white;
+  margin: 0;
+  border-radius: 0 0 10px 10px;
 }
 
 .predator-image {
-  width: 170px;
+  width: 200px;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  box-shadow: 0px 0px 10px black;
+  /* box-shadow: 0px 0px 10px black; */
+  /* transition: transform 0.5s ease, box-shadow 0.5s ease; */
 }
 
-.predator-image:hover
-{
+.predator-card:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 20px var(--sky-blue);
+  /* box-shadow: 0px 0px 20px var(--sky-blue); */
   cursor: pointer;
 }
 
-.love{
+/* === Favorite Heart === */
+.love {
   width: 75px;
   cursor: pointer;
   margin-top: 20px;
@@ -232,63 +225,14 @@
   border-top-right-radius: 100px;
   width: 10px;
   height: 8px;
-  border-bottom: 0
-}
-
-.round {
-  position: absolute;
-  z-index: 1;
-  width: 8px;
-  height: 8px;
-  background: hsl(0deg 0% 100%);
-  box-shadow: rgb(0 0 0 / 24%) 0px 0px 4px 0px;
-  border-radius: 100%;
-  left: 0px;
-  bottom: -1px;
-  transition: all .5s ease;
-  animation: check-animation2 .5s forwards;
-}
-
-input:checked + label .round {
-  transform: translate(0px, 0px);
-  animation: check-animation .5s forwards;
-  background-color: hsl(0deg 0% 100%);
-}
-
-@keyframes check-animation {
-  0% {
-  transform: translate(0px, 0px);
-  }
-
-  50% {
-  transform: translate(0px, 7px);
-  }
-
-  100% {
-  transform: translate(7px, 7px);
-  }
-}
-
-@keyframes check-animation2 {
-  0% {
-  transform: translate(7px, 7px);
-  }
-
-  50% {
-  transform: translate(0px, 7px);
-  }
-
-  100% {
-  transform: translate(0px, 0px);
-  }
+  border-bottom: 0;
 }
 
 .love-heart {
-  box-sizing: border-box;
   position: relative;
   transform: rotate(-45deg) translate(-50%, -33px) scale(4);
   display: block;
-  border-color: hsl(231deg 28% 86%);
+  box-sizing: border-box;
   cursor: pointer;
   top: 0;
 }
@@ -306,7 +250,6 @@ input:checked + .love-heart .bottom {
   display: block;
   box-sizing: border-box;
   position: absolute;
-  border-color: hsl(231deg 28% 86%);
 }
 
 .love-heart::after {
@@ -320,21 +263,99 @@ input:checked + .love-heart .bottom {
   height: 11px;
   border-left: 1px solid;
   border-bottom: 1px solid;
-  border-color: hsl(231deg 28% 86%);
   left: -1px;
   top: 5px;
-  border-radius: 0px 0px 0px 5px;
+  border-radius: 0 0 0 5px;
+  border-color: hsl(231deg 28% 86%);
 }
 
-/* Standard Font */
-.game-play-section .facts-section {
+.round {
+  position: absolute;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  background: white;
+  box-shadow: rgb(0 0 0 / 24%) 0px 0px 4px;
+  border-radius: 100%;
+  left: 0;
+  bottom: -1px;
+  transition: all 0.5s ease;
+  animation: check-animation2 0.5s forwards;
+}
+
+input:checked + label .round {
+  transform: translate(0, 0);
+  animation: check-animation 0.5s forwards;
+  background-color: white;
+}
+
+@keyframes check-animation {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, 7px); }
+  100% { transform: translate(7px, 7px); }
+}
+
+@keyframes check-animation2 {
+  0% { transform: translate(7px, 7px); }
+  50% { transform: translate(0, 7px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* === Accessibility Font Sizes === */
+/* .game-play-section .facts-section {
   font-size: clamp(10px, 2.3vw, 20px);
 }
 
-/* Dyslexia Font (15:25 ratio) */
 body.dyslexia-font .game-play-section .facts-section {
   font-size: clamp(10px, 1.5vw, 13px);
+} */
+
+/* === Media Queries === */
+@media screen and (max-width: 1404px) {
+  /* .facts-section {
+    font-size: 2.3vh;
+  } */
 }
 
+@media screen and (max-width: 1050px) {
+  .facts-section {
+    /* font-size: 2vh; */
+    width: 70vw;
+    overflow: scroll;
+    max-height: 607px;
+  }
 
+  body.dyslexia-font li {
+    font-size: 1.25rem;
+  }
+}
 
+@media screen and (max-width: 930px) {
+  .facts-section {
+    max-height: none;
+  }
+
+  body.dyslexia-font li {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .animal-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .animal-pic {
+    width: 90vw;
+    border-radius: 10px;
+    margin: 0;
+  }
+
+  .facts-section {
+    width: 90vw;
+    max-width: none;
+    border-radius: 10px;
+    margin: 0;
+  }
+}

@@ -4,12 +4,19 @@
   --fs-large: 3.5rem;
   --fs-medium: 1.5rem;
   --fs-small: 1rem;
-
+  --fs-button: 3rem;
+}
+body.dyslexia-font {
+  --fs-button: 2.5rem;
 }
 
 @media screen and (max-width: 820px) {
   :root {
     --fs-pd-rabbit: 2.3rem;
+    --fs-medium: 1.25rem;
+  }
+  body.dyslexia-font {
+    --fs-medium: 1rem;
   }
 }
 

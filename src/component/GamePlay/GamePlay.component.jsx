@@ -273,7 +273,10 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
         </section>
       ))
     ) : (
-      <p className="no-prey-message" data-cy="no-prey-message"> {currentAnimal?.attributes?.name}s does not hunt other animals for food. We will soon be adding information about plants, nectar, and other food sources so you can learn more about the diets of non-predatory animals.</p> 
+      <p className="no-prey-message" data-cy="no-prey-message"> 
+      {currentAnimal?.attributes?.name}s does not hunt other animals for food. 
+      We will soon be adding information about plants, nectar, and other food sources 
+      so you can learn more about the diets of non-predatory animals.</p> 
   );
 
   const attributes = currentAnimal?.attributes;
@@ -364,7 +367,7 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 playButtonAudio();
               }}
             >
-              Eat!
+              Eat
             </button>
             <button
               className="eat-me-button"
@@ -374,14 +377,14 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 playButtonAudio();
               }}
             >
-              Eat Me!
+              Eat Me
             </button>
             <button
               className="draw-me-button"
               data-cy="how-to-draw-button"
               onClick={openYTModal}
               >
-              Draw Me!
+              Draw Me
             </button>
           </section>
 
