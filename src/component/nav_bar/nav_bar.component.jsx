@@ -1,13 +1,14 @@
 import "./nav_bar.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
-function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
+function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [fontMode, setFontMode] = useState("Dyslexic Font");
 
   const toggleFont = () => {
@@ -22,20 +23,24 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
       setFontMode("Dyslexia Font");
     }
   };
+  const isHomePage = location.pathname === "/";
 
-  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
   const handleHomeLoad = () => {
     navigate("/");
   };
-  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
+
   const handleFavoritesLoad = () => {
     navigate("/favorites", { state: favorites });
   };
 
+  function volumeToggle() {
+    setAudio(!audio);
+  }
+
   return (
     <div className="nav-wrapper" data-cy="nav-bar">
       <nav className="navBar">
-        {!isGamePage ? (
+        {isHomePage ? (
           <h1 className="nav-title" data-cy="title">
             Down The Rabbit Hole
           </h1>
@@ -56,20 +61,6 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
             Down The Rabbit Hole
           </h1>
         )}
-        {/* <img
-          data-cy="home-button"
-          className="home-button-icon"
-          src="/assets/home_icon.png"
-          onClick={handleHomeLoad}
-          tabIndex="0"
-          role="link"
-          aria-label="Go to Home"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              handleHomeLoad();
-            }
-          }}
-        /> */}
         <div className='screen-right'>
           <FavoriteIcon 
             data-cy="favorites-button"
@@ -90,7 +81,13 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
             className="font-toggle-button"
             sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             onClick={toggleFont}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                toggleFont();
+              }
+            }}
             tabIndex="0"
+            role="button"
             aria-hidden="false"
             data-cy="font-toggle-button"
             aria-label="Toggle Dyslexia Font"
@@ -98,15 +95,34 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
             >
             {fontMode}
           </TextFieldsIcon>
-          {/* <VolumeUpIcon 
-            className="volume-up"
-            aria-hidden="false"
-            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
-          /> */}
-          {/* <VolumeOffIcon 
-            className="volume-up"
-            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
-          /> */}
+          { audio ? 
+            <VolumeOffIcon 
+              className="volume-up"
+              tabIndex="0"
+              aria-hidden="false"
+              aria-label="Mute Audio"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  volumeToggle();
+                }
+              }}
+              onClick={volumeToggle}
+              sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+            /> :
+            <VolumeUpIcon 
+              className="volume-up"
+              tabIndex="0"
+              aria-hidden="false"
+              aria-label="Unmute Audio"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  volumeToggle();
+                }
+              }}
+              onClick={volumeToggle}
+              sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+            />
+          }
         </div>
       </nav>
     </div>

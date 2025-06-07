@@ -1,6 +1,5 @@
 import "./GamePlay.css";
 import React, { useEffect, useState } from "react";
-import NavBar from "../nav_bar/nav_bar.component";
 import YTPlayer from "../YTPlayer/YTPlayer.jsx"
 import { useSearchParams } from "react-router-dom";
 
@@ -20,7 +19,7 @@ function normalizeAnimalData(animalData) {
   };
 }
 
-function GamePlay({ favorites, setFavorites, errorMessage }) {
+function GamePlay({ favorites, setFavorites, errorMessage, audio }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const animalName = searchParams.get("animal_id");
   const [currentAnimal, setCurrentAnimal] = useState(null);
@@ -282,18 +281,17 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
   const attributes = currentAnimal?.attributes;
 
   function playButtonAudio() {
-    let audio = new Audio("/assets/audio/munch-sound-effect.mp3");
-    audio.play();
+    if (!audio) return;
+
+    let munch = new Audio("/assets/audio/munch-sound-effect.mp3");
+    if (audio) {
+      munch.play();
+    }
   }
 
   return (
     <section className="game-play-section" data-cy="GamePlay-section">
       {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <NavBar
-        isGamePage={true}
-        isFavoritesClickable={true}
-        favorites={favorites}
-      />
       {attributes ? (
         <>
           <div className="animal-header">
@@ -306,13 +304,15 @@ function GamePlay({ favorites, setFavorites, errorMessage }) {
                 type="checkbox"
                 checked={isFavorited}
                 onChange={handleToggleFavorite}
-                
+                aria-hidden="true"
               />
               <label
                 className="love-heart"
+                aria-pressed={isFavorited}
+                aria-label="Toggle favorite"
                 htmlFor="switch"
                 tabIndex="0"
-                aria-label="Toggle favorite"
+                role="button"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     handleToggleFavorite();

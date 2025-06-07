@@ -1,6 +1,7 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import NavBar from "../component/nav_bar/nav_bar.component";
 import Home from "../component/home/home.component";
 import GamePlay from '../component/GamePlay/GamePlay.component';
 import FavoritesView from '../component/Favorites/Favorites.component';
@@ -9,6 +10,7 @@ import ParkSelection from '../component/ParkSelection/ParkSelection.component';
 
 function App() {
   const [favorites, setFavorites] = useState([])
+  const [audio, setAudio] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
@@ -42,6 +44,7 @@ function App() {
 
   return (
     <div>
+      <NavBar isHomePage={true} isFavoritesClickable={true} favorites={favorites} audio={audio} setAudio={setAudio}/>
       <Routes>
         <Route path="/" 
           element={<Home/>} />
@@ -50,7 +53,7 @@ function App() {
         <Route path="/park-details/:park" 
           element={<ParkDetails favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/game" 
-          element={<GamePlay favorites={favorites} setFavorites={setFavorites}/>} />
+          element={<GamePlay favorites={favorites} setFavorites={setFavorites} audio={audio}/>} />
         <Route path="/favorites" 
           element={<FavoritesView favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="*" element={<h2>Cannot find anything under that route</h2>} />
