@@ -1,5 +1,4 @@
 import "./Favorites.css";
-import NavBar from "../../component/nav_bar/nav_bar.component";
 import { useNavigate } from "react-router-dom";
 
 const FavoritesView = ({ favorites, setFavorites }) => {
@@ -37,7 +36,6 @@ const FavoritesView = ({ favorites, setFavorites }) => {
 
   return (
     <main data-cy="favorite-main" className="favorite-main">
-      <NavBar isGamePage={true} isFavoritesClickable={true} />
       <div className="animal-list" data-cy="animal-list">
         <h2 data-cy="favorite-header" className="favorite-header">
           {favorites.length > 0 ? "My Favorites" : "No Favorites Yet"}

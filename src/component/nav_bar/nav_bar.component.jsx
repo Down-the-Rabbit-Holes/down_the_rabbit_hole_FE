@@ -1,13 +1,14 @@
 import "./nav_bar.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
-function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
+function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [fontMode, setFontMode] = useState("Dyslexic Font");
 
   const toggleFont = () => {
@@ -22,6 +23,7 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
       setFontMode("Dyslexia Font");
     }
   };
+  const isHomePage = location.pathname === "/";
 
   // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
   const handleHomeLoad = () => {
@@ -32,10 +34,14 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
     navigate("/favorites", { state: favorites });
   };
 
+  function volumeToggle() {
+    setAudio(!audio);
+  }
+
   return (
     <div className="nav-wrapper" data-cy="nav-bar">
       <nav className="navBar">
-        {!isGamePage ? (
+        {isHomePage ? (
           <h1 className="nav-title" data-cy="title">
             Down The Rabbit Hole
           </h1>
@@ -98,15 +104,19 @@ function NavBar({ favorites, isGamePage, isFavoritesClickable }) {
             >
             {fontMode}
           </TextFieldsIcon>
-          {/* <VolumeUpIcon 
+          { audio ? 
+            <VolumeOffIcon 
             className="volume-up"
+            onClick={volumeToggle}
+            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+            /> :
+            <VolumeUpIcon 
+            className="volume-up"
+            onClick={volumeToggle}
             aria-hidden="false"
             sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
-          /> */}
-          {/* <VolumeOffIcon 
-            className="volume-up"
-            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
-          /> */}
+            />
+          }
         </div>
       </nav>
     </div>

@@ -1,8 +1,6 @@
 import './ParkSelection.css'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from "../nav_bar/nav_bar.component";
-
 
 function ParkSelection() {
   const navigate = useNavigate();
@@ -31,7 +29,6 @@ function ParkSelection() {
 
   return (
     <main className='park-selection'>
-      <NavBar isGamePage={true} isFavoritesClickable={true} />
         <div className='details-rabbit-container'>
           <img src="/assets/left-rabbit-drawing.png" alt="waving rabbit" className="details-rabbit-image"/>
           <p className="selection-page-p" data-cy="selection-page-instructions">

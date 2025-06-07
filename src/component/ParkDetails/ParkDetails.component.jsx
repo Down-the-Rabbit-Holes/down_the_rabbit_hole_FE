@@ -1,5 +1,4 @@
 import "./ParkDetails.css";
-import NavBar from "../nav_bar/nav_bar.component";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -40,7 +39,6 @@ function ParkDetails() {
 
   return (
     <main className="park-details-main" data-cy="park-details-main">
-      <NavBar isGamePage={true} isFavoritesClickable={true} />
       <div className="park-details-header" data-cy="park-details-details">
         <h1 className="park-name">{park.attributes.name}</h1>
         <img
@@ -88,7 +86,6 @@ function ParkDetails() {
             >
               <img
                 src={animal.attributes.photo_url}
-                // alt={animal.attributes.name}
                 alt=""
                 className="animal-image"
               />
