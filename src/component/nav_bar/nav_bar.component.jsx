@@ -87,6 +87,7 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
               }
             }}
             tabIndex="0"
+            role="button"
             aria-hidden="false"
             data-cy="font-toggle-button"
             aria-label="Toggle Dyslexia Font"
@@ -98,6 +99,8 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
             <VolumeOffIcon 
               className="volume-up"
               tabIndex="0"
+              aria-hidden="false"
+              aria-label="Mute Audio"
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   volumeToggle();
@@ -109,6 +112,8 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
             <VolumeUpIcon 
               className="volume-up"
               tabIndex="0"
+              aria-hidden="false"
+              aria-label="Unmute Audio"
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   volumeToggle();

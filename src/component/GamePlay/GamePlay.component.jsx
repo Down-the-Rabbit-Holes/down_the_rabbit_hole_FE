@@ -304,13 +304,15 @@ function GamePlay({ favorites, setFavorites, errorMessage, audio }) {
                 type="checkbox"
                 checked={isFavorited}
                 onChange={handleToggleFavorite}
-                
+                aria-hidden="true"
               />
               <label
                 className="love-heart"
+                aria-pressed={isFavorited}
+                aria-label="Toggle favorite"
                 htmlFor="switch"
                 tabIndex="0"
-                aria-label="Toggle favorite"
+                role="button"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     handleToggleFavorite();
