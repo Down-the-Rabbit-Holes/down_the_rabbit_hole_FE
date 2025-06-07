@@ -45,21 +45,20 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
             Down The Rabbit Hole
           </h1>
         ) : (
-          <h1
-            className="nav-title-clickable"
-            data-cy="title"
-            tabIndex="0"
+          <h1 className="nav-title-clickable" data-cy="title">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              handleHomeLoad();
+            }}
             role="link"
             aria-label="Navigate to Home"
-            onClick={handleHomeLoad}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                handleHomeLoad();
-              }
-            }}
+            tabIndex="0"
           >
             Down The Rabbit Hole
-          </h1>
+          </a>
+        </h1>
         )}
         <div className='screen-right'>
           <FavoriteIcon 
@@ -99,6 +98,7 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
             <VolumeOffIcon 
               className="volume-up"
               tabIndex="0"
+              role="button"
               aria-hidden="false"
               aria-label="Mute Audio"
               onKeyDown={(e) => {
@@ -112,6 +112,7 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
             <VolumeUpIcon 
               className="volume-up"
               tabIndex="0"
+              role="button"
               aria-hidden="false"
               aria-label="Unmute Audio"
               onKeyDown={(e) => {

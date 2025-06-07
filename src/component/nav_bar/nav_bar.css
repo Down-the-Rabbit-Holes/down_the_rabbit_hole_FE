@@ -24,9 +24,10 @@
   margin-left: 20px;
 }
 
-.nav-title-clickable {
+.nav-title-clickable a {
   font-size: var(--fs-title);
   color: black;
+  text-decoration: none;
   letter-spacing: 1px;
   margin: 0;
   cursor: pointer;
@@ -34,7 +35,7 @@
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.nav-title-clickable:hover {
+.nav-title-clickable a:hover {
   color: mintcream;
 }
 
