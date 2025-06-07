@@ -30,7 +30,7 @@
 
 .overlay-text {
   position: absolute;
-  top: 15%;
+  top: 17%;
   left: 39%;
   transform: translate(-50%, -50%) rotate(-5deg);
   color: black;
@@ -39,31 +39,10 @@
   padding: 10px 20px;
   border-radius: 10px;
   text-align: center;
-  /* text-decoration: none; */
+  text-decoration: none;
   white-space: nowrap;
 }
-/* .rabbit-overlay {
-  border: 1px solid orange;
-  border-radius: 100px;
-  height: 200px;
-  width: 375px;
-  position: absolute;
-  top: 19%;
-  left: 39%;
-  transform: translate(-50%, -50%) rotate(-5deg);
-  cursor: pointer;
-} */
 
-/* Responsive */
-/* mobile (320px-480px), tablets (768px-1024px), and desktops (1200px and above) */
-/* 768, 480, 375 */
-
-/* Tablets */
-/* @media screen and (max-width: 768px) {
-
-} */
-
-/* Mobile */
 @media screen and (max-width: 480px) {
   .rabbit-container {
     right: 0;
@@ -74,15 +53,8 @@
   .overlay-text {
     top: 13%;
   }
-
-  /* .rabbit-overlay {
-    height: 150px;
-    width: 300px;
-    top: 20%;
-  } */
 }
 
-/* Smaller Mobile */
 @media screen and (max-width: 375px) {
   .rabbit-container {
     right: 0;
@@ -93,10 +65,4 @@
   .overlay-text {
     top: 11%;
   }
-
-  /* .rabbit-overlay {
-    height: 120px;
-    width: 250px;
-    top: 17%;
-  } */
 }

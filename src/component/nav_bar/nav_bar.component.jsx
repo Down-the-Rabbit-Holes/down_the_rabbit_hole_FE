@@ -25,11 +25,10 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
   };
   const isHomePage = location.pathname === "/";
 
-  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
   const handleHomeLoad = () => {
     navigate("/");
   };
-  // THESE NEED TO CHANGE TO BE LINKS AND NOT USENAVIGATE
+
   const handleFavoritesLoad = () => {
     navigate("/favorites", { state: favorites });
   };
@@ -62,20 +61,6 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
             Down The Rabbit Hole
           </h1>
         )}
-        {/* <img
-          data-cy="home-button"
-          className="home-button-icon"
-          src="/assets/home_icon.png"
-          onClick={handleHomeLoad}
-          tabIndex="0"
-          role="link"
-          aria-label="Go to Home"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              handleHomeLoad();
-            }
-          }}
-        /> */}
         <div className='screen-right'>
           <FavoriteIcon 
             data-cy="favorites-button"
@@ -96,6 +81,11 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
             className="font-toggle-button"
             sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             onClick={toggleFont}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                toggleFont();
+              }
+            }}
             tabIndex="0"
             aria-hidden="false"
             data-cy="font-toggle-button"
@@ -106,15 +96,26 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
           </TextFieldsIcon>
           { audio ? 
             <VolumeOffIcon 
-            className="volume-up"
-            onClick={volumeToggle}
-            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+              className="volume-up"
+              tabIndex="0"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  volumeToggle();
+                }
+              }}
+              onClick={volumeToggle}
+              sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             /> :
             <VolumeUpIcon 
-            className="volume-up"
-            onClick={volumeToggle}
-            aria-hidden="false"
-            sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
+              className="volume-up"
+              tabIndex="0"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  volumeToggle();
+                }
+              }}
+              onClick={volumeToggle}
+              sx={{ transition: "transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out" }}
             />
           }
         </div>
