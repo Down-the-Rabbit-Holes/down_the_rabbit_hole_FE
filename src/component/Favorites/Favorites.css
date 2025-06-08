@@ -1,7 +1,7 @@
 .favorite-main {
   display: flex;
   flex-direction: column;
-  background-color: mintcream;
+  background-color: var(--mint-cream);
 }
 
 .favorite-animal-pic {

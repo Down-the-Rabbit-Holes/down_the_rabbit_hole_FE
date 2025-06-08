@@ -1,19 +1,11 @@
 :root {
-  --seagreen: hsl(146, 50%, 36%);
-  --fresh-green: hsl(87, 49%, 52%);
-  --vibrant-orange: hsl(38, 90%, 57%);
-  --soft-orange: hsl(36, 73%, 63%);
-  /* --peach-orange: #e78f63; */
-  --peach-orange: #d2b48c;
-  --pale-teal: hsl(180, 44%, 83%);
-  --light-green-tint: hsl(94, 33%, 82%);
-  --sky-blue: hsl(203, 92%, 75%);
-  --aqua-blue: hsl(197, 100%, 47%);
-  --deep-blue: hsl(211, 85%, 35%);
+  --seagreen: rgb(46, 139, 87);
+  --tan: #d2b48c;
   --bright-pink: hsl(347deg 99% 72%);
   --soft-pink: hsl(347deg 81% 61%);
-  --antique-white: hsl(34, 78%, 91%);
-  --icy-mint: hsl(150, 30%, 85%);
+  --pale-red: rgb(219, 112, 147);
+  --mint-cream: rgb(245, 255, 250);
+  --light-blue: hsl(231deg 28% 86%);
 
   --shadow-color: 0deg 0% 0%;
   --shadow-elevation-low:

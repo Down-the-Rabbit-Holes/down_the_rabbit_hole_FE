@@ -7,7 +7,7 @@
   min-height: 100vh;
   box-sizing: border-box;
   padding-top: 100px;
-  background-color: mintcream;
+  background-color: var(--mint-cream);
 }
 
 .animal-header,
@@ -58,7 +58,7 @@
   flex: 1;
   max-width: 50vw;
   background-color: white;
-  border: 1px solid seagreen;
+  border: 1px solid var(--seagreen);
   border-radius: 0 10px 10px 0;
   margin-right: 5px;
 }
@@ -82,7 +82,7 @@ body.dyslexia-font li {
   align-items: center;
   border: none;
   border-radius: 8px;
-  background-color: var(--peach-orange);
+  background-color: var(--tan);
   height: 70px;
   width: 300px;
   font-size: var(--fs-button);
@@ -116,7 +116,7 @@ body.dyslexia-font li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--peach-orange);
+  background-color: var(--tan);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -205,7 +205,7 @@ body.dyslexia-font li {
 
 .love-heart,
 .love-heart::after {
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
   border: 1px solid;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
@@ -221,7 +221,7 @@ body.dyslexia-font li {
   box-sizing: border-box;
   cursor: pointer;
   top: 0;
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
 }
 
 input:checked + .love-heart,
@@ -243,7 +243,7 @@ input:checked + .love-heart .bottom {
   right: -9px;
   transform: rotate(90deg);
   top: 7px;
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
 }
 
 .love-heart .bottom {
@@ -254,7 +254,7 @@ input:checked + .love-heart .bottom {
   left: -1px;
   top: 5px;
   border-radius: 0 0 0 5px;
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
 }
 
 .round {

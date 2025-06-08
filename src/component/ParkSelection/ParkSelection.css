@@ -71,7 +71,6 @@ body.default-font .selection-page-p {
   justify-content: space-between;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 10px;
@@ -90,7 +89,6 @@ body.default-font .selection-page-p {
 }
 
 .park-poster-name {
-  background-color: orange;
   margin: 0;
   width: 93%;
   text-align: center;
