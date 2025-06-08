@@ -11,9 +11,11 @@ Down the Rabbit Hole is an engaging and educational web application primarily de
 
 <img src="./public/assets/home-view.png" alt="Home page view" width="50%">
 
-<img src="./public/assets/component-architecture.png" alt="Home page view" width="50%">
+<img src="./public/assets/component-architecture.png" alt="Component Architecture" width="50%">
 
-<img src="./public/assets/mockup.png" alt="Home page view" width="50%">
+<img src="./public/assets/mockup.png" alt="Application Mockup" width="50%">
+
+<img src="./public/assets/mvp-mockup.png" alt="MVP Mockup" width="50%">
 
 
 

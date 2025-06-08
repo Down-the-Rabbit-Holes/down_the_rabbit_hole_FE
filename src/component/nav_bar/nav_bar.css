@@ -39,6 +39,12 @@
   color: var(--mint-cream);
 }
 
+@media screen and (max-width: 480px) {
+  .nav-title-clickable a {
+    margin-left: 1px;
+  }
+}
+
 .screen-right {
   display: flex;
   align-items: center
