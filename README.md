@@ -9,11 +9,13 @@
 
 Down the Rabbit Hole is an engaging and educational web application primarily designed for elementary students but enjoyable for all ages. The platform immerses users in the fascinating world of animals and their ecosystems, allowing them to search through various national parks to discover unique creatures and learn about their habitats and behaviors. Users can explore an animal’s role in the food chain by viewing its predators and prey, with the ability to click through and learn about each connection. A creative “How to Draw the Animal” feature adds a hands-on element, making learning fun and interactive. Additionally, users can save their favorite animals for later research with the convenient favorites button. Whether for young learners, nature enthusiasts, or aspiring artists, Down the Rabbit Hole offers an enriching and accessible experience.
 
-<img src="./public/assets/home.png" alt="Home page view" width="50%">
+<img src="./public/assets/home-view.png" alt="Home page view" width="50%">
 
-<img src="./public/assets/components.png" alt="Home page view" width="40%">
+<img src="./public/assets/component-architecture.png" alt="Component Architecture" width="50%">
 
-<img src="./public/assets/mvp-mocKup.png" alt="Home page view" width="50%">
+<img src="./public/assets/mockup.png" alt="Application Mockup" width="50%">
+
+<img src="./public/assets/mvp-mockup.png" alt="MVP Mockup" width="50%">
 
 
 
@@ -72,19 +74,19 @@ FE - Built with React and tested with Cypress -->
 
 ### Overview
 
-<img src="./public/assets/main-play.gif" alt="Home page view" width="50%">
+<img src="./public/assets/overview-gif.gif" alt="Home page view" width="50%">
 
 ### Accessibility
 
-<img src="./public/assets/accessibility.gif" alt="Home page view" width="50%">
+<img src="./public/assets/accessibility-gif.gif" alt="Home page view" width="50%">
 
 ### Animal Details
 
-<img src="./public/assets/game-play-and-favorites.gif" alt="Home page view" width="50%">
+<img src="./public/assets/animal-details.gif" alt="Home page view" width="50%">
 
 ### Responsive Design
 
-<img src="./public/assets/responsive-design.gif" alt="Home page view" width="50%">
+<img src="./public/assets/responsive-gif.gif" alt="Home page view" width="50%">
 
 
 <h2> Contributors </h2>

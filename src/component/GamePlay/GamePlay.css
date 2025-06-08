@@ -7,7 +7,7 @@
   min-height: 100vh;
   box-sizing: border-box;
   padding-top: 100px;
-  background-color: mintcream;
+  background-color: var(--mint-cream);
 }
 
 .animal-header,
@@ -33,8 +33,6 @@
   justify-content: center;
   width: 100%;
   margin-bottom: 20px;
-
-  /* height: 500px; */
 }
 
 /* === Animal Info === */
@@ -49,26 +47,18 @@
 .animal-pic {
   width: auto;
   height: auto;
-  /* max-width: 25em; */
   max-width: 50em;
-  /* max-height: 25em; */
   max-height: 38em;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   margin-left: 5px;
-  /* border: px solid seagreen; */
-
 }
 
 .facts-section {
   flex: 1;
   max-width: 50vw;
-  /* font-size: var(--fs-small); */
   background-color: white;
-  border: 1px solid seagreen;
-  /* border-left: none; */
-  /* border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; */
+  border: 1px solid var(--seagreen);
   border-radius: 0 10px 10px 0;
   margin-right: 5px;
 }
@@ -92,10 +82,9 @@ body.dyslexia-font li {
   align-items: center;
   border: none;
   border-radius: 8px;
-  background-color: var(--peach-orange);
+  background-color: var(--tan);
   height: 70px;
   width: 300px;
-  /* font-size: 50px; */
   font-size: var(--fs-button);
   font-family: inherit;
   cursor: pointer;
@@ -127,7 +116,7 @@ body.dyslexia-font li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--peach-orange);
+  background-color: var(--tan);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -139,7 +128,6 @@ body.dyslexia-font li {
 
 #predators-header,
 #prey-header {
-  /* font-size: var(--fs-title); */
   font-size: 2.5rem;
 }
 
@@ -171,23 +159,18 @@ body.dyslexia-font li {
   width: 150px;
   padding: 15px;
   padding: 0;
-  /* transition: transform 0.5s ease, box-shadow 0.5s ease; */
   transition: transform 0.2s, box-shadow 0.2s;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .predator-card p {
-  /* font-size: var(--fs-medium); */
   font-size: 1.35rem;
   font-weight: bold;
-  /* max-width: 150px; */
   width: 200px;
   text-align: center;
   height: 3em;
   line-height: 1.7rem;
   word-wrap: break-word;
-  /* padding: 5px; */
   background-color: white;
   margin: 0;
   border-radius: 0 0 10px 10px;
@@ -199,13 +182,10 @@ body.dyslexia-font li {
   border-radius: 10px 10px 0 0;
   object-fit: cover;
   object-position: top;
-  /* box-shadow: 0px 0px 10px black; */
-  /* transition: transform 0.5s ease, box-shadow 0.5s ease; */
 }
 
 .predator-card:hover {
   transform: scale(1.1);
-  /* box-shadow: 0px 0px 20px var(--sky-blue); */
   cursor: pointer;
 }
 
@@ -225,7 +205,7 @@ body.dyslexia-font li {
 
 .love-heart,
 .love-heart::after {
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
   border: 1px solid;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
@@ -241,7 +221,7 @@ body.dyslexia-font li {
   box-sizing: border-box;
   cursor: pointer;
   top: 0;
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
 }
 
 input:checked + .love-heart,
@@ -263,7 +243,7 @@ input:checked + .love-heart .bottom {
   right: -9px;
   transform: rotate(90deg);
   top: 7px;
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
 }
 
 .love-heart .bottom {
@@ -274,7 +254,7 @@ input:checked + .love-heart .bottom {
   left: -1px;
   top: 5px;
   border-radius: 0 0 0 5px;
-  border-color: hsl(231deg 28% 86%);
+  border-color: var(--light-blue);
 }
 
 .round {
@@ -309,27 +289,9 @@ input:checked + label .round {
   100% { transform: translate(0, 0); }
 }
 
-/* === Accessibility Font Sizes === */
-/* .game-play-section .facts-section {
-  font-size: clamp(10px, 2.3vw, 20px);
-}
-
-body.dyslexia-font .game-play-section .facts-section {
-  font-size: clamp(10px, 1.5vw, 13px);
-} */
-
-/* === Media Queries === */
-@media screen and (max-width: 1404px) {
-  /* .facts-section {
-    font-size: 2.3vh;
-  } */
-}
-
 @media screen and (max-width: 1050px) {
   .facts-section {
-    /* font-size: 2vh; */
     width: 70vw;
-    overflow: scroll;
     max-height: 607px;
   }
 
@@ -339,8 +301,21 @@ body.dyslexia-font .game-play-section .facts-section {
 }
 
 @media screen and (max-width: 930px) {
+  .animal-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .facts-section {
     max-height: none;
+    width: 90vw;
+    max-width: none;
+    border-radius: 10px;
+    margin: 0;
+  }
+  .animal-pic {
+    border-radius: 10px;
+    margin: 0;
   }
 
   body.dyslexia-font li {
@@ -349,21 +324,7 @@ body.dyslexia-font .game-play-section .facts-section {
 }
 
 @media screen and (max-width: 480px) {
-  .animal-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .animal-pic {
     width: 90vw;
-    border-radius: 10px;
-    margin: 0;
-  }
-
-  .facts-section {
-    width: 90vw;
-    max-width: none;
-    border-radius: 10px;
-    margin: 0;
   }
 }

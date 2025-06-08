@@ -38,7 +38,6 @@ function App() {
     } catch (error) {
       console.error('Error fetching favorites:', error);
       setErrorMessage('An error occurred while fetching favorites data');
-      // console.error('Error fetching favorites:', errorMessage);
     }
   };
 

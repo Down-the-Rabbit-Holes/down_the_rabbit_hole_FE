@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: seagreen;
+  background-color: var(--seagreen);
   z-index: 10;
   box-shadow: rgba(0, 0, 0, 0.044) 0px 3px 3px 0px;
 }
@@ -36,7 +36,13 @@
 }
 
 .nav-title-clickable a:hover {
-  color: mintcream;
+  color: var(--mint-cream);
+}
+
+@media screen and (max-width: 480px) {
+  .nav-title-clickable a {
+    margin-left: 1px;
+  }
 }
 
 .screen-right {
@@ -57,7 +63,7 @@
 .favorites-button-icon:hover {
   filter: brightness(1.2); 
   transform: scale(1.4);
-  color: PaleVioletRed;
+  color: var(--pale-red);
 }
 
 .font-toggle-button,
@@ -74,7 +80,7 @@
 .volume-up:hover{
   filter: brightness(1.2); 
   transform: scale(1.4);
-  color: mintcream;
+  color: var(--mint-cream);
 }
 
 body.dyslexia-font .font-toggle-button {
