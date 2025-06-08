@@ -102,32 +102,6 @@ body.default-font .selection-page-p {
   background-color: white;
 }
 
-/* @media screen and (max-width: 1459px) {
-  .parks-container {
-    gap: 10px;
-  }
-
-  .details-rabbit-container {
-    width: 400px;
-    height: 400px;
-    left: 37px;
-  }
-
-  body.default-font .main-page-p {
-    font-size: 0.9rem;
-  }
-
-  body.dyslexia-font .main-page-p {
-    font-size: 0.85rem;
-  }
-} */
-
-/* @media screen and (max-width: 1175px) {
-  .details-rabbit-container {
-    height: auto;
-  }
-} */
-
 @media screen and (max-width: 1175px) {
   .park-selection {
     height: 94.1vh;
@@ -175,10 +149,6 @@ body.default-font .selection-page-p {
   .park-selection {
     height: 100vh;
   }
-
-  /* .details-rabbit-container {
-    bottom: 2px;
-  } */
 
   .parks-container {
     height: 45vh;
