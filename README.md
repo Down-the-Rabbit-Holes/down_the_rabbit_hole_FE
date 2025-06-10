@@ -91,17 +91,17 @@ FE - Built with React and tested with Cypress -->
 
 <h2> Contributors </h2>
 
-Candice Cirbo - [linkedin](https://www.linkedin.com/in/candicecirbo/) - [gitHub](https://github.com/CCirbo) - ccirbots@gmail.com
+Candice Cirbo - [Linkedin](https://www.linkedin.com/in/candicecirbo/) - [GitHub](https://github.com/CCirbo) - ccirbots@gmail.com
 
-Jim Macur - [linkedin](https://www.linkedin.com/in/jimmacur/) - [gitHub](https://github.com/jimmacur) - jim.macur@gmail.com 
+Jim Macur - [Linkedin](https://www.linkedin.com/in/jimmacur/) - [GitHub](https://github.com/jimmacur) - jim.macur@gmail.com 
 
-Marshall Hotaling - [linkedin](https://www.linkedin.com/in/marshall-hotaling-7b52a8304/) - [gitHub](https://github.com/marshallhotaling) - marshall.hotaling@gmail.com
+Marshall Hotaling - [Linkedin](https://www.linkedin.com/in/marshall-hotaling-7b52a8304/) - [GitHub](https://github.com/marshallhotaling) - marshall.hotaling@gmail.com
 
-Renee Messersmith - [linkedin](https://www.linkedin.com/in/reneemessersmith/) - [gitHub](https://github.com/reneemes) - rmessersmith25@gmail.com
+Renee Messersmith - [Linkedin](https://www.linkedin.com/in/reneemessersmith/) - [GitHub](https://github.com/reneemes) - rmessersmith25@gmail.com
 
-Stefan Bloom - [linkedin](https://www.linkedin.com/in/stefanjbloom/) - [gitHub](https://github.com/stefanjbloom) - stefanjbloom88@gmail.com
+Stefan Bloom - [Linkedin](https://www.linkedin.com/in/stefanjbloom/) - [GitHub](https://github.com/stefanjbloom) - stefanjbloom88@gmail.com
 
-<<<<<<<<<>>>>>>>>
+<<<<<<<<<>>>>>>>>>
 
 Special thanks to [Lito Croy](https://www.linkedin.com/in/litocroy/) for his word-smithing of the catchphrase "Eat Me" for our predator button
 
