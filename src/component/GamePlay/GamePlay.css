@@ -123,7 +123,13 @@ body.dyslexia-font li {
   max-width: 885px;
   max-height: 80vh;
   overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
   gap: 20px;
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 #predators-header,
