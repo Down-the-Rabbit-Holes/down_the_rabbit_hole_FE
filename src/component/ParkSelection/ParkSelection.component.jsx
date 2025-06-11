@@ -23,8 +23,11 @@ function ParkSelection() {
     fetchParks();
   }, []);
 
-  const handleParkClick = (parkId, data) => {
-    navigate(`/park-details/${parkId}`, {state: data})
+  // const handleParkClick = (parkId, data) => {
+  //   navigate(`/park-details/${parkId}`, {state: data})
+  // };
+  const handleParkClick = (parkId) => {
+    navigate(`/park-details/${parkId}`);
   };
 
   return (
@@ -48,10 +51,10 @@ function ParkSelection() {
               className="park-item"
               tabIndex="0"
               onClick={() => {
-                handleParkClick(park.id, park)}}
+                handleParkClick(park.id)}}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
-                    handleParkClick(park.id, park);
+                    handleParkClick(park.id);
                   }
                 }}>
                   <img
