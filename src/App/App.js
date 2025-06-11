@@ -17,6 +17,10 @@ function App() {
     fetchAllFavorites();
   }, []);
 
+  function volumeToggle() {
+    setAudio(!audio);
+  }
+
   const fetchAllFavorites = async () => {
     try {
       const response = await fetch(
@@ -43,13 +47,13 @@ function App() {
 
   return (
     <div>
-      <NavBar isHomePage={true} isFavoritesClickable={true} favorites={favorites} audio={audio} setAudio={setAudio}/>
+      <NavBar isHomePage={true} isFavoritesClickable={true} favorites={favorites} audio={audio} setAudio={setAudio} volumeToggle={volumeToggle}/>
       <Routes>
         <Route path="/" 
           element={<Home/>} />
         <Route path="/park-selection" 
           element={<ParkSelection/>} />
-        <Route path="/park-details/:park" 
+        <Route path="/park-details/:id" 
           element={<ParkDetails favorites={favorites} setFavorites={setFavorites}/>} />
         <Route path="/game" 
           element={<GamePlay favorites={favorites} setFavorites={setFavorites} audio={audio}/>} />

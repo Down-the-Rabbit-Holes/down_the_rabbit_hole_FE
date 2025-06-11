@@ -21,7 +21,7 @@ function normalizeAnimalData(animalData) {
 
 function GamePlay({ favorites, setFavorites, errorMessage, audio }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const animalName = searchParams.get("animal_id");
+  const animalId = searchParams.get("animal_id");
   const [currentAnimal, setCurrentAnimal] = useState(null);
   const [isPredatorsModalOpen, setIsPredatorsModalOpen] = useState(false);
   const [isPreyModalOpen, setIsPreyModalOpen] = useState(false);
@@ -48,8 +48,8 @@ function GamePlay({ favorites, setFavorites, errorMessage, audio }) {
 }, [isPredatorsModalOpen, isPreyModalOpen, isYTModalOpen]);
 
   useEffect(() => {
-    fetchAnimalData(animalName);
-  }, [animalName]);
+    fetchAnimalData(animalId);
+  }, [animalId]);
 
   useEffect(() => {
     if (!currentAnimal) return;
@@ -137,7 +137,6 @@ function GamePlay({ favorites, setFavorites, errorMessage, audio }) {
         console.error("Error fetching YouTube video:", error);
       });
   };
-
 
   const handleToggleFavorite = async () => {
     if (!favorites || !currentAnimal) return;
