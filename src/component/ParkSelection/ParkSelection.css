@@ -57,8 +57,7 @@ body.default-font .selection-page-p {
   gap: 30px;
   padding: 20px;
   height: 87vh;
-  /* width: 60vw; */
-  max-width: 55vw;
+  width: 55vw;
   overflow: auto;
   left: 20%;
 }
