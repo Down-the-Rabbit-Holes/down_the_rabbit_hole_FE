@@ -6,7 +6,7 @@ import TextFieldsIcon from '@mui/icons-material/TextFields';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
-function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
+function NavBar({ favorites, isFavoritesClickable, audio, volumeToggle }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [fontMode, setFontMode] = useState("Dyslexic Font");
@@ -33,10 +33,6 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
     navigate("/favorites", { state: favorites });
   };
 
-  function volumeToggle() {
-    setAudio(!audio);
-  }
-
   return (
     <div className="nav-wrapper" data-cy="nav-bar">
       <nav className="navBar">
@@ -52,7 +48,6 @@ function NavBar({ favorites, isFavoritesClickable, audio, setAudio }) {
               e.preventDefault();
               handleHomeLoad();
             }}
-            role="link"
             aria-label="Navigate to Home"
             tabIndex="0"
           >
